@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+require("../src/cli")(process.argv.slice(2)).then(function (returnCode) {
+    process.exit(returnCode);
+}, function (e) {
+    console.error(e.stack || e);
+    process.exit(1);
+});

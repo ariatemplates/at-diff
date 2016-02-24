@@ -1,0 +1,13 @@
+{Library {
+    $classpath: 'x.MacroLibWithMemberRemoved'
+}}
+
+    {macro myMacro1()}
+        My macro 1
+    {/macro}
+
+    {macro myMacro2()}
+        My macro 2
+    {/macro}
+
+{/Library}
