@@ -2,7 +2,7 @@
   "author": "ariatemplates <contact@ariatemplates.com> (http://github.com/ariatemplates)",
   "name": "at-diff",
   "description": "Tool to compare different versions of some code using Aria Templates.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": {
     "type": "git",
     "url": "git://github.com/ariatemplates/at-diff.git"
