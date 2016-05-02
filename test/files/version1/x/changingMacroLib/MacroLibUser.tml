@@ -1,0 +1,21 @@
+{Library {
+    $classpath: "x.changingMacroLib.MacroLibUser",
+    $macrolibs: {
+        "myMacroLib": "x.changingMacroLib.MacroLib1"
+    }
+}}
+
+    {macro main()}
+        {call callsChildMacro() /}
+        {call callsParentMacro() /}
+    {/macro}
+
+    {macro callsChildMacro()}
+        {call myMacroLib.myChildMacro() /}
+    {/macro}
+
+    {macro callsParentMacro()}
+        {call myMacroLib.myParentMacro() /}
+    {/macro}
+
+{/Library}

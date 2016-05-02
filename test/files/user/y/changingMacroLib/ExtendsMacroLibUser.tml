@@ -1,0 +1,6 @@
+{Library {
+    $classpath: "y.changingMacroLib.ExtendsMacroLibUser",
+    $extends: "x.changingMacroLib.MacroLibUser"
+}}
+
+{/Library}

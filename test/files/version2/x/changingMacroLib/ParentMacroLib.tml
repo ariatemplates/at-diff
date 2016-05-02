@@ -1,0 +1,9 @@
+{Library {
+    $classpath: 'x.changingMacroLib.ParentMacroLib'
+}}
+
+    {macro myParentMacro()}
+        My parent macro
+    {/macro}
+
+{/Library}

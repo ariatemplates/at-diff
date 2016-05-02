@@ -38,18 +38,18 @@ class TemplateComparison extends BaseClassComparison {
                 });
             }
         });
-        return false;
+        return true;
     }
 
     processImpactFromLib(impact, usage) {
         if (impact instanceof baseClassChanges.abstractConstructors.MemberImpact) {
-            this.addCause(this.processLibMemberChange(usage.member, impact.getMemberName(), impact.getMember1(), impact.getMember2()), impact);
+            this.addCause(this.processLibMemberChange(usage.member, impact.getMemberName(), impact.getMember1(), impact.getMember2(), impact.constructor), impact);
         }
     }
 
-    processLibMemberChange(libName, memberNameInLib, member1, member2) {
+    processLibMemberChange(libName, memberNameInLib, member1, member2, impactType) {
         if (memberNameInLib.startsWith("this.")) {
-            return this.addMemberImpact(`${libName}${memberNameInLib.slice(4)}`, member1, member2);
+            return this.addMemberImpact(`${libName}${memberNameInLib.slice(4)}`, member1, member2, impactType);
         }
     }
 

@@ -32,12 +32,7 @@ class BaseComparison {
     }
 
     getDependency(filePath) {
-        // Check whether the requested file is really included in the list of dependencies:
-        const hasDependency = (this.version1 && Array.isArray(this.version1.dependencies[filePath])) ||
-                                (this.version2 && Array.isArray(this.version2.dependencies[filePath]));
-        if (!hasDependency) {
-            throw new Error(`${filePath} is not a dependency of ${this.filePath}`);
-        }
+        // do not check that filePath is a dependency, because it could be any transitive dependency!
         return this.__getFileComparison(filePath);
     }
 

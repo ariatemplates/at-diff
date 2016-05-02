@@ -226,7 +226,7 @@ class BaseClassComparison extends BaseComparison {
 
     processImpactFromParent(impact) {
         if (impact instanceof baseClassChanges.abstractConstructors.MemberImpact) {
-            this.addCause(this.processParentMemberChange(impact.getMemberName(), impact.getMember1(), impact.getMember2()), impact);
+            this.addCause(this.processParentMemberChange(impact.getMemberName(), impact.getMember1(), impact.getMember2(), impact.constructor), impact);
         }
     }
 
@@ -245,7 +245,7 @@ class BaseClassComparison extends BaseComparison {
         }
     }
 
-    processParentMemberChange(memberName, member1, member2) {
+    processParentMemberChange(memberName, member1, member2, impactType) {
         const ownMember1 = this.getContainerOwnMember(1, memberName);
         const ownMember2 = this.getContainerOwnMember(2, memberName);
         if (ownMember1 && ownMember2) {
@@ -257,7 +257,7 @@ class BaseClassComparison extends BaseComparison {
             // the change in child is already reported, the change in parent does not need to be reported
         } else {
             // parent changed and the member is not overridden, let's just propagate the change:
-            return this.addMemberImpact(memberName, member1, member2);
+            return this.addMemberImpact(memberName, member1, member2, impactType);
         }
     }
 

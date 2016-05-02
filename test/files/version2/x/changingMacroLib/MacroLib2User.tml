@@ -1,0 +1,8 @@
+{Library {
+    $classpath: "x.changingMacroLib.MacroLib2User",
+    $macrolibs: {
+        "myMacroLib": "x.changingMacroLib.MacroLib2"
+    }
+}}
+
+{/Library}

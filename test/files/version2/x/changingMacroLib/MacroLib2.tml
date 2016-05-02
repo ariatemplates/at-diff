@@ -1,0 +1,10 @@
+{Library {
+    $classpath: 'x.changingMacroLib.MacroLib2',
+    $extends: 'x.changingMacroLib.ParentMacroLib'
+}}
+
+    {macro myChildMacro()}
+        My child macro 2
+    {/macro}
+
+{/Library}
