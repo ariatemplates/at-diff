@@ -33,7 +33,7 @@ export class DropdownMenu {
     },
     template: `
 <ng-content></ng-content>
-<ul *ngIf="open" class="dropdown-menu"><template [atdiff-insert]="dropdownMenu.template"></template></ul>
+<ul *ngIf="open" class="dropdown-menu dropdown-menu-right"><template [atdiff-insert]="dropdownMenu.template"></template></ul>
 `,
     directives: [Insert]
 })

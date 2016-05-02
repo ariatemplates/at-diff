@@ -15,6 +15,7 @@
 "use strict";
 
 import {Component, Input} from 'angular2/core';
+import {Multiselect} from './generic/multiselect.component';
 import {Table, TableItem} from './generic/table.component';
 import {Dropdown, DropdownMenu} from './generic/dropdown.component';
 import sortAndRemoveDuplicates = require('../utils/sortAndRemoveDuplicates');
@@ -31,7 +32,7 @@ import sortAndRemoveDuplicates = require('../utils/sortAndRemoveDuplicates');
                 <div class="col-md-3"><strong>Modified file</strong></div>
             </div>
             <div class="row">
-                <div class="col-md-3"><input class="form-control input-sm" [(ngModel)]="filterChangeType" (ngModelChange)="updateChangesFiltering()"></div>
+                <div class="col-md-3"><atdiff-multiselect [atdiff-multiselect-options]="changeTypes.array" (at-diff-multiselect-change)="updateChangesFiltering()"></atdiff-multiselect></div>
                 <div class="col-md-3"><input class="form-control input-sm" [(ngModel)]="filterChangeMember" (ngModelChange)="updateChangesFiltering()"></div>
                 <div class="col-md-3"><input class="form-control input-sm" [(ngModel)]="filterChangeModifiedFile" (ngModelChange)="updateChangesFiltering()"></div>
             </div>
@@ -54,7 +55,7 @@ import sortAndRemoveDuplicates = require('../utils/sortAndRemoveDuplicates');
                 <div class="col-md-3"><strong>Modified file(s)</strong></div>
             </div>
             <div class="row">
-                <div class="col-md-3"><input class="form-control input-sm" [(ngModel)]="filterImpactType" (ngModelChange)="updateImpactsFiltering()"></div>
+                <div class="col-md-3"><atdiff-multiselect [atdiff-multiselect-options]="impactTypes.array" (at-diff-multiselect-change)="updateImpactsFiltering()"></atdiff-multiselect></div>
                 <div class="col-md-3"><input class="form-control input-sm" [(ngModel)]="filterImpactMember" (ngModelChange)="updateImpactsFiltering()"></div>
                 <div class="col-md-3"><input class="form-control input-sm" [(ngModel)]="filterImpactImpactedFiles" (ngModelChange)="updateImpactsFiltering()"></div>
                 <div class="col-md-3"><input class="form-control input-sm" [(ngModel)]="filterImpactModifiedFiles" (ngModelChange)="updateImpactsFiltering()"></div>
@@ -70,12 +71,14 @@ import sortAndRemoveDuplicates = require('../utils/sortAndRemoveDuplicates');
         </template>
     </atdiff-table>
 `,
-    directives: [Table, TableItem, Dropdown, DropdownMenu]
+    directives: [Table, TableItem, Dropdown, DropdownMenu, Multiselect]
 })
 export class DiffDisplay {
     @Input()
     set diffData(value) {
         this._diffData = value;
+        this.impactTypes = this.extractTypes(value.impacts);
+        this.changeTypes = this.extractTypes(value.changes);
         this.updateChangesFiltering();
         this.updateImpactsFiltering();
     }
@@ -85,12 +88,13 @@ export class DiffDisplay {
     _diffData;
 
     public filteredImpacts;
-    public filterImpactType;
+    public impactTypes;
     public filterImpactMember;
     public filterImpactImpactedFiles;
     public filterImpactModifiedFiles;
 
     public filteredChanges;
+    public changeTypes;
     public filterChangeType;
     public filterChangeMember;
     public filterChangeModifiedFile;
@@ -101,7 +105,7 @@ export class DiffDisplay {
 
     updateImpactsFiltering() {
         this.filteredImpacts = this.diffData.impacts.filter(item => {
-            if (this.filterImpactType && item.getType().indexOf(this.filterImpactType) == -1) {
+            if (! this.impactTypes.map[item.getType()].selected) {
                 return false;
             }
             if (this.filterImpactMember && (!item.getMemberName || item.getMemberName().indexOf(this.filterImpactMember) == -1)) {
@@ -119,7 +123,7 @@ export class DiffDisplay {
 
     updateChangesFiltering() {
         this.filteredChanges = this.diffData.changes.filter(item => {
-            if (this.filterChangeType && item.getType().indexOf(this.filterChangeType) == -1) {
+            if (! this.changeTypes.map[item.getType()].selected) {
                 return false;
             }
             if (this.filterChangeMember && (!item.getMemberName || item.getMemberName().indexOf(this.filterChangeMember) == -1)) {
@@ -130,5 +134,27 @@ export class DiffDisplay {
             }
             return true;
         });
+    }
+
+    extractTypes(array) {
+        const typesMap = Object.create(null);
+        const typesArray = [];
+        array.forEach(instance => {
+            const typeName = instance.getType();
+            let typeObject = typesMap[typeName];
+            if (!typeObject) {
+                typeObject = typesMap[typeName] = {
+                    name: typeName,
+                    selected: true,
+                    count: 0
+                };
+                typesArray.push(typeObject);
+            }
+            typeObject.count++;
+        });
+        return {
+            array: typesArray.sort((obj1, obj2) => (obj2.count - obj1.count)),
+            map: typesMap
+        };
     }
 }
