@@ -247,7 +247,24 @@ grunt.initConfig({
         // names (such as 'parse' here):
         parse: {
             options: {
-                jsonOutput: "at-diff-output/atdiff-data.json"
+                jsonOutput: "at-diff-output/atdiff-data.json",
+
+                // The loadParserCache option specifies a set of previous outputs of the *parse* operation
+                // to be initially loaded in the cache to speed up the *parse* operation in case files
+                // did not change:
+                loadParserCache: [],
+
+                // The atSetup option specifies a set of js files to execute in order to configure the
+                // Aria Templates environment used when parsing templates. This is especially useful
+                // to configure global widget libraries.
+                atSetup: [],
+
+                // The cache option allows to specify the name of a cache which will be shared among
+                // multiple at-diff-parse executions (note that such a cache is not stored on the disk,
+                // it is only kept in RAM while the grunt process is alive). It can be any string.
+                // It can be "none" to disable caching between multiple at-diff-executions. It is set
+                // to "default" by default.
+                cache: "default"
             },
             filter: "isFile",
             cwd: "src",
@@ -259,6 +276,9 @@ grunt.initConfig({
 
 });
 ```
+
+Note that the set of files to be parsed can be defined in [any of the ways defined in the Grunt documentation](http://gruntjs.com/configuring-tasks#files).
+If the patterns set in the `src` field also match directories, it is important to specify the `filter: "isFile"` property (as shown on the previous example) to avoid the `EISDIR: illegal operation on a directory` error.
 
 ### compare
 
