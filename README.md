@@ -1,5 +1,7 @@
 # at-diff
 
+[![Build Status](https://travis-ci.org/ariatemplates/at-diff.svg?branch=master)](https://travis-ci.org/ariatemplates/at-diff)
+
 *at-diff* is a tool to compare different versions of a source code which uses the [Aria Templates](http://ariatemplates.com) framework.
 
 Unlike the traditional [*diff*](https://en.wikipedia.org/wiki/Diff_utility) utility which mainly compares lines without interpreting them, *at-diff* mainly compares class methods and takes into account class inheritance. By listing possible impacts, it aims at detecting breaking changes, and at helping a developer to update some source code when one of the libraries it uses changed.
