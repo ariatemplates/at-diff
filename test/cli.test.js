@@ -26,7 +26,7 @@ describe("command line tool test", function () {
     const outDir = path.join(__dirname, "cli-out");
 
     before(co.wrap(function * () {
-        this.timeout(10000);
+        this.timeout(30000);
         const atDiffExecutable = require.resolve("../bin/at-diff");
         yield rimraf(outDir);
         yield mkdir(outDir);

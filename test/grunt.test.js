@@ -25,7 +25,7 @@ describe("grunt tasks test", function () {
     const outDir = path.join(__dirname, "grunt", "out");
 
     before(co.wrap(function * () {
-        this.timeout(10000);
+        this.timeout(30000);
         yield rimraf(outDir);
         yield exec(require.resolve("grunt/bin/grunt"), [], {
             cwd: path.join(__dirname, "grunt")
