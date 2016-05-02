@@ -28,6 +28,9 @@ class TemplateComparison extends BaseClassComparison {
     isSameSignatureForLib(libName, member1, member2) {
         this.delayedProcessings.push(() => {
             const changeLibMemberImpact = this.getMemberChangeInfo(libName).impact;
+            if (!changeLibMemberImpact || changeLibMemberImpact.getMember1() !== member1 || changeLibMemberImpact.getMember2() !== member2) {
+                return;
+            }
             const lib1 = this.getDependencyOrWarn(member1.member.path);
             const lib2 = this.getDependencyOrWarn(member2.member.path);
             if (lib1 && lib2) {

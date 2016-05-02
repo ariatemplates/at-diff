@@ -88,5 +88,25 @@ constructors.RemovedMemberStillUsed = RemovedMemberStillUsed;
 class UsedMemberChangedSignature extends SpecialMemberImpact {}
 constructors.UsedMemberChangedSignature = UsedMemberChangedSignature;
 
-class OverriddenParentMemberChanged extends SpecialMemberImpact {}
-constructors.OverriddenParentMemberChanged = OverriddenParentMemberChanged;
+class OverriddenParentMemberImpact extends SpecialMemberImpact {
+    getMember1() {
+        return this.config.member1;
+    }
+
+    getMember2() {
+        return this.config.member2;
+    }
+}
+abstractConstructors.OverriddenParentMemberImpact = OverriddenParentMemberImpact;
+
+class OverriddenParentMemberAdded extends OverriddenParentMemberImpact {}
+constructors.OverriddenParentMemberAdded = OverriddenParentMemberAdded;
+
+class OverriddenParentMemberRemoved extends OverriddenParentMemberImpact {}
+constructors.OverriddenParentMemberRemoved = OverriddenParentMemberRemoved;
+
+class OverriddenParentMemberSignatureChanged extends OverriddenParentMemberImpact {}
+constructors.OverriddenParentMemberSignatureChanged = OverriddenParentMemberSignatureChanged;
+
+class OverriddenParentMemberImplementationChanged extends OverriddenParentMemberImpact {}
+constructors.OverriddenParentMemberImplementationChanged = OverriddenParentMemberImplementationChanged;

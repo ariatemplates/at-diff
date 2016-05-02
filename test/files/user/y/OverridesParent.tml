@@ -1,0 +1,22 @@
+{Library {
+    $classpath: "y.OverridesParent",
+    $extends: "x.FourMemberImpacts"
+}}
+
+    {macro myMacroToBeAdded()}
+        myMacroToBeAdded is overridden
+    {/macro}
+
+    {macro myMacroToBeRemoved()}
+        myMacroToBeRemoved is overridden
+    {/macro}
+
+    {macro myMacroToChangeImplementation()}
+        myMacroToChangeImplementation is overridden
+    {/macro}
+
+    {macro myMacroToChangeSignature()}
+        myMacroToChangeSignature is overridden
+    {/macro}
+
+{/Library}

@@ -171,22 +171,26 @@ class BaseClassComparison extends BaseComparison {
         });
     }
 
+    computeMemberImpactType(memberName, member1, member2) {
+        if (member1 && !member2) {
+            return baseClassChanges.constructors.MemberRemoved;
+        } else if (!member1 && member2) {
+            return baseClassChanges.constructors.MemberAdded;
+        } else if (member1 && member2) {
+            const sameSignature = this.isSameSignature(memberName, member1, member2);
+            return sameSignature ? baseClassChanges.constructors.MemberImplementationChanged : baseClassChanges.constructors.MemberSignatureChanged;
+        } else {
+            throw new Error("Assertion failed: !member1 && !member2");
+        }
+    }
+
     addMemberImpact(memberName, member1, member2, impactType) {
         const changeInfo = this.getMemberChangeInfo(memberName);
         if (changeInfo.impact) {
             throw new Error(`Assertion failed: in ${this.filePath} ${memberName} already has an impact: ${changeInfo.impact.constructor.type}`);
         }
         if (!impactType) {
-            if (member1 && !member2) {
-                impactType = baseClassChanges.constructors.MemberRemoved;
-            } else if (!member1 && member2) {
-                impactType = baseClassChanges.constructors.MemberAdded;
-            } else if (member1 && member2) {
-                const sameSignature = this.isSameSignature(memberName, member1, member2);
-                impactType = sameSignature ? baseClassChanges.constructors.MemberImplementationChanged : baseClassChanges.constructors.MemberSignatureChanged;
-            } else {
-                throw new Error("Assertion failed: !member1 && !member2");
-            }
+            impactType = this.computeMemberImpactType(memberName, member1, member2);
         }
         const impact = changeInfo.impact = this.addImpact(impactType, {
             memberName: memberName,
@@ -249,8 +253,14 @@ class BaseClassComparison extends BaseComparison {
         const ownMember1 = this.getContainerOwnMember(1, memberName);
         const ownMember2 = this.getContainerOwnMember(2, memberName);
         if (ownMember1 && ownMember2) {
-            return this.addImpact(baseClassChanges.constructors.OverriddenParentMemberChanged, {
-                memberName: memberName
+            if (!impactType) {
+                impactType = this.computeMemberImpactType(memberName, member1, member2);
+            }
+            const newImpactType = baseClassChanges.constructors[`OverriddenParent${impactType.type}`];
+            return this.addImpact(newImpactType, {
+                memberName: memberName,
+                member1: member1,
+                member2: member2
             });
         } else if (ownMember1 || ownMember2) {
             // change both in parent and in child about the same member

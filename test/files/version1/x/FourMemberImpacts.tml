@@ -1,0 +1,17 @@
+{Library {
+    $classpath: 'x.FourMemberImpacts'
+}}
+
+    {macro myMacroToBeRemoved()}
+        My macro to be removed
+    {/macro}
+
+    {macro myMacroToChangeImplementation()}
+        My macro to change implementation
+    {/macro}
+
+    {macro myMacroToChangeSignature(myParam)}
+        My macro to change signature ${myParam}
+    {/macro}
+
+{/Library}
