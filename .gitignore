@@ -3,3 +3,4 @@
 /typings
 /test/grunt/out
 /test/cli-out
+/maven/target
