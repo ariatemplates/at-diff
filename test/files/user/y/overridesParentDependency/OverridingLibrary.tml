@@ -1,0 +1,5 @@
+{Library {
+    $classpath: "y.overridesParentDependency.OverridingLibrary"
+}}
+
+{/Library}

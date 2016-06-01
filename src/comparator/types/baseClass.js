@@ -256,12 +256,22 @@ class BaseClassComparison extends BaseComparison {
             if (!impactType) {
                 impactType = this.computeMemberImpactType(memberName, member1, member2);
             }
-            const newImpactType = baseClassChanges.constructors[`OverriddenParent${impactType.type}`];
-            return this.addImpact(newImpactType, {
+            const newImpactConfig = {
                 memberName: memberName,
                 member1: member1,
-                member2: member2
-            });
+                member2: member2,
+                overridingMember1: ownMember1.member,
+                overridingMember2: ownMember2.member
+            };
+            let newImpactTypeName;
+            if (ownMember1.memberName === memberName && ownMember2.memberName === memberName) {
+                newImpactTypeName = `OverriddenParent${impactType.type}`;
+            } else {
+                newImpactTypeName = `OverriddenParentDependency${impactType.type}`;
+                newImpactConfig.overridingMember1Name = ownMember1.memberName;
+                newImpactConfig.overridingMember2Name = ownMember2.memberName;
+            }
+            return this.addImpact(baseClassChanges.constructors[newImpactTypeName], newImpactConfig);
         } else if (ownMember1 || ownMember2) {
             // change both in parent and in child about the same member
             // the change in child is already reported, the change in parent does not need to be reported

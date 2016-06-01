@@ -88,7 +88,15 @@ constructors.RemovedMemberStillUsed = RemovedMemberStillUsed;
 class UsedMemberChangedSignature extends SpecialMemberImpact {}
 constructors.UsedMemberChangedSignature = UsedMemberChangedSignature;
 
-class OverriddenParentMemberImpact extends SpecialMemberImpact {
+class OverriddenMemberImpact extends SpecialMemberImpact {
+    getOverridingMember1() {
+        return this.config.overridingMember1;
+    }
+
+    getOverridingMember2() {
+        return this.config.overridingMember2;
+    }
+
     getMember1() {
         return this.config.member1;
     }
@@ -97,6 +105,9 @@ class OverriddenParentMemberImpact extends SpecialMemberImpact {
         return this.config.member2;
     }
 }
+abstractConstructors.OverriddenMemberImpact = OverriddenMemberImpact;
+
+class OverriddenParentMemberImpact extends OverriddenMemberImpact {}
 abstractConstructors.OverriddenParentMemberImpact = OverriddenParentMemberImpact;
 
 class OverriddenParentMemberAdded extends OverriddenParentMemberImpact {}
@@ -110,3 +121,26 @@ constructors.OverriddenParentMemberSignatureChanged = OverriddenParentMemberSign
 
 class OverriddenParentMemberImplementationChanged extends OverriddenParentMemberImpact {}
 constructors.OverriddenParentMemberImplementationChanged = OverriddenParentMemberImplementationChanged;
+
+class OverriddenParentDependencyMemberImpact extends OverriddenMemberImpact {
+    getOverridingMember1Name() {
+        return this.config.overridingMember1Name;
+    }
+
+    getOverridingMember2Name() {
+        return this.config.overridingMember2Name;
+    }
+}
+abstractConstructors.OverriddenParentDependencyMemberImpact = OverriddenParentDependencyMemberImpact;
+
+class OverriddenParentDependencyMemberAdded extends OverriddenParentDependencyMemberImpact {}
+constructors.OverriddenParentDependencyMemberAdded = OverriddenParentDependencyMemberAdded;
+
+class OverriddenParentDependencyMemberRemoved extends OverriddenParentDependencyMemberImpact {}
+constructors.OverriddenParentDependencyMemberRemoved = OverriddenParentDependencyMemberRemoved;
+
+class OverriddenParentDependencyMemberSignatureChanged extends OverriddenParentDependencyMemberImpact {}
+constructors.OverriddenParentDependencyMemberSignatureChanged = OverriddenParentDependencyMemberSignatureChanged;
+
+class OverriddenParentDependencyMemberImplementationChanged extends OverriddenParentDependencyMemberImpact {}
+constructors.OverriddenParentDependencyMemberImplementationChanged = OverriddenParentDependencyMemberImplementationChanged;
