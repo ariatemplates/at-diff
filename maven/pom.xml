@@ -11,7 +11,7 @@
 		<rootdir>${basedir}/..</rootdir>
 		<builddir>${basedir}</builddir>
 	</properties>
-	<name>Attester</name>
+	<name>at-diff</name>
 	<build>
 		<plugins>
 			<plugin>
