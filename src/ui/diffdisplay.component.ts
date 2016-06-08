@@ -41,7 +41,7 @@ import sortAndRemoveDuplicates = require('../utils/sortAndRemoveDuplicates');
         <template atdiff-table-item let-change>
             <div class="row">
                 <div class="col-md-3">{{change.getType()}}</div>
-                <div class="col-md-3">{{change.getMemberName ? change.getMemberName() : null}}</div>
+                <div class="col-md-3">{{getMemberName(change)}}</div>
                 <div class="col-md-3">{{change.getModifiedFile()}}</div>
             </div>
         </template>
@@ -65,7 +65,7 @@ import sortAndRemoveDuplicates = require('../utils/sortAndRemoveDuplicates');
         <template atdiff-table-item let-impact>
             <div class="row">
                 <div class="col-md-3">{{impact.getType()}}</div>
-                <div class="col-md-3">{{impact.getMemberName ? impact.getMemberName() : null}}</div>
+                <div class="col-md-3">{{getMemberName(impact)}}</div>
                 <div class="col-md-3">{{impact.getImpactedFile()}}</div>
                 <div class="col-md-3">{{getModifiedFiles(impact)}}</div>
             </div>
@@ -109,7 +109,7 @@ export class DiffDisplay {
             if (! this.impactTypes.map[item.getType()].selected) {
                 return false;
             }
-            if (this.filterImpactMember && (!item.getMemberName || item.getMemberName().indexOf(this.filterImpactMember) == -1)) {
+            if (this.filterImpactMember && this.getMemberName(item).indexOf(this.filterImpactMember) == -1) {
                 return false;
             }
             if (this.filterImpactImpactedFiles && item.getImpactedFile().indexOf(this.filterImpactImpactedFiles) == -1) {
@@ -127,7 +127,7 @@ export class DiffDisplay {
             if (! this.changeTypes.map[item.getType()].selected) {
                 return false;
             }
-            if (this.filterChangeMember && (!item.getMemberName || item.getMemberName().indexOf(this.filterChangeMember) == -1)) {
+            if (this.filterChangeMember && this.getMemberName(item).indexOf(this.filterChangeMember) == -1) {
                 return false;
             }
             if (this.filterChangeModifiedFile && item.getModifiedFile().indexOf(this.filterChangeModifiedFile) == -1) {
@@ -135,6 +135,18 @@ export class DiffDisplay {
             }
             return true;
         });
+    }
+
+    getMemberName(item) {
+        if (item.getMemberName) {
+            return item.getMemberName();
+        } else if (item.getAttributeName && item.getBeanName){
+            return `${item.getBeanName()} / ${item.getAttributeName()}`;
+        } else if (item.getBeanName) {
+            return `${item.getBeanName()}`;
+        } else {
+            return "";
+        }
     }
 
     extractTypes(array) {

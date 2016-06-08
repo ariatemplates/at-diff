@@ -14,6 +14,7 @@
  */
 "use strict";
 
+const compareSortedArrays = require("./compareSortedArrays");
 const defaultSortFn = require("./defaultSortFn");
 const emptyArray = [];
 
@@ -23,21 +24,5 @@ module.exports = function (map1, map2, compareFn, keySortFn) {
     }
     const keys1 = map1 ? Object.keys(map1).sort(keySortFn) : emptyArray;
     const keys2 = map2 ? Object.keys(map2).sort(keySortFn) : emptyArray;
-    const length1 = keys1.length;
-    const length2 = keys2.length;
-    for (let i1 = 0, i2 = 0, hasKey1, hasKey2, key1, key2, keyDiff, isKey1, isKey2, key;
-
-        hasKey1 = i1 < length1, hasKey2 = i2 < length2,
-        key1 = hasKey1 ? keys1[i1] : null,
-        key2 = hasKey2 ? keys2[i2] : null,
-        keyDiff = hasKey1 ? hasKey2 ? keySortFn(key1, key2) : -1 : 1,
-        isKey1 = keyDiff <= 0, isKey2 = keyDiff >= 0,
-        key = isKey1 ? key1 : key2,
-        hasKey1 || hasKey2;
-
-        isKey1 ? i1++ : null,
-        isKey2 ? i2++ : null
-    ) {
-        compareFn(key, isKey1 ? map1[key1] : null, isKey2 ? map2[key2] : null);
-    }
+    compareSortedArrays(keys1, keys2, (key, isKey1, isKey2) => compareFn(key, isKey1 ? map1[key] : null, isKey2 ? map2[key] : null), keySortFn);
 };

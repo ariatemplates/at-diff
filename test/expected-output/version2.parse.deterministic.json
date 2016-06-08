@@ -33,6 +33,414 @@
    "strictHash": "db0f8a93c8219bcad9487b72c3afc30866fc4f369db48a08286e93a387ad1cdb",
    "type": "classDefinition"
   },
+  "x/CfgBeans.js": {
+   "content": {
+    "beans": {
+     "AddedBean": {
+      "$properties": [
+       "addedBeanProperty1"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "AddedBean.addedBeanProperty1": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanA": {
+      "$properties": [
+       "commonToAAndB1",
+       "commonToAAndB2",
+       "commonToAAndB3",
+       "specificToBeanA1",
+       "specificToBeanA2",
+       "specificToBeanA3"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "BeanA.commonToAAndB1": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanA.commonToAAndB2": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanA.commonToAAndB3": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanA.specificToBeanA1": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanA.specificToBeanA2": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanA.specificToBeanA3": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanB": {
+      "$properties": [
+       "commonToAAndB1",
+       "commonToAAndB2",
+       "commonToAAndB3",
+       "specificToBeanB1",
+       "specificToBeanB2",
+       "specificToBeanB3"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "BeanB.commonToAAndB1": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanB.commonToAAndB2": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanB.commonToAAndB3": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanB.specificToBeanB1": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanB.specificToBeanB2": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanB.specificToBeanB3": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "ChangingType": {
+      "attributes": {
+       "$type": "BeanB"
+      },
+      "hash": "31860940688ee2eaafe9ac0c772fc0ced71f09a0b2037ed5011dc27162f35aac"
+     },
+     "ChildBean": {
+      "$properties": [
+       "propertyToBeOverriddenInChild"
+      ],
+      "attributes": {
+       "$type": "ParentBean"
+      },
+      "hash": "e2b80a53478d1c9a8a95063a17f5324537e28e4ce3cc16ba5ca49fbff31138b1"
+     },
+     "ChildBean.propertyToBeOverriddenInChild": {
+      "attributes": {
+       "$type": "ParentBean.propertyToBeOverriddenInChild"
+      },
+      "hash": "d03e493642efcb06fd40295a2c7a994ec21ae7a700075e9517c73bcd4d8e5ed7"
+     },
+     "ChildOfChildBean": {
+      "$properties": [
+      ],
+      "attributes": {
+       "$type": "ChildBean"
+      },
+      "hash": "9dd047d156c376570e139c68af2b2203279039ad9c420edca19de6c46c4cc2cd"
+     },
+     "ChildOfChildOfChildBean": {
+      "$properties": [
+      ],
+      "attributes": {
+       "$type": "ChildOfChildBean"
+      },
+      "hash": "5b969f0954e9aafab0c2aa86cebc94653ae551c2c2a01df3c63b56999da98646"
+     },
+     "ExtendingChangingType": {
+      "attributes": {
+       "$type": "ChangingType"
+      },
+      "hash": "e97664da82f484474c785b74917457d95900d62d741bece0cb20e51b7dc3a20f"
+     },
+     "MultiTypesChildBean": {
+      "attributes": {
+       "$type": "MultiTypesParentBean"
+      },
+      "hash": "9bd1146c98847d1b3c31e21ad84cb1920779d2a76d5dd2d2cef8c7b403d8007f"
+     },
+     "MultiTypesParentBean": {
+      "$contentTypes": [
+       "$contentTypes[0]"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:MultiTypes"
+      },
+      "hash": "a9693a46a34fd64bb3b5a181c96349b48d69c3abd5e67c6813d8d7814f6149d4"
+     },
+     "MultiTypesParentBean.$contentTypes[0]": {
+      "$properties": [
+       "myProperty4ToBeAdded"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "MultiTypesParentBean.$contentTypes[0].myProperty4ToBeAdded": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "OverridingMultiTypesChildBean": {
+      "$contentTypes": [
+       "$contentTypes[0]"
+      ],
+      "attributes": {
+       "$type": "MultiTypesParentBean"
+      },
+      "hash": "9bd1146c98847d1b3c31e21ad84cb1920779d2a76d5dd2d2cef8c7b403d8007f"
+     },
+     "OverridingMultiTypesChildBean.$contentTypes[0]": {
+      "$properties": [
+       "myProperty5ToBeAdded"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "OverridingMultiTypesChildBean.$contentTypes[0].myProperty5ToBeAdded": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "ParentBean": {
+      "$properties": [
+       "myOtherProperty1",
+       "myProperty1ToBeAdded",
+       "propertyToBeOverriddenInChild",
+       "propertyToChangeDescription"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "ParentBean.myOtherProperty1": {
+      "$properties": [
+       "myOtherProperty2",
+       "myProperty2ToBeAdded"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "ParentBean.myOtherProperty1.myOtherProperty2": {
+      "$properties": [
+       "myProperty3ToBeAdded"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "ParentBean.myOtherProperty1.myOtherProperty2.myProperty3ToBeAdded": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "ParentBean.myOtherProperty1.myProperty2ToBeAdded": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "ParentBean.myProperty1ToBeAdded": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "ParentBean.propertyToBeOverriddenInChild": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "ParentBean.propertyToChangeDescription": {
+      "attributes": {
+       "$description": "91f56bcb95de0c2a3760bbbcf8901b305199c99af660c53254ad1d8211fc4983",
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "1b5c28e8a96cdae6a6e52257900e19b2db42b849309efbef23b5bc47e0387efc"
+     },
+     "RecursiveBeanA": {
+      "$properties": [
+       "b",
+       "myProperty6ToBeAdded"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "RecursiveBeanA.b": {
+      "attributes": {
+       "$type": "RecursiveBeanB"
+      },
+      "hash": "eb52944f2c01ce63db5d9d0ff48eca0985525f503d849beedcf0d384ab30c8b7"
+     },
+     "RecursiveBeanA.myProperty6ToBeAdded": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "RecursiveBeanB": {
+      "$properties": [
+       "a",
+       "myProperty7ToBeAdded"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "RecursiveBeanB.a": {
+      "attributes": {
+       "$type": "RecursiveBeanA"
+      },
+      "hash": "937b8e68007694c5d6ef057467ec0b7f0456d4cc8650dbdec984c510f21e0b17"
+     },
+     "RecursiveBeanB.myProperty7ToBeAdded": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     }
+    },
+    "beansUsages": {
+     "BeanB": [
+      "ChangingType"
+     ],
+     "ChangingType": [
+      "ExtendingChangingType"
+     ],
+     "ChildBean": [
+      "ChildOfChildBean"
+     ],
+     "ChildOfChildBean": [
+      "ChildOfChildOfChildBean"
+     ],
+     "MultiTypesParentBean": [
+      "MultiTypesChildBean",
+      "OverridingMultiTypesChildBean"
+     ],
+     "ParentBean": [
+      "ChildBean"
+     ],
+     "ParentBean.propertyToBeOverriddenInChild": [
+      "ChildBean.propertyToBeOverriddenInChild"
+     ],
+     "RecursiveBeanA": [
+      "RecursiveBeanB.a"
+     ],
+     "RecursiveBeanB": [
+      "RecursiveBeanA.b"
+     ]
+    },
+    "classpath": "x.CfgBeans",
+    "namespacesUsages": {
+     "aria/core/JsonTypes.js": {
+      "MultiTypes": [
+       "MultiTypesParentBean"
+      ],
+      "Object": [
+       "ParentBean",
+       "ParentBean.myOtherProperty1",
+       "ParentBean.myOtherProperty1.myOtherProperty2",
+       "MultiTypesParentBean.$contentTypes[0]",
+       "OverridingMultiTypesChildBean.$contentTypes[0]",
+       "RecursiveBeanA",
+       "RecursiveBeanB",
+       "AddedBean",
+       "BeanA",
+       "BeanB"
+      ],
+      "String": [
+       "ParentBean.myProperty1ToBeAdded",
+       "ParentBean.propertyToBeOverriddenInChild",
+       "ParentBean.propertyToChangeDescription",
+       "ParentBean.myOtherProperty1.myProperty2ToBeAdded",
+       "ParentBean.myOtherProperty1.myOtherProperty2.myProperty3ToBeAdded",
+       "MultiTypesParentBean.$contentTypes[0].myProperty4ToBeAdded",
+       "OverridingMultiTypesChildBean.$contentTypes[0].myProperty5ToBeAdded",
+       "RecursiveBeanA.myProperty6ToBeAdded",
+       "RecursiveBeanB.myProperty7ToBeAdded",
+       "AddedBean.addedBeanProperty1",
+       "BeanA.specificToBeanA1",
+       "BeanA.specificToBeanA2",
+       "BeanA.specificToBeanA3",
+       "BeanA.commonToAAndB1",
+       "BeanA.commonToAAndB2",
+       "BeanA.commonToAAndB3",
+       "BeanB.specificToBeanB1",
+       "BeanB.specificToBeanB2",
+       "BeanB.specificToBeanB3",
+       "BeanB.commonToAAndB1",
+       "BeanB.commonToAAndB2",
+       "BeanB.commonToAAndB3"
+      ]
+     }
+    }
+   },
+   "dependencies": {
+    "aria/core/JsonTypes.js": [
+     {
+      "type": "namespace"
+     }
+    ]
+   },
+   "flexibleHash": "dee0d3544a8546128650dc33b58f5c64b21eeb5055bc2d91c2dbbcb7812558dc",
+   "strictHash": "efc974bbc7c78612eb8634505252c65e326d6ea156e5c1211be8e03390cf8dbc",
+   "type": "beanDefinitions"
+  },
   "x/FourMemberImpacts.tml": {
    "content": {
     "classpath": "x.FourMemberImpacts",

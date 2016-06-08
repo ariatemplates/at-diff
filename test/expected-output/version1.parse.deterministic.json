@@ -33,6 +33,404 @@
    "strictHash": "db0f8a93c8219bcad9487b72c3afc30866fc4f369db48a08286e93a387ad1cdb",
    "type": "classDefinition"
   },
+  "x/CfgBeans.js": {
+   "content": {
+    "beans": {
+     "BeanA": {
+      "$properties": [
+       "commonToAAndB1",
+       "commonToAAndB2",
+       "commonToAAndB3",
+       "specificToBeanA1",
+       "specificToBeanA2",
+       "specificToBeanA3"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "BeanA.commonToAAndB1": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanA.commonToAAndB2": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanA.commonToAAndB3": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanA.specificToBeanA1": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanA.specificToBeanA2": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanA.specificToBeanA3": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanB": {
+      "$properties": [
+       "commonToAAndB1",
+       "commonToAAndB2",
+       "commonToAAndB3",
+       "specificToBeanB1",
+       "specificToBeanB2",
+       "specificToBeanB3"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "BeanB.commonToAAndB1": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanB.commonToAAndB2": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanB.commonToAAndB3": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanB.specificToBeanB1": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanB.specificToBeanB2": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "BeanB.specificToBeanB3": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "ChangingType": {
+      "attributes": {
+       "$type": "BeanA"
+      },
+      "hash": "c130857f3cb122c530da3d92126c018267d7991fe2f002ae70c23357d65f4c6d"
+     },
+     "ChildBean": {
+      "$properties": [
+      ],
+      "attributes": {
+       "$type": "ParentBean"
+      },
+      "hash": "e2b80a53478d1c9a8a95063a17f5324537e28e4ce3cc16ba5ca49fbff31138b1"
+     },
+     "ChildOfChildBean": {
+      "$properties": [
+      ],
+      "attributes": {
+       "$type": "ChildBean"
+      },
+      "hash": "9dd047d156c376570e139c68af2b2203279039ad9c420edca19de6c46c4cc2cd"
+     },
+     "ChildOfChildOfChildBean": {
+      "$properties": [
+      ],
+      "attributes": {
+       "$type": "ChildOfChildBean"
+      },
+      "hash": "5b969f0954e9aafab0c2aa86cebc94653ae551c2c2a01df3c63b56999da98646"
+     },
+     "ExtendingChangingType": {
+      "attributes": {
+       "$type": "ChangingType"
+      },
+      "hash": "e97664da82f484474c785b74917457d95900d62d741bece0cb20e51b7dc3a20f"
+     },
+     "MultiTypesChildBean": {
+      "attributes": {
+       "$type": "MultiTypesParentBean"
+      },
+      "hash": "9bd1146c98847d1b3c31e21ad84cb1920779d2a76d5dd2d2cef8c7b403d8007f"
+     },
+     "MultiTypesParentBean": {
+      "$contentTypes": [
+       "$contentTypes[0]"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:MultiTypes"
+      },
+      "hash": "a9693a46a34fd64bb3b5a181c96349b48d69c3abd5e67c6813d8d7814f6149d4"
+     },
+     "MultiTypesParentBean.$contentTypes[0]": {
+      "$properties": [
+       "myProperty4ToBeRemoved"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "MultiTypesParentBean.$contentTypes[0].myProperty4ToBeRemoved": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "OverridingMultiTypesChildBean": {
+      "$contentTypes": [
+       "$contentTypes[0]"
+      ],
+      "attributes": {
+       "$type": "MultiTypesParentBean"
+      },
+      "hash": "9bd1146c98847d1b3c31e21ad84cb1920779d2a76d5dd2d2cef8c7b403d8007f"
+     },
+     "OverridingMultiTypesChildBean.$contentTypes[0]": {
+      "$properties": [
+       "myProperty5ToBeRemoved"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "OverridingMultiTypesChildBean.$contentTypes[0].myProperty5ToBeRemoved": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "ParentBean": {
+      "$properties": [
+       "myOtherProperty1",
+       "myProperty1ToBeRemoved",
+       "propertyToBeOverriddenInChild",
+       "propertyToChangeDescription"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "ParentBean.myOtherProperty1": {
+      "$properties": [
+       "myOtherProperty2",
+       "myProperty2ToBeRemoved"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "ParentBean.myOtherProperty1.myOtherProperty2": {
+      "$properties": [
+       "myProperty3ToBeRemoved"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "ParentBean.myOtherProperty1.myOtherProperty2.myProperty3ToBeRemoved": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "ParentBean.myOtherProperty1.myProperty2ToBeRemoved": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "ParentBean.myProperty1ToBeRemoved": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "ParentBean.propertyToBeOverriddenInChild": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "ParentBean.propertyToChangeDescription": {
+      "attributes": {
+       "$description": "f75800cccf7f3c1cd632da841c0b2244020ae2ddc9b3881c03108b4417c4251c",
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "57406dab9b254dcdd1eaf5ad9c22806591a701fc104ef7967baa780cad7d27f0"
+     },
+     "RecursiveBeanA": {
+      "$properties": [
+       "b",
+       "myProperty6ToBeRemoved"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "RecursiveBeanA.b": {
+      "attributes": {
+       "$type": "RecursiveBeanB"
+      },
+      "hash": "eb52944f2c01ce63db5d9d0ff48eca0985525f503d849beedcf0d384ab30c8b7"
+     },
+     "RecursiveBeanA.myProperty6ToBeRemoved": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "RecursiveBeanB": {
+      "$properties": [
+       "a",
+       "myProperty7ToBeRemoved"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "RecursiveBeanB.a": {
+      "attributes": {
+       "$type": "RecursiveBeanA"
+      },
+      "hash": "937b8e68007694c5d6ef057467ec0b7f0456d4cc8650dbdec984c510f21e0b17"
+     },
+     "RecursiveBeanB.myProperty7ToBeRemoved": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "RemovedBean": {
+      "$properties": [
+       "removedBeanProperty1"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "RemovedBean.removedBeanProperty1": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     }
+    },
+    "beansUsages": {
+     "BeanA": [
+      "ChangingType"
+     ],
+     "ChangingType": [
+      "ExtendingChangingType"
+     ],
+     "ChildBean": [
+      "ChildOfChildBean"
+     ],
+     "ChildOfChildBean": [
+      "ChildOfChildOfChildBean"
+     ],
+     "MultiTypesParentBean": [
+      "MultiTypesChildBean",
+      "OverridingMultiTypesChildBean"
+     ],
+     "ParentBean": [
+      "ChildBean"
+     ],
+     "RecursiveBeanA": [
+      "RecursiveBeanB.a"
+     ],
+     "RecursiveBeanB": [
+      "RecursiveBeanA.b"
+     ]
+    },
+    "classpath": "x.CfgBeans",
+    "namespacesUsages": {
+     "aria/core/JsonTypes.js": {
+      "MultiTypes": [
+       "MultiTypesParentBean"
+      ],
+      "Object": [
+       "ParentBean",
+       "ParentBean.myOtherProperty1",
+       "ParentBean.myOtherProperty1.myOtherProperty2",
+       "MultiTypesParentBean.$contentTypes[0]",
+       "OverridingMultiTypesChildBean.$contentTypes[0]",
+       "RecursiveBeanA",
+       "RecursiveBeanB",
+       "RemovedBean",
+       "BeanA",
+       "BeanB"
+      ],
+      "String": [
+       "ParentBean.myProperty1ToBeRemoved",
+       "ParentBean.propertyToBeOverriddenInChild",
+       "ParentBean.propertyToChangeDescription",
+       "ParentBean.myOtherProperty1.myProperty2ToBeRemoved",
+       "ParentBean.myOtherProperty1.myOtherProperty2.myProperty3ToBeRemoved",
+       "MultiTypesParentBean.$contentTypes[0].myProperty4ToBeRemoved",
+       "OverridingMultiTypesChildBean.$contentTypes[0].myProperty5ToBeRemoved",
+       "RecursiveBeanA.myProperty6ToBeRemoved",
+       "RecursiveBeanB.myProperty7ToBeRemoved",
+       "RemovedBean.removedBeanProperty1",
+       "BeanA.specificToBeanA1",
+       "BeanA.specificToBeanA2",
+       "BeanA.specificToBeanA3",
+       "BeanA.commonToAAndB1",
+       "BeanA.commonToAAndB2",
+       "BeanA.commonToAAndB3",
+       "BeanB.specificToBeanB1",
+       "BeanB.specificToBeanB2",
+       "BeanB.specificToBeanB3",
+       "BeanB.commonToAAndB1",
+       "BeanB.commonToAAndB2",
+       "BeanB.commonToAAndB3"
+      ]
+     }
+    }
+   },
+   "dependencies": {
+    "aria/core/JsonTypes.js": [
+     {
+      "type": "namespace"
+     }
+    ]
+   },
+   "flexibleHash": "f07ab4fb7be689775a60392d4c11580ea74798ce33acce1ff61fc549a1ec53d4",
+   "strictHash": "aaed0822351a1db7294ab368e9f2d670ebe67e7d5d3ee330a7d9ef06b635d421",
+   "type": "beanDefinitions"
+  },
   "x/ClassToBeRemoved.js": {
    "content": {
     "classpath": "x.ClassToBeRemoved",

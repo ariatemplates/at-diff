@@ -21,6 +21,7 @@ const getLogicalPath = require("../../utils/getLogicalPath");
 const astToHash = require("../../utils/uglify/astToHash");
 const sortAndRemoveDuplicates = require("../../utils/sortAndRemoveDuplicates");
 const addClassMember = require("../addClassMember");
+const beansExtractor = require("./beansExtractor");
 
 // TODO (maybe): process $resources parameter
 
@@ -54,8 +55,8 @@ const acceptedAriaMethods = {
     "beanDefinitions" : {
         $package: ["processClasspath"],
         $dependencies : ["processDependenciesArray", ".js", null],
-        $namespaces : ["processDependenciesMap", ".js", null],
-        $beans : true,
+        $namespaces : ["processNamespaces"],
+        $beans : ["processBeans"],
         $description : true
     },
     "tplScriptDefinition" : {
@@ -171,7 +172,7 @@ class ATInfoExtractor {
             });
             return res;
         } else {
-            throw new Error("Expected dependencies array.");
+            throw new Error("Expected dependencies map.");
         }
     }
 
@@ -189,10 +190,11 @@ class ATInfoExtractor {
             throw new Error("Multiple Aria definitions!");
         }
         this.atDefinitionNode = node;
-        this.atDefinition = {
-            members: {}
-        };
+        this.atDefinition = {};
         this.type = definitionType;
+        if (definitionType === "classDefinition" || definitionType === "tplScriptDefinition") {
+            this.atDefinition.members = {};
+        }
         const ariaMethodInfo = acceptedAriaMethods[definitionType];
         const definition = node.args[0];
         if (!(definition instanceof UglifyJS.AST_Object)) {
@@ -211,11 +213,17 @@ class ATInfoExtractor {
                 }
             }
         });
+        if (definitionType === "beanDefinitions") {
+            beansExtractor.processAtDefinition.call(this);
+        }
     }
 
     processClasspath(propertyNode) {
         const classpath = this.atDefinition.classpath = this.readString(propertyNode.value);
-        addClassMember(this.atDefinition.members, classpath);
+        const members = this.atDefinition.members;
+        if (members) {
+            addClassMember(members, classpath);
+        }
     }
 
     processExtends(propertyNode) {
@@ -245,6 +253,14 @@ class ATInfoExtractor {
         } else {
             throw new Error("Expected a boolean");
         }
+    }
+
+    processNamespaces(propertyNode) {
+        beansExtractor.processNamespaces.call(this, propertyNode);
+    }
+
+    processBeans(propertyNode) {
+        beansExtractor.processBeans.call(this, propertyNode);
     }
 
     processMember(methodKey, propertyNode) {

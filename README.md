@@ -66,15 +66,15 @@ CommonJS-style dependencies (with `require`) are recognized. Note that only depe
 
 * `Aria.classDefinition`
 * `Aria.tplScriptDefinition`
-* `Aria.interfaceDefinition`
 * `Aria.beansDefinition`
+* `Aria.interfaceDefinition`
 * `Aria.resourcesDefinition`
 
 There should be at most one call to one of those functions in a given file.
 
 Support for files which do not contain any Aria Templates definition is very limited: only CommonJS-style dependencies are recognized, and only generic `UnknownChange` changes and `UnknownImpact` impacts will be generated in case any change is done on such files.
 
-In the same way, support for `Aria.interfaceDefinition`, `Aria.beansDefinition` and `Aria.resourcesDefinition` is also currently very limited. The content of the `$interface`, or `$beans` or `$resources` fields is not interpreted. Only dependencies are recognized, either in the CommonJS style or in the classpath style.
+In the same way, support for `Aria.interfaceDefinition` and `Aria.resourcesDefinition` is also currently very limited. The content of the `$interface` or `$resources` fields is not interpreted. Only dependencies are recognized, either in the CommonJS style or in the classpath style.
 
 Note that the parameter passed to the Aria definition function must be an object literal. For example, the following declaration cannot be recognized successfully:
 
@@ -125,7 +125,7 @@ Aria.classDefinition({
 });
 ```
 
-The following items are compared:
+The following items are compared in the parameter of `Aria.classDefinition` or `Aria.tplScriptDefinition`:
 
 * `$constructor`
 * `$destructor`

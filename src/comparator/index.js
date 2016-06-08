@@ -19,6 +19,7 @@ const compareMaps = require("../utils/compareMaps");
 const defaultChangeConstructors = require("./changes");
 const defaultComparisonConstructors = Object.assign(Object.create(null), {
     "template": require("./types/template"),
+    "beanDefinitions": require("./types/beanDefinitions"),
     "classDefinition": require("./types/classDefinition"),
     "tplScriptDefinition": require("./types/tplScriptDefinition")
 });

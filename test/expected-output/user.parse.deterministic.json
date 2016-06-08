@@ -1,5 +1,144 @@
 {
  "files": {
+  "y/CfgBeans.js": {
+   "content": {
+    "beans": {
+     "ChildOfExtendingChangingType": {
+      "$properties": [
+       "commonToAAndB1",
+       "specificToBeanA1",
+       "specificToBeanB1"
+      ],
+      "attributes": {
+       "$type": "x/CfgBeans.js:ExtendingChangingType"
+      },
+      "hash": "35e4888b5effd1fc7ecdbcdd2b2c04f2c07e7c19b3f6451ec7beed1d7c684d8e"
+     },
+     "ChildOfExtendingChangingType.commonToAAndB1": {
+      "attributes": {
+       "$type": "x/CfgBeans.js:BeanA.specificToBeanA1"
+      },
+      "hash": "cceefdd4ede536b11fb97fd017ba09a66c73937529f73a84e9fd7b3040f6bc0e"
+     },
+     "ChildOfExtendingChangingType.specificToBeanA1": {
+      "attributes": {
+       "$type": "x/CfgBeans.js:ChangingType.specificToBeanA1"
+      },
+      "hash": "d46849417c384b29ab11068c458bff8afd1aa15bc71b8916b8712baac22bef46"
+     },
+     "ChildOfExtendingChangingType.specificToBeanB1": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "OverridesParent": {
+      "$properties": [
+       "myProperty1ToBeAdded",
+       "myProperty1ToBeRemoved",
+       "propertyToBeOverriddenInChild",
+       "propertyToChangeDescription"
+      ],
+      "attributes": {
+       "$type": "x/CfgBeans.js:ChildBean"
+      },
+      "hash": "b4ebf113e9ae5c334f5a5d97f3c445fafa3b55a37c8f6c101e21bfb1268b68d9"
+     },
+     "OverridesParent.myProperty1ToBeAdded": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "OverridesParent.myProperty1ToBeRemoved": {
+      "attributes": {
+       "$type": "x/CfgBeans.js:ParentBean.myProperty1ToBeRemoved"
+      },
+      "hash": "fbcf630a6daaf808f1a45f5fba09d39a381ee337445643d8bd1368c32027f9a7"
+     },
+     "OverridesParent.propertyToBeOverriddenInChild": {
+      "attributes": {
+       "$type": "x/CfgBeans.js:ParentBean.propertyToBeOverriddenInChild"
+      },
+      "hash": "881a7b251d2106eadcc687a7dab97d21205940f1a13078e153a20dcc96589351"
+     },
+     "OverridesParent.propertyToChangeDescription": {
+      "attributes": {
+       "$description": "9b61406d1dc3b78216045e8322005c34f55c9ba465149f90f5cf320adb4400fa",
+       "$type": "x/CfgBeans.js:ChildBean.propertyToChangeDescription"
+      },
+      "hash": "82291e31cb35dfb63290820c186df3f301ad9d7f07a1ec2cf5d913ed53de505f"
+     },
+     "UsesPropertyInRemovedBean": {
+      "attributes": {
+       "$type": "x/CfgBeans.js:RemovedBean.removedBeanProperty1"
+      },
+      "hash": "8820120c9c640a87a9ead9b7bb614fe20198fe6624bf8e0f532f19b1ca2018d3"
+     },
+     "UsesRemovedBean": {
+      "attributes": {
+       "$type": "x/CfgBeans.js:RemovedBean"
+      },
+      "hash": "1bfbedd34f29e03937cf3bcdae0dbca680b46b3a41cd5ec953096123bf56be27"
+     }
+    },
+    "beansUsages": {
+    },
+    "classpath": "y.CfgBeans",
+    "namespacesUsages": {
+     "aria/core/JsonTypes.js": {
+      "String": [
+       "OverridesParent.myProperty1ToBeAdded",
+       "ChildOfExtendingChangingType.specificToBeanB1"
+      ]
+     },
+     "x/CfgBeans.js": {
+      "BeanA.specificToBeanA1": [
+       "ChildOfExtendingChangingType.commonToAAndB1"
+      ],
+      "ChangingType.specificToBeanA1": [
+       "ChildOfExtendingChangingType.specificToBeanA1"
+      ],
+      "ChildBean": [
+       "OverridesParent"
+      ],
+      "ChildBean.propertyToChangeDescription": [
+       "OverridesParent.propertyToChangeDescription"
+      ],
+      "ExtendingChangingType": [
+       "ChildOfExtendingChangingType"
+      ],
+      "ParentBean.myProperty1ToBeRemoved": [
+       "OverridesParent.myProperty1ToBeRemoved"
+      ],
+      "ParentBean.propertyToBeOverriddenInChild": [
+       "OverridesParent.propertyToBeOverriddenInChild"
+      ],
+      "RemovedBean": [
+       "UsesRemovedBean"
+      ],
+      "RemovedBean.removedBeanProperty1": [
+       "UsesPropertyInRemovedBean"
+      ]
+     }
+    }
+   },
+   "dependencies": {
+    "aria/core/JsonTypes.js": [
+     {
+      "type": "namespace"
+     }
+    ],
+    "x/CfgBeans.js": [
+     {
+      "type": "namespace"
+     }
+    ]
+   },
+   "flexibleHash": "49843eae965062b84a7fa5e3015f0c139203542632f9e8810b518df9704c655a",
+   "strictHash": "f338b8c4101a9e91e38a911c50711154628eafe16f363e6ce67d93d165c3b520",
+   "type": "beanDefinitions"
+  },
   "y/IndirectlyUsesRemovedClass.js": {
    "content": {
     "classpath": "y.IndirectlyUsesRemovedClass",

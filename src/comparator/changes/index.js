@@ -18,7 +18,8 @@ const defaultConstructors = module.exports =
     Object.assign({},
          require("./base").constructors,
          require("./baseClass").constructors,
-         require("./template").constructors
+         require("./template").constructors,
+         require("./bean").constructors
      );
 
 // set the type property on each constructor:
