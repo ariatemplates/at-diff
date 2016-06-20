@@ -22,6 +22,7 @@ import sortAndRemoveDuplicates = require('../utils/sortAndRemoveDuplicates');
 
 @Component({
     selector: 'atdiff-diffdisplay',
+    styles: [".col-md-3 { word-break:break-all; }"],
     template: `
     <atdiff-table [items]="filteredChanges">
         <atdiff-table-title>Changes</atdiff-table-title>
