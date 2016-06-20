@@ -22,7 +22,7 @@ import {Dropdown, DropdownMenu} from './dropdown.component';
     directives: [Dropdown, DropdownMenu],
     template: `<div class="input-group input-group-sm">
                     <input type="text" class="form-control" [value]="getDisplayText()" readonly>
-                    <div class="input-group-btn" atdiff-dropdown>
+                    <span class="input-group-btn" atdiff-dropdown style="position:static;">
                         <button type="button" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
                         <template atdiff-dropdown-menu>
                             <template [ngIf]="options.length === 0">
@@ -35,7 +35,7 @@ import {Dropdown, DropdownMenu} from './dropdown.component';
                                 <li (click)="clickAll(false, $event)"><a href="#">Unselect all</a></li>
                             </template>
                         </template>
-                    </div>
+                    </span>
                 </div>`
 })
 export class Multiselect {
