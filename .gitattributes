@@ -1,0 +1,12 @@
+* text=auto
+
+*.js text eol=lf
+*.json text eol=lf
+*.ts text eol=lf
+*.yml text eol=lf
+*.md text eol=lf
+*.tml text eol=lf
+*.tpl text eol=lf
+*.txt text eol=lf
+*.css text eol=lf
+*.cml text eol=lf

@@ -17,55 +17,27 @@
 const constructors = exports.constructors = {};
 const abstractConstructors = exports.abstractConstructors = {};
 
-const idPrefix = `${Date.now().toString(36)}`;
-let counter = 0;
-function createId() {
-    counter++;
-    return `${idPrefix}-${counter.toString(36)}`;
-}
-
 class Serializable {
     constructor(config) {
         this.config = config;
-    }
-
-    setId(id) {
-        this.id = id;
-    }
-
-    getId() {
-        let res = this.id;
-        if (!res) {
-            res = this.id = createId();
-        }
-        return res;
     }
 
     getType() {
         return this.constructor.type;
     }
 
-    store(objectsMap) {
-        const id = this.getId();
-        const alreadyStored = objectsMap[id];
-        if (alreadyStored) {
-            if (alreadyStored !== this) {
-                throw new Error(`Id conflict for ${id}`);
-            }
-            return false;
-        }
-        objectsMap[id] = this;
-        return true;
+    getKey() {
+        return this.getType();
     }
 
-    restore() {}
-
-    toJSON() {
+    toStoredData(/* serializer */) {
         return {
             type: this.getType(),
             config: this.config
         };
     }
+
+    fromStoredData(/* deserializer, storedData */) {}
 }
 abstractConstructors.Serializable = Serializable;
 
@@ -73,12 +45,20 @@ class Change extends Serializable {
     getModifiedFile() {
         return this.config.modifiedFile;
     }
+
+    getKey() {
+        return `${this.getModifiedFile()}|${super.getKey()}`;
+    }
 }
 abstractConstructors.Change = Change;
 
 class Impact extends Serializable {
     getImpactedFile() {
         return this.config.impactedFile;
+    }
+
+    getKey() {
+        return `${this.getImpactedFile()}|${super.getKey()}`;
     }
 
     isPropagatable() {
@@ -100,16 +80,15 @@ class Impact extends Serializable {
     getRootChanges() {
         if (!this.rootChanges) {
             const rootChanges = this.rootChanges = [];
-            this.computeRootChanges({}, rootChanges);
+            this.computeRootChanges(new Set(), rootChanges);
         }
         return this.rootChanges;
     }
 
     computeRootChanges(visitedObjects, result) {
         this.getCauses().forEach(cause => {
-            const changeId = cause.getId();
-            if (!visitedObjects[changeId]) {
-                visitedObjects[changeId] = true;
+            if (!visitedObjects.has(cause)) {
+                visitedObjects.add(cause);
                 if (cause instanceof Change) {
                     result.push(cause);
                 } else {
@@ -119,20 +98,14 @@ class Impact extends Serializable {
         });
     }
 
-    store(objectsMap) {
-        if (super.store(objectsMap)) {
-            this.getCauses().map(cause => cause.store(objectsMap));
-        }
-    }
-
-    restore(objectsMap, storedData) {
-        this.causes = storedData.causes.map(causeId => objectsMap[causeId]);
-    }
-
-    toJSON() {
-        const res = super.toJSON();
-        res.causes = this.getCauses().map(cause => cause.getId());
+    toStoredData(serializer) {
+        const res = super.toStoredData(serializer);
+        res.causes = this.getCauses().map(cause => serializer.store(cause));
         return res;
+    }
+
+    fromStoredData(deserializer, storedData) {
+        this.causes = storedData.causes.map(causeId => deserializer.restore(causeId));
     }
 }
 abstractConstructors.Impact = Impact;
@@ -165,6 +138,10 @@ class ImpactsInDependency extends Impact {
 
     getDependency() {
         return this.getCauses()[0].getImpactedFile();
+    }
+
+    getKey() {
+        return `${super.getKey()}|${this.getDependency()}`;
     }
 }
 constructors.ImpactsInDependency = ImpactsInDependency;

@@ -1,0 +1,473 @@
+{
+ "files": {
+  "x/BinaryUnchanging.js": {
+   "content": {
+    "classpath": "x.BinaryUnchanging",
+    "members": {
+     "this.$BinaryUnchanging": {
+      "type": "class"
+     },
+     "this.add": {
+      "args": [
+       "x",
+       "y"
+      ],
+      "hash": "3982a56754e631c5cba544c1030275067abdc7155603daa08f30c0f08e763a93",
+      "type": "function"
+     },
+     "this.multiply": {
+      "args": [
+       "x",
+       "y"
+      ],
+      "hash": "c03f7feb2dffbe5438b2af9a86e6bb858b6dbfcd11821d307358b977510d37cc",
+      "type": "function"
+     }
+    }
+   },
+   "dependencies": {
+    "ariatemplates/Aria.js": [
+    ]
+   },
+   "flexibleHash": "b187036cd587c1806c1b197e1c0f2d6d75f64edf54623eab6b45db395f8c7ccf",
+   "strictHash": "db0f8a93c8219bcad9487b72c3afc30866fc4f369db48a08286e93a387ad1cdb",
+   "type": "classDefinition"
+  },
+  "x/ClassToBeRemoved.js": {
+   "content": {
+    "classpath": "x.ClassToBeRemoved",
+    "members": {
+     "this.$ClassToBeRemoved": {
+      "type": "class"
+     },
+     "this.myMethod": {
+      "args": [
+      ],
+      "hash": "0d257a21e3fdbed914588129d5c2151ca0ed515feccdf1094a1b962fbf28d6bf",
+      "type": "function"
+     }
+    }
+   },
+   "dependencies": {
+    "ariatemplates/Aria.js": [
+    ]
+   },
+   "flexibleHash": "42f97d69b55a26ef8e4850c429c37527eeb94168a5b8d3f0f2c042a663fdf0b3",
+   "strictHash": "5370d52a8c2a176f1b76500f3f1442c37da9dc5f114ff28e99e2b6473003599e",
+   "type": "classDefinition"
+  },
+  "x/FourMemberImpacts.tml": {
+   "content": {
+    "classpath": "x.FourMemberImpacts",
+    "members": {
+     "this.$FourMemberImpacts": {
+      "type": "class"
+     },
+     "this.macro_myMacroToBeRemoved": {
+      "args": [
+      ],
+      "hash": "10c6bfee9a2d7d180bedd545d704c97925cbfda9b1ef880d1017006c501c21a0",
+      "type": "macro"
+     },
+     "this.macro_myMacroToChangeImplementation": {
+      "args": [
+      ],
+      "hash": "6d2636b8946062fe3c7398a6a116033f52d8bbf7fc3e14287f2a6e02262fa748",
+      "type": "macro"
+     },
+     "this.macro_myMacroToChangeSignature": {
+      "args": [
+       "myParam"
+      ],
+      "hash": "fe984a746e0920bd3f6fe1a719670a137112357ea5fbeda8d6f8c55de9b49d3c",
+      "type": "macro"
+     }
+    },
+    "membersUsages": {
+    }
+   },
+   "dependencies": {
+    "aria/widgets/AriaLib.js": [
+    ]
+   },
+   "flexibleHash": "a2db80bf0ddbc3438a349779ff0071805699b96de04346ddbd2f90f8fdf9b5bb",
+   "strictHash": "2fdf4e366978be534259ff4b8e80c5e604ed5a8adc0383aebd2227ce6d2b8be9",
+   "type": "template"
+  },
+  "x/MacroLibWithMemberRemoved.tml": {
+   "content": {
+    "classpath": "x.MacroLibWithMemberRemoved",
+    "members": {
+     "this.$MacroLibWithMemberRemoved": {
+      "type": "class"
+     },
+     "this.macro_myMacro1": {
+      "args": [
+      ],
+      "hash": "cd136aeda9d166a2d924e3004ce59b6e15e0756741dfa95dbe162900be23b296",
+      "type": "macro"
+     },
+     "this.macro_myMacro2": {
+      "args": [
+      ],
+      "hash": "7f7a04338f76df8db5cb3076d2a9aa442256d4d968c61df0cee7adc2a2a294e8",
+      "type": "macro"
+     }
+    },
+    "membersUsages": {
+    }
+   },
+   "dependencies": {
+    "aria/widgets/AriaLib.js": [
+    ]
+   },
+   "flexibleHash": "3b3908deab6b1afc4b79fc7da109b9549fc52be7e3ba87d7238991900dbb3cf1",
+   "strictHash": "c560c63cc4bef3229854618f808a266877fbdd39e3cdddd7a65193bd4cb669a0",
+   "type": "template"
+  },
+  "x/SameFlexibleHashJs.js": {
+   "content": {
+    "classpath": "x.SameFlexibleHashJs",
+    "members": {
+     "this.$SameFlexibleHashJs": {
+      "type": "class"
+     },
+     "this.multiply": {
+      "args": [
+       "arg1",
+       "arg2"
+      ],
+      "hash": "d12da366ec984650bda1ce1a302ef3752b3caaf6e39bff3edef34fd2be9b11da",
+      "type": "function"
+     },
+     "this.multiplySumAndDifference": {
+      "args": [
+       "arg1",
+       "arg2"
+      ],
+      "hash": "da5ef4648d0c3ec79fec13868e41ab24f030a22622ba35a48d4a9fd1faee9c21",
+      "type": "function"
+     }
+    }
+   },
+   "dependencies": {
+   },
+   "flexibleHash": "1619acc41a47592a5e4430ee02a0dcd0a2633ea65624c0182e68379b010674be",
+   "strictHash": "7b7b24e082f6b213c49e306f518a7f30a5b8bf9bdab7139fda550b9bcfb3552f",
+   "type": "classDefinition"
+  },
+  "x/SameFlexibleHashTpl.tpl": {
+   "content": {
+    "classpath": "x.SameFlexibleHashTpl",
+    "members": {
+     "this.$SameFlexibleHashTpl": {
+      "type": "class"
+     },
+     "this.macro_main": {
+      "args": [
+      ],
+      "hash": "972424b32450fb300416aab69ebbd3912761c232c38e52a120c3ecaf93e9d831",
+      "type": "macro"
+     },
+     "this.macro_myMacro": {
+      "args": [
+       "param"
+      ],
+      "hash": "b70e2e73fa6b365f7cdbaee5d920b58a5faeac8311b9f2796380e4bc1e6bbfed",
+      "type": "macro"
+     },
+     "this.macro_myRepeaterItem": {
+      "args": [
+       "itemInfo"
+      ],
+      "hash": "68f6a2cea535dc54400332e3f7797b5a23cef26711ef25aa46a78d4b7095c072",
+      "type": "macro"
+     }
+    },
+    "membersUsages": {
+     "this.macro_myMacro": [
+      "this.macro_main"
+     ],
+     "this.macro_myRepeaterItem": [
+      "this.macro_main"
+     ]
+    }
+   },
+   "dependencies": {
+    "aria/widgets/AriaLib.js": [
+    ]
+   },
+   "flexibleHash": "6722096fcb207f5c75271b1ce96e5b58c92715969eed231129f1e46d020b514b",
+   "strictHash": "9fd073c63613c2f2c7055c432e36bfb952bd771d35c3bc1b962612141a65e051",
+   "type": "template"
+  },
+  "x/changingMacroLib/ExtendsMacroLibxUser.tml": {
+   "content": {
+    "classpath": "x.changingMacroLib.ExtendsMacroLibxUser",
+    "members": {
+     "this.$ExtendsMacroLibxUser": {
+      "type": "class"
+     }
+    },
+    "membersUsages": {
+    },
+    "parent": "x/changingMacroLib/MacroLib1User.tml"
+   },
+   "dependencies": {
+    "aria/widgets/AriaLib.js": [
+    ],
+    "x/changingMacroLib/MacroLib1User.tml": [
+     {
+      "type": "parent"
+     }
+    ]
+   },
+   "flexibleHash": "7d6a86dbc51a4946810b01c8cd8ce8a2359ebdbe7efb73ae4aa81f200d407c25",
+   "strictHash": "0e5c0c201d7672cc33f8862c58e0940af2dd96d13c433ec97172eb23095696fb",
+   "type": "template"
+  },
+  "x/changingMacroLib/MacroLib1.tml": {
+   "content": {
+    "classpath": "x.changingMacroLib.MacroLib1",
+    "members": {
+     "this.$MacroLib1": {
+      "type": "class"
+     },
+     "this.macro_myChildMacro": {
+      "args": [
+      ],
+      "hash": "4c1802697c679a7e38075e83ee45ac488eefa0bc4b221d52990a3be7116a5e23",
+      "type": "macro"
+     }
+    },
+    "membersUsages": {
+    },
+    "parent": "x/changingMacroLib/ParentMacroLib.tml"
+   },
+   "dependencies": {
+    "aria/widgets/AriaLib.js": [
+    ],
+    "x/changingMacroLib/ParentMacroLib.tml": [
+     {
+      "type": "parent"
+     }
+    ]
+   },
+   "flexibleHash": "6995c4a1a0a87c9f69d2311620b35a0b6f99577b1964b7004be2c332831036c0",
+   "strictHash": "d7ff09e83b23c1f75b63cf18e27af363a2ad825b19da2db145a97fb419364276",
+   "type": "template"
+  },
+  "x/changingMacroLib/MacroLib1User.tml": {
+   "content": {
+    "classpath": "x.changingMacroLib.MacroLib1User",
+    "members": {
+     "this.$MacroLib1User": {
+      "type": "class"
+     },
+     "this.myMacroLib": {
+      "hash": "daad1cf95ec88613b029421d07b345b2be0c3af3d833799d29f64536b7691b7e",
+      "path": "x/changingMacroLib/MacroLib1.tml",
+      "type": "lib"
+     }
+    },
+    "membersUsages": {
+    }
+   },
+   "dependencies": {
+    "aria/widgets/AriaLib.js": [
+    ],
+    "x/changingMacroLib/MacroLib1.tml": [
+     {
+      "hash": "8ce10a2aadc2ea2de7b4378756e46f8739ea32b278725b5b40c154f174c02777",
+      "member": "this.myMacroLib",
+      "type": "lib"
+     }
+    ]
+   },
+   "flexibleHash": "6c91b5da4a548548b74db28a2776d2bebbd8e01025309400f863afdfffc4291c",
+   "strictHash": "19696b402a4b04aaa701c182b0d437ed3c95cc1551f1c388dcae2f270e149adc",
+   "type": "template"
+  },
+  "x/changingMacroLib/MacroLib2.tml": {
+   "content": {
+    "classpath": "x.changingMacroLib.MacroLib2",
+    "members": {
+     "this.$MacroLib2": {
+      "type": "class"
+     },
+     "this.macro_myChildMacro": {
+      "args": [
+      ],
+      "hash": "368619a5209b59995275187de21a71ef3be46732d71a92e2b694ae2270d151fa",
+      "type": "macro"
+     }
+    },
+    "membersUsages": {
+    },
+    "parent": "x/changingMacroLib/ParentMacroLib.tml"
+   },
+   "dependencies": {
+    "aria/widgets/AriaLib.js": [
+    ],
+    "x/changingMacroLib/ParentMacroLib.tml": [
+     {
+      "type": "parent"
+     }
+    ]
+   },
+   "flexibleHash": "965c5d9e24186350c5dc1d8349e4752b3e3ce3fcc5e569dd40d25cc358d20c81",
+   "strictHash": "1d1acd55bba58e9d0bc2a785034d1565ceacd0a07690733ac7738d9108b0bb02",
+   "type": "template"
+  },
+  "x/changingMacroLib/MacroLib2User.tml": {
+   "content": {
+    "classpath": "x.changingMacroLib.MacroLib2User",
+    "members": {
+     "this.$MacroLib2User": {
+      "type": "class"
+     },
+     "this.myMacroLib": {
+      "hash": "a85d00e45788a9d4bdb7b9784127d1da02997780c3681fd3d1b9e98f1cae74b8",
+      "path": "x/changingMacroLib/MacroLib2.tml",
+      "type": "lib"
+     }
+    },
+    "membersUsages": {
+    }
+   },
+   "dependencies": {
+    "aria/widgets/AriaLib.js": [
+    ],
+    "x/changingMacroLib/MacroLib2.tml": [
+     {
+      "hash": "8ce10a2aadc2ea2de7b4378756e46f8739ea32b278725b5b40c154f174c02777",
+      "member": "this.myMacroLib",
+      "type": "lib"
+     }
+    ]
+   },
+   "flexibleHash": "690f20639e607031736dcfae2f36db3322fd30c2909aba14662e466ede370376",
+   "strictHash": "9dea2b8575a9fbf740edc7a04466ffeeb7af538bbd42742d2e48063db9e0889e",
+   "type": "template"
+  },
+  "x/changingMacroLib/MacroLibUser.tml": {
+   "content": {
+    "classpath": "x.changingMacroLib.MacroLibUser",
+    "members": {
+     "this.$MacroLibUser": {
+      "type": "class"
+     },
+     "this.macro_callsChildMacro": {
+      "args": [
+      ],
+      "hash": "0952c595b132f25c5ccb4dc72d400b362b9962adde80fd5a8feb968676c41adb",
+      "type": "macro"
+     },
+     "this.macro_callsParentMacro": {
+      "args": [
+      ],
+      "hash": "e99c3384d8076c3b138e0798fb80aae56c713fbd6ec8033c3ba037c563b819c0",
+      "type": "macro"
+     },
+     "this.macro_main": {
+      "args": [
+      ],
+      "hash": "e1749efb01e34ff397fbd707063232433d4b196f24c8aac590fc3be9d4a9de4b",
+      "type": "macro"
+     },
+     "this.myMacroLib": {
+      "hash": "daad1cf95ec88613b029421d07b345b2be0c3af3d833799d29f64536b7691b7e",
+      "path": "x/changingMacroLib/MacroLib1.tml",
+      "type": "lib"
+     }
+    },
+    "membersUsages": {
+     "this.macro_callsChildMacro": [
+      "this.macro_main"
+     ],
+     "this.macro_callsParentMacro": [
+      "this.macro_main"
+     ],
+     "this.myMacroLib.macro_myChildMacro": [
+      "this.macro_callsChildMacro"
+     ],
+     "this.myMacroLib.macro_myParentMacro": [
+      "this.macro_callsParentMacro"
+     ]
+    }
+   },
+   "dependencies": {
+    "aria/widgets/AriaLib.js": [
+    ],
+    "x/changingMacroLib/MacroLib1.tml": [
+     {
+      "hash": "8ce10a2aadc2ea2de7b4378756e46f8739ea32b278725b5b40c154f174c02777",
+      "member": "this.myMacroLib",
+      "type": "lib"
+     }
+    ]
+   },
+   "flexibleHash": "c57d8a2e11b6be467f6aab99c74f1ed49a1ce38e20ffe6f8371b9115e0957de2",
+   "strictHash": "72c5014202c9555432755b82d9c8f72cabcab194216cf1bcb9ef9c4f2a55a90e",
+   "type": "template"
+  },
+  "x/changingMacroLib/ParentMacroLib.tml": {
+   "content": {
+    "classpath": "x.changingMacroLib.ParentMacroLib",
+    "members": {
+     "this.$ParentMacroLib": {
+      "type": "class"
+     },
+     "this.macro_myParentMacro": {
+      "args": [
+      ],
+      "hash": "fe378c20839bf9a6fb9102cd2aa04ee351f1d9a5fb46269b2bbeb151f897cf78",
+      "type": "macro"
+     }
+    },
+    "membersUsages": {
+    }
+   },
+   "dependencies": {
+    "aria/widgets/AriaLib.js": [
+    ]
+   },
+   "flexibleHash": "7dfa1f3de1e9f2918e91e933e9872761fc8f4d385834ab2f9100d0ccf4968c3d",
+   "strictHash": "26d79febc5c89afa409a0de0f298e4279fd573b4a0d473645ccf1e665e23f383",
+   "type": "template"
+  },
+  "x/changingMacroLib/UsesMacroLibxUser.tpl": {
+   "content": {
+    "classpath": "x.changingMacroLib.UsesMacroLibxUser",
+    "members": {
+     "this.$UsesMacroLibxUser": {
+      "type": "class"
+     },
+     "this.mLib": {
+      "hash": "8c7cd1b4df5c4172a15f9b6ea97457e1a98444cea3716fa7d6c4eb2f5b8caf48",
+      "path": "x/changingMacroLib/MacroLib1User.tml",
+      "type": "lib"
+     }
+    },
+    "membersUsages": {
+    }
+   },
+   "dependencies": {
+    "aria/widgets/AriaLib.js": [
+    ],
+    "x/changingMacroLib/MacroLib1User.tml": [
+     {
+      "hash": "5c4ef5add0ce66c51afaaa3c7a5cc9890ba2523f56894c3334d4d1639e183cf9",
+      "member": "this.mLib",
+      "type": "lib"
+     }
+    ]
+   },
+   "flexibleHash": "97c26185ab47b04b8266b91e97830e32556a74afc6e325c55c314e79611ee653",
+   "strictHash": "052fa4b967f2733ae88ef7ccfe78bc6ce0a2b205cfc6cacb77e1b996c7cf0792",
+   "type": "template"
+  }
+ },
+ "type": "at-diff:extracted-data",
+ "version": "0.1"
+}

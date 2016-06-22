@@ -61,7 +61,7 @@ module.exports = function (grunt) {
     grunt.registerMultiTask("at-diff-compare", "Compares two versions of a set of source files (from the extracted information provided by at-diff-parse) and produces a report of differences/impacts.", cotask(function * () {
         const options = this.options();
         const data = yield Promise.all([options.version1, options.version2].map(fileName => readJson(fileName)));
-        const comparator = new Comparator();
+        const comparator = new Comparator(options);
         const diff = comparator.compareFiles(data[0], data[1]);
         yield processOutput(options, diff, writeFile);
     }));
@@ -69,7 +69,7 @@ module.exports = function (grunt) {
     grunt.registerMultiTask("at-diff-evalimpacts", "Uses a report of differences/impacts (provided by at-diff-compare) to evaluate the impacts of those changes on a set of source files (whose relevant information has been extracted by at-diff-parse) and produces a report of differences/impacts.", cotask(function * () {
         const options = this.options();
         const data = yield Promise.all([options.versionsDiff, options.impactedFiles].map(fileName => readJson(fileName)));
-        const comparator = new Comparator();
+        const comparator = new Comparator(options);
         const diff = comparator.evaluateImpacts(data[0], data[1]);
         yield processOutput(options, diff, writeFile);
     }));

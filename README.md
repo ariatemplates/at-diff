@@ -180,8 +180,9 @@ You can also use the following options:
 * `--load-parser-cache previousOutput.json` Specifies a previous output of the *parse* operation to be loaded in the cache to speed up the *parse* operation in case files did not change. This option can be repeated multiple times.
 * `--filter **/*` Specifies the pattern to use to create the list of files to be parsed. The default filter is `**/*`.
 * `--ignore **/*.bak` Specifies a pattern to exclude from the list of files to be parsed. This option can be repeated multiple times.
-* `--json-beautify` This option can be used to beautify the output
+* `--json-beautify` This option can be used to beautify the output.
 * `--console-output` This option can be used to display the resulting json file on the console.
+* `--deterministic-output` This option can be used to produce a file that is easier to compare with other files of the same kind (with classic diff tools): json keys are sorted so that the order in which files are parsed does not impact the output.
 
 ### compare
 
@@ -194,8 +195,9 @@ at-diff compare atdiff-data1.json atdiff-data2.json --json-output atdiff-compari
 You can also use the following options:
 
 * `--open` Open the html file in a browser when the comparison is done. This is only taken into account if the `--html-output` option is used.
-* `--json-beautify` This option can be used to beautify the output
+* `--json-beautify` This option can be used to beautify the output.
 * `--console-output` This option can be used to display the resulting json file on the console.
+* `--deterministic-output` This option can be used to produce a file that is easier to compare with other files of the same kind (with classic diff tools): the resulting json file contains meaningful ids instead of sequential ones and json keys are sorted so that the order in which files are compared does not impact the output. When this option is present, the output file is significantly larger and maybe a bit slower to generate.
 
 It is also possible to parse and immediately compare in one command:
 

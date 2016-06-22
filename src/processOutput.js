@@ -17,24 +17,27 @@
 const co = require("co");
 const fs = require("graceful-fs");
 const promisify = require("pify");
+const stringify = require("json-stable-stringify");
 const defaultWriteFile = promisify(fs.writeFile);
 const generateReport = require("./ui");
 const open = require("./utils/open");
 
 module.exports = co.wrap(function * (config, data, writeFile) {
     writeFile = writeFile || defaultWriteFile;
+    const output = config.deterministicOutput ? stringify(data, {
+        space: config.jsonBeautify ? " ": null
+    }) : JSON.stringify(data, null, config.jsonBeautify ? " ": null);
     if (config.jsonOutput) {
-        const output = JSON.stringify(data, null, config.jsonBeautify ? " ": null);
         yield writeFile(config.jsonOutput, output);
     }
     if (config.htmlOutput) {
-        const htmlReport = generateReport(data);
+        const htmlReport = generateReport(output);
         yield writeFile(config.htmlOutput, htmlReport);
         if (config.open) {
             yield open(config.htmlOutput);
         }
     }
     if (config.consoleOutput) {
-        console.log(JSON.stringify(data, null, " "));
+        console.log(output);
     }
 });

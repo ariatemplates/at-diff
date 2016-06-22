@@ -46,7 +46,9 @@ const readJsonDiff = co.wrap(function * (diffFilePath) {
 });
 
 module.exports = function (outDir) {
-    const results = {};
+    const results = {
+        outDir: outDir
+    };
 
     before(co.wrap(function * () {
         results.version1 = yield readJson(path.join(outDir, "version1.parse.json"));

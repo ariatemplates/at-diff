@@ -15,14 +15,13 @@
 "use strict";
 
 const fileFormat = require("../fileFormat");
-const changes = require("./changes");
+const Deserializer = require("./deserializer");
 
 module.exports = function (data, changeConstructors) {
     data = fileFormat.checkDiffData(data);
-    const objects = changes.deserialize(data.objects, changeConstructors);
+    const deserializer = new Deserializer(data.objects, changeConstructors);
     return {
-        objects: objects,
-        impacts: data.impacts.map(id => objects[id]),
-        changes: data.changes.map(id => objects[id])
+        impacts: data.impacts.map(id => deserializer.restore(id)),
+        changes: data.changes.map(id => deserializer.restore(id))
     };
 };

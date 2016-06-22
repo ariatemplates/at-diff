@@ -18,13 +18,13 @@ const fs = require("graceful-fs");
 const path = require("path");
 const libs = require("./libs");
 
-const safeStringify = function(data) {
-    return JSON.stringify(data).replace(/<\/script/g, "<\\/script").replace(/<!--/g, "<\\!--");
+const removeClosingScriptsInJSON = function(data) {
+    return data.replace(/<\/script/g, "<\\/script").replace(/<!--/g, "<\\!--");
 };
 
 const atdiffJS = fs.readFileSync(path.join(__dirname, "..", "..", "build", "ui", "browser", "at-diff.js"), "utf-8");
 
-module.exports = function (data) {
+module.exports = function (output) {
     const mode = process.env.NODE_ENV !== "development" ? "production" : "development";
     const setMode = mode === "development" ? "\n<script>window.development = true;</script>" : "";
     return `<!DOCTYPE html>
@@ -38,7 +38,7 @@ module.exports = function (data) {
     </head>
     <body>
         <atdiff-app></atdiff-app>
-        <script id="atdiff-data">var atdiffData=${safeStringify(data)};</script>
+        <script id="atdiff-data">var atdiffData=${removeClosingScriptsInJSON(output)};</script>
         <script>${atdiffJS}</script>
     </body>
 </html>`;

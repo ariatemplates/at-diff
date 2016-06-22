@@ -1,0 +1,1021 @@
+{
+ "changes": [
+ ],
+ "impacts": [
+  "y/IndirectlyUsesRemovedClass.js|UnusableFile",
+  "y/OverridesParent.tml|OverriddenParentMemberAdded|this.macro_myMacroToBeAdded",
+  "y/OverridesParent.tml|OverriddenParentMemberImplementationChanged|this.macro_myMacroToChangeImplementation",
+  "y/OverridesParent.tml|OverriddenParentMemberRemoved|this.macro_myMacroToBeRemoved",
+  "y/OverridesParent.tml|OverriddenParentMemberSignatureChanged|this.macro_myMacroToChangeSignature",
+  "y/UsesMacroLibWithMemberRemoved1.tpl|MemberRemoved|this.myMacroLib.macro_myMacro2",
+  "y/UsesMacroLibWithMemberRemoved2.tpl|MemberRemoved|this.myMacroLib.macro_myMacro2",
+  "y/UsesMacroLibWithMemberRemoved2.tpl|RemovedMemberStillUsed|this.macro_main",
+  "y/UsesRemovedClass.js|UnusableFile",
+  "y/changingMacroLib/ExtendsMacroLibUser.tml|MemberAdded|this.myMacroLib.$MacroLib2",
+  "y/changingMacroLib/ExtendsMacroLibUser.tml|MemberImplementationChanged|this.myMacroLib",
+  "y/changingMacroLib/ExtendsMacroLibUser.tml|MemberImplementationChanged|this.myMacroLib.macro_myChildMacro",
+  "y/changingMacroLib/ExtendsMacroLibUser.tml|MemberRemoved|this.myMacroLib.$MacroLib1",
+  "y/changingMacroLib/UsesMacroLibUser.tpl|MemberAdded|this.mLib.myMacroLib.$MacroLib2",
+  "y/changingMacroLib/UsesMacroLibUser.tpl|MemberImplementationChanged|this.mLib.myMacroLib",
+  "y/changingMacroLib/UsesMacroLibUser.tpl|MemberImplementationChanged|this.mLib.myMacroLib.macro_myChildMacro",
+  "y/changingMacroLib/UsesMacroLibUser.tpl|MemberRemoved|this.mLib.myMacroLib.$MacroLib1",
+  "y/overridesParentDependency/ChildTemplate.tpl|OverriddenParentDependencyMemberAdded|this.myMacroLib.macro_myMacroToBeAdded",
+  "y/overridesParentDependency/ChildTemplate.tpl|OverriddenParentDependencyMemberImplementationChanged|this.myMacroLib.macro_myMacroToChangeImplementation",
+  "y/overridesParentDependency/ChildTemplate.tpl|OverriddenParentDependencyMemberRemoved|this.myMacroLib.macro_myMacroToBeRemoved",
+  "y/overridesParentDependency/ChildTemplate.tpl|OverriddenParentDependencyMemberSignatureChanged|this.myMacroLib.macro_myMacroToChangeSignature",
+  "y/overridesParentDependency/ParentTemplate.tpl|MemberAdded|this.myMacroLib.macro_myMacroToBeAdded",
+  "y/overridesParentDependency/ParentTemplate.tpl|MemberImplementationChanged|this.myMacroLib.macro_myMacroToChangeImplementation",
+  "y/overridesParentDependency/ParentTemplate.tpl|MemberRemoved|this.myMacroLib.macro_myMacroToBeRemoved",
+  "y/overridesParentDependency/ParentTemplate.tpl|MemberSignatureChanged|this.myMacroLib.macro_myMacroToChangeSignature"
+ ],
+ "objects": {
+  "x/ClassToBeRemoved.js|FileRemoved": {
+   "config": {
+    "modifiedFile": "x/ClassToBeRemoved.js"
+   },
+   "type": "FileRemoved"
+  },
+  "x/ClassToBeRemoved.js|UnusableFile": {
+   "causes": [
+    "x/ClassToBeRemoved.js|FileRemoved"
+   ],
+   "config": {
+    "impactedFile": "x/ClassToBeRemoved.js"
+   },
+   "type": "UnusableFile"
+  },
+  "x/FourMemberImpacts.tml|MemberAdded|this.macro_myMacroToBeAdded": {
+   "causes": [
+    "x/FourMemberImpacts.tml|MemberChange|this.macro_myMacroToBeAdded"
+   ],
+   "config": {
+    "impactedFile": "x/FourMemberImpacts.tml",
+    "member2": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "5d5ee406edb1f53335b397ab45f94161df50071b9c2fa68ad7d0c2b591d085d2",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.macro_myMacroToBeAdded"
+   },
+   "type": "MemberAdded"
+  },
+  "x/FourMemberImpacts.tml|MemberChange|this.macro_myMacroToBeAdded": {
+   "config": {
+    "member1": null,
+    "member2": {
+     "args": [
+     ],
+     "hash": "5d5ee406edb1f53335b397ab45f94161df50071b9c2fa68ad7d0c2b591d085d2",
+     "type": "macro"
+    },
+    "memberName": "this.macro_myMacroToBeAdded",
+    "modifiedFile": "x/FourMemberImpacts.tml"
+   },
+   "type": "MemberChange"
+  },
+  "x/FourMemberImpacts.tml|MemberChange|this.macro_myMacroToBeRemoved": {
+   "config": {
+    "member1": {
+     "args": [
+     ],
+     "hash": "10c6bfee9a2d7d180bedd545d704c97925cbfda9b1ef880d1017006c501c21a0",
+     "type": "macro"
+    },
+    "member2": null,
+    "memberName": "this.macro_myMacroToBeRemoved",
+    "modifiedFile": "x/FourMemberImpacts.tml"
+   },
+   "type": "MemberChange"
+  },
+  "x/FourMemberImpacts.tml|MemberChange|this.macro_myMacroToChangeImplementation": {
+   "config": {
+    "member1": {
+     "args": [
+     ],
+     "hash": "6d2636b8946062fe3c7398a6a116033f52d8bbf7fc3e14287f2a6e02262fa748",
+     "type": "macro"
+    },
+    "member2": {
+     "args": [
+     ],
+     "hash": "6e60522da309667d50f3c26e28fc43812219f445a8597a06fc64e6725bd9b95e",
+     "type": "macro"
+    },
+    "memberName": "this.macro_myMacroToChangeImplementation",
+    "modifiedFile": "x/FourMemberImpacts.tml"
+   },
+   "type": "MemberChange"
+  },
+  "x/FourMemberImpacts.tml|MemberChange|this.macro_myMacroToChangeSignature": {
+   "config": {
+    "member1": {
+     "args": [
+      "myParam"
+     ],
+     "hash": "fe984a746e0920bd3f6fe1a719670a137112357ea5fbeda8d6f8c55de9b49d3c",
+     "type": "macro"
+    },
+    "member2": {
+     "args": [
+     ],
+     "hash": "9287a229038543d2e788bde677537b106706c4a3820e15a462cd3abc3dafe6e0",
+     "type": "macro"
+    },
+    "memberName": "this.macro_myMacroToChangeSignature",
+    "modifiedFile": "x/FourMemberImpacts.tml"
+   },
+   "type": "MemberChange"
+  },
+  "x/FourMemberImpacts.tml|MemberImplementationChanged|this.macro_myMacroToChangeImplementation": {
+   "causes": [
+    "x/FourMemberImpacts.tml|MemberChange|this.macro_myMacroToChangeImplementation"
+   ],
+   "config": {
+    "impactedFile": "x/FourMemberImpacts.tml",
+    "member1": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "6d2636b8946062fe3c7398a6a116033f52d8bbf7fc3e14287f2a6e02262fa748",
+      "type": "macro"
+     }
+    },
+    "member2": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "6e60522da309667d50f3c26e28fc43812219f445a8597a06fc64e6725bd9b95e",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.macro_myMacroToChangeImplementation"
+   },
+   "type": "MemberImplementationChanged"
+  },
+  "x/FourMemberImpacts.tml|MemberRemoved|this.macro_myMacroToBeRemoved": {
+   "causes": [
+    "x/FourMemberImpacts.tml|MemberChange|this.macro_myMacroToBeRemoved"
+   ],
+   "config": {
+    "impactedFile": "x/FourMemberImpacts.tml",
+    "member1": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "10c6bfee9a2d7d180bedd545d704c97925cbfda9b1ef880d1017006c501c21a0",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.macro_myMacroToBeRemoved"
+   },
+   "type": "MemberRemoved"
+  },
+  "x/FourMemberImpacts.tml|MemberSignatureChanged|this.macro_myMacroToChangeSignature": {
+   "causes": [
+    "x/FourMemberImpacts.tml|MemberChange|this.macro_myMacroToChangeSignature"
+   ],
+   "config": {
+    "impactedFile": "x/FourMemberImpacts.tml",
+    "member1": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+       "myParam"
+      ],
+      "hash": "fe984a746e0920bd3f6fe1a719670a137112357ea5fbeda8d6f8c55de9b49d3c",
+      "type": "macro"
+     }
+    },
+    "member2": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "9287a229038543d2e788bde677537b106706c4a3820e15a462cd3abc3dafe6e0",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.macro_myMacroToChangeSignature"
+   },
+   "type": "MemberSignatureChanged"
+  },
+  "x/MacroLibWithMemberRemoved.tml|MemberChange|this.macro_myMacro2": {
+   "config": {
+    "member1": {
+     "args": [
+     ],
+     "hash": "7f7a04338f76df8db5cb3076d2a9aa442256d4d968c61df0cee7adc2a2a294e8",
+     "type": "macro"
+    },
+    "member2": null,
+    "memberName": "this.macro_myMacro2",
+    "modifiedFile": "x/MacroLibWithMemberRemoved.tml"
+   },
+   "type": "MemberChange"
+  },
+  "x/MacroLibWithMemberRemoved.tml|MemberRemoved|this.macro_myMacro2": {
+   "causes": [
+    "x/MacroLibWithMemberRemoved.tml|MemberChange|this.macro_myMacro2"
+   ],
+   "config": {
+    "impactedFile": "x/MacroLibWithMemberRemoved.tml",
+    "member1": {
+     "filePath": "x/MacroLibWithMemberRemoved.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "7f7a04338f76df8db5cb3076d2a9aa442256d4d968c61df0cee7adc2a2a294e8",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.macro_myMacro2"
+   },
+   "type": "MemberRemoved"
+  },
+  "x/changingMacroLib/MacroLibUser.tml|MemberAdded|this.myMacroLib.$MacroLib2": {
+   "causes": [
+    "x/changingMacroLib/MacroLibUser.tml|MemberImplementationChanged|this.myMacroLib"
+   ],
+   "config": {
+    "impactedFile": "x/changingMacroLib/MacroLibUser.tml",
+    "member1": null,
+    "member2": {
+     "filePath": "x/changingMacroLib/MacroLib2.tml",
+     "member": {
+      "type": "class"
+     }
+    },
+    "memberName": "this.myMacroLib.$MacroLib2"
+   },
+   "type": "MemberAdded"
+  },
+  "x/changingMacroLib/MacroLibUser.tml|MemberChange|this.myMacroLib": {
+   "config": {
+    "member1": {
+     "hash": "daad1cf95ec88613b029421d07b345b2be0c3af3d833799d29f64536b7691b7e",
+     "path": "x/changingMacroLib/MacroLib1.tml",
+     "type": "lib"
+    },
+    "member2": {
+     "hash": "a85d00e45788a9d4bdb7b9784127d1da02997780c3681fd3d1b9e98f1cae74b8",
+     "path": "x/changingMacroLib/MacroLib2.tml",
+     "type": "lib"
+    },
+    "memberName": "this.myMacroLib",
+    "modifiedFile": "x/changingMacroLib/MacroLibUser.tml"
+   },
+   "type": "MemberChange"
+  },
+  "x/changingMacroLib/MacroLibUser.tml|MemberImplementationChanged|this.myMacroLib": {
+   "causes": [
+    "x/changingMacroLib/MacroLibUser.tml|MemberChange|this.myMacroLib"
+   ],
+   "config": {
+    "impactedFile": "x/changingMacroLib/MacroLibUser.tml",
+    "member1": {
+     "filePath": "x/changingMacroLib/MacroLibUser.tml",
+     "member": {
+      "hash": "daad1cf95ec88613b029421d07b345b2be0c3af3d833799d29f64536b7691b7e",
+      "path": "x/changingMacroLib/MacroLib1.tml",
+      "type": "lib"
+     }
+    },
+    "member2": {
+     "filePath": "x/changingMacroLib/MacroLibUser.tml",
+     "member": {
+      "hash": "a85d00e45788a9d4bdb7b9784127d1da02997780c3681fd3d1b9e98f1cae74b8",
+      "path": "x/changingMacroLib/MacroLib2.tml",
+      "type": "lib"
+     }
+    },
+    "memberName": "this.myMacroLib"
+   },
+   "type": "MemberImplementationChanged"
+  },
+  "x/changingMacroLib/MacroLibUser.tml|MemberImplementationChanged|this.myMacroLib.macro_myChildMacro": {
+   "causes": [
+    "x/changingMacroLib/MacroLibUser.tml|MemberImplementationChanged|this.myMacroLib"
+   ],
+   "config": {
+    "impactedFile": "x/changingMacroLib/MacroLibUser.tml",
+    "member1": {
+     "filePath": "x/changingMacroLib/MacroLib1.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "4c1802697c679a7e38075e83ee45ac488eefa0bc4b221d52990a3be7116a5e23",
+      "type": "macro"
+     }
+    },
+    "member2": {
+     "filePath": "x/changingMacroLib/MacroLib2.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "368619a5209b59995275187de21a71ef3be46732d71a92e2b694ae2270d151fa",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.myMacroLib.macro_myChildMacro"
+   },
+   "type": "MemberImplementationChanged"
+  },
+  "x/changingMacroLib/MacroLibUser.tml|MemberRemoved|this.myMacroLib.$MacroLib1": {
+   "causes": [
+    "x/changingMacroLib/MacroLibUser.tml|MemberImplementationChanged|this.myMacroLib"
+   ],
+   "config": {
+    "impactedFile": "x/changingMacroLib/MacroLibUser.tml",
+    "member1": {
+     "filePath": "x/changingMacroLib/MacroLib1.tml",
+     "member": {
+      "type": "class"
+     }
+    },
+    "member2": null,
+    "memberName": "this.myMacroLib.$MacroLib1"
+   },
+   "type": "MemberRemoved"
+  },
+  "y/IndirectlyUsesRemovedClass.js|UnusableFile": {
+   "causes": [
+    "y/UsesRemovedClass.js|UnusableFile"
+   ],
+   "config": {
+    "impactedFile": "y/IndirectlyUsesRemovedClass.js"
+   },
+   "type": "UnusableFile"
+  },
+  "y/OverridesParent.tml|OverriddenParentMemberAdded|this.macro_myMacroToBeAdded": {
+   "causes": [
+    "x/FourMemberImpacts.tml|MemberAdded|this.macro_myMacroToBeAdded"
+   ],
+   "config": {
+    "impactedFile": "y/OverridesParent.tml",
+    "member2": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "5d5ee406edb1f53335b397ab45f94161df50071b9c2fa68ad7d0c2b591d085d2",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.macro_myMacroToBeAdded",
+    "overridingMember1": {
+     "filePath": "y/OverridesParent.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "08ea2ea83af58dce3932b06b66b08ca155b3f4a7294f4ae438f6892b9581cefd",
+      "type": "macro"
+     }
+    },
+    "overridingMember2": {
+     "filePath": "y/OverridesParent.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "08ea2ea83af58dce3932b06b66b08ca155b3f4a7294f4ae438f6892b9581cefd",
+      "type": "macro"
+     }
+    }
+   },
+   "type": "OverriddenParentMemberAdded"
+  },
+  "y/OverridesParent.tml|OverriddenParentMemberImplementationChanged|this.macro_myMacroToChangeImplementation": {
+   "causes": [
+    "x/FourMemberImpacts.tml|MemberImplementationChanged|this.macro_myMacroToChangeImplementation"
+   ],
+   "config": {
+    "impactedFile": "y/OverridesParent.tml",
+    "member1": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "6d2636b8946062fe3c7398a6a116033f52d8bbf7fc3e14287f2a6e02262fa748",
+      "type": "macro"
+     }
+    },
+    "member2": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "6e60522da309667d50f3c26e28fc43812219f445a8597a06fc64e6725bd9b95e",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.macro_myMacroToChangeImplementation",
+    "overridingMember1": {
+     "filePath": "y/OverridesParent.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "13c8c62629d6492615a2494d2f4b4bbc14d004ee2e571c8fd2d97e2920617a65",
+      "type": "macro"
+     }
+    },
+    "overridingMember2": {
+     "filePath": "y/OverridesParent.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "13c8c62629d6492615a2494d2f4b4bbc14d004ee2e571c8fd2d97e2920617a65",
+      "type": "macro"
+     }
+    }
+   },
+   "type": "OverriddenParentMemberImplementationChanged"
+  },
+  "y/OverridesParent.tml|OverriddenParentMemberRemoved|this.macro_myMacroToBeRemoved": {
+   "causes": [
+    "x/FourMemberImpacts.tml|MemberRemoved|this.macro_myMacroToBeRemoved"
+   ],
+   "config": {
+    "impactedFile": "y/OverridesParent.tml",
+    "member1": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "10c6bfee9a2d7d180bedd545d704c97925cbfda9b1ef880d1017006c501c21a0",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.macro_myMacroToBeRemoved",
+    "overridingMember1": {
+     "filePath": "y/OverridesParent.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "e8f8f602ae1a59b521bf49c0dac05cde0a56f23d675d2dcd9aff065297532c5c",
+      "type": "macro"
+     }
+    },
+    "overridingMember2": {
+     "filePath": "y/OverridesParent.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "e8f8f602ae1a59b521bf49c0dac05cde0a56f23d675d2dcd9aff065297532c5c",
+      "type": "macro"
+     }
+    }
+   },
+   "type": "OverriddenParentMemberRemoved"
+  },
+  "y/OverridesParent.tml|OverriddenParentMemberSignatureChanged|this.macro_myMacroToChangeSignature": {
+   "causes": [
+    "x/FourMemberImpacts.tml|MemberSignatureChanged|this.macro_myMacroToChangeSignature"
+   ],
+   "config": {
+    "impactedFile": "y/OverridesParent.tml",
+    "member1": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+       "myParam"
+      ],
+      "hash": "fe984a746e0920bd3f6fe1a719670a137112357ea5fbeda8d6f8c55de9b49d3c",
+      "type": "macro"
+     }
+    },
+    "member2": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "9287a229038543d2e788bde677537b106706c4a3820e15a462cd3abc3dafe6e0",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.macro_myMacroToChangeSignature",
+    "overridingMember1": {
+     "filePath": "y/OverridesParent.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "0ac26edf2b13d45d9289972bc4514ef796af7359a68ade6ccba4277e17ce9d2c",
+      "type": "macro"
+     }
+    },
+    "overridingMember2": {
+     "filePath": "y/OverridesParent.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "0ac26edf2b13d45d9289972bc4514ef796af7359a68ade6ccba4277e17ce9d2c",
+      "type": "macro"
+     }
+    }
+   },
+   "type": "OverriddenParentMemberSignatureChanged"
+  },
+  "y/UsesMacroLibWithMemberRemoved1.tpl|MemberRemoved|this.myMacroLib.macro_myMacro2": {
+   "causes": [
+    "x/MacroLibWithMemberRemoved.tml|MemberRemoved|this.macro_myMacro2"
+   ],
+   "config": {
+    "impactedFile": "y/UsesMacroLibWithMemberRemoved1.tpl",
+    "member1": {
+     "filePath": "x/MacroLibWithMemberRemoved.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "7f7a04338f76df8db5cb3076d2a9aa442256d4d968c61df0cee7adc2a2a294e8",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.myMacroLib.macro_myMacro2"
+   },
+   "type": "MemberRemoved"
+  },
+  "y/UsesMacroLibWithMemberRemoved2.tpl|MemberRemoved|this.myMacroLib.macro_myMacro2": {
+   "causes": [
+    "x/MacroLibWithMemberRemoved.tml|MemberRemoved|this.macro_myMacro2"
+   ],
+   "config": {
+    "impactedFile": "y/UsesMacroLibWithMemberRemoved2.tpl",
+    "member1": {
+     "filePath": "x/MacroLibWithMemberRemoved.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "7f7a04338f76df8db5cb3076d2a9aa442256d4d968c61df0cee7adc2a2a294e8",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.myMacroLib.macro_myMacro2"
+   },
+   "type": "MemberRemoved"
+  },
+  "y/UsesMacroLibWithMemberRemoved2.tpl|RemovedMemberStillUsed|this.macro_main": {
+   "causes": [
+    "y/UsesMacroLibWithMemberRemoved2.tpl|MemberRemoved|this.myMacroLib.macro_myMacro2"
+   ],
+   "config": {
+    "impactedFile": "y/UsesMacroLibWithMemberRemoved2.tpl",
+    "memberName": "this.macro_main"
+   },
+   "type": "RemovedMemberStillUsed"
+  },
+  "y/UsesRemovedClass.js|UnusableFile": {
+   "causes": [
+    "x/ClassToBeRemoved.js|UnusableFile"
+   ],
+   "config": {
+    "impactedFile": "y/UsesRemovedClass.js"
+   },
+   "type": "UnusableFile"
+  },
+  "y/changingMacroLib/ExtendsMacroLibUser.tml|MemberAdded|this.myMacroLib.$MacroLib2": {
+   "causes": [
+    "x/changingMacroLib/MacroLibUser.tml|MemberAdded|this.myMacroLib.$MacroLib2"
+   ],
+   "config": {
+    "impactedFile": "y/changingMacroLib/ExtendsMacroLibUser.tml",
+    "member1": null,
+    "member2": {
+     "filePath": "x/changingMacroLib/MacroLib2.tml",
+     "member": {
+      "type": "class"
+     }
+    },
+    "memberName": "this.myMacroLib.$MacroLib2"
+   },
+   "type": "MemberAdded"
+  },
+  "y/changingMacroLib/ExtendsMacroLibUser.tml|MemberImplementationChanged|this.myMacroLib": {
+   "causes": [
+    "x/changingMacroLib/MacroLibUser.tml|MemberImplementationChanged|this.myMacroLib"
+   ],
+   "config": {
+    "impactedFile": "y/changingMacroLib/ExtendsMacroLibUser.tml",
+    "member1": {
+     "filePath": "x/changingMacroLib/MacroLibUser.tml",
+     "member": {
+      "hash": "daad1cf95ec88613b029421d07b345b2be0c3af3d833799d29f64536b7691b7e",
+      "path": "x/changingMacroLib/MacroLib1.tml",
+      "type": "lib"
+     }
+    },
+    "member2": {
+     "filePath": "x/changingMacroLib/MacroLibUser.tml",
+     "member": {
+      "hash": "a85d00e45788a9d4bdb7b9784127d1da02997780c3681fd3d1b9e98f1cae74b8",
+      "path": "x/changingMacroLib/MacroLib2.tml",
+      "type": "lib"
+     }
+    },
+    "memberName": "this.myMacroLib"
+   },
+   "type": "MemberImplementationChanged"
+  },
+  "y/changingMacroLib/ExtendsMacroLibUser.tml|MemberImplementationChanged|this.myMacroLib.macro_myChildMacro": {
+   "causes": [
+    "x/changingMacroLib/MacroLibUser.tml|MemberImplementationChanged|this.myMacroLib.macro_myChildMacro"
+   ],
+   "config": {
+    "impactedFile": "y/changingMacroLib/ExtendsMacroLibUser.tml",
+    "member1": {
+     "filePath": "x/changingMacroLib/MacroLib1.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "4c1802697c679a7e38075e83ee45ac488eefa0bc4b221d52990a3be7116a5e23",
+      "type": "macro"
+     }
+    },
+    "member2": {
+     "filePath": "x/changingMacroLib/MacroLib2.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "368619a5209b59995275187de21a71ef3be46732d71a92e2b694ae2270d151fa",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.myMacroLib.macro_myChildMacro"
+   },
+   "type": "MemberImplementationChanged"
+  },
+  "y/changingMacroLib/ExtendsMacroLibUser.tml|MemberRemoved|this.myMacroLib.$MacroLib1": {
+   "causes": [
+    "x/changingMacroLib/MacroLibUser.tml|MemberRemoved|this.myMacroLib.$MacroLib1"
+   ],
+   "config": {
+    "impactedFile": "y/changingMacroLib/ExtendsMacroLibUser.tml",
+    "member1": {
+     "filePath": "x/changingMacroLib/MacroLib1.tml",
+     "member": {
+      "type": "class"
+     }
+    },
+    "member2": null,
+    "memberName": "this.myMacroLib.$MacroLib1"
+   },
+   "type": "MemberRemoved"
+  },
+  "y/changingMacroLib/UsesMacroLibUser.tpl|MemberAdded|this.mLib.myMacroLib.$MacroLib2": {
+   "causes": [
+    "x/changingMacroLib/MacroLibUser.tml|MemberAdded|this.myMacroLib.$MacroLib2"
+   ],
+   "config": {
+    "impactedFile": "y/changingMacroLib/UsesMacroLibUser.tpl",
+    "member1": null,
+    "member2": {
+     "filePath": "x/changingMacroLib/MacroLib2.tml",
+     "member": {
+      "type": "class"
+     }
+    },
+    "memberName": "this.mLib.myMacroLib.$MacroLib2"
+   },
+   "type": "MemberAdded"
+  },
+  "y/changingMacroLib/UsesMacroLibUser.tpl|MemberImplementationChanged|this.mLib.myMacroLib": {
+   "causes": [
+    "x/changingMacroLib/MacroLibUser.tml|MemberImplementationChanged|this.myMacroLib"
+   ],
+   "config": {
+    "impactedFile": "y/changingMacroLib/UsesMacroLibUser.tpl",
+    "member1": {
+     "filePath": "x/changingMacroLib/MacroLibUser.tml",
+     "member": {
+      "hash": "daad1cf95ec88613b029421d07b345b2be0c3af3d833799d29f64536b7691b7e",
+      "path": "x/changingMacroLib/MacroLib1.tml",
+      "type": "lib"
+     }
+    },
+    "member2": {
+     "filePath": "x/changingMacroLib/MacroLibUser.tml",
+     "member": {
+      "hash": "a85d00e45788a9d4bdb7b9784127d1da02997780c3681fd3d1b9e98f1cae74b8",
+      "path": "x/changingMacroLib/MacroLib2.tml",
+      "type": "lib"
+     }
+    },
+    "memberName": "this.mLib.myMacroLib"
+   },
+   "type": "MemberImplementationChanged"
+  },
+  "y/changingMacroLib/UsesMacroLibUser.tpl|MemberImplementationChanged|this.mLib.myMacroLib.macro_myChildMacro": {
+   "causes": [
+    "x/changingMacroLib/MacroLibUser.tml|MemberImplementationChanged|this.myMacroLib.macro_myChildMacro"
+   ],
+   "config": {
+    "impactedFile": "y/changingMacroLib/UsesMacroLibUser.tpl",
+    "member1": {
+     "filePath": "x/changingMacroLib/MacroLib1.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "4c1802697c679a7e38075e83ee45ac488eefa0bc4b221d52990a3be7116a5e23",
+      "type": "macro"
+     }
+    },
+    "member2": {
+     "filePath": "x/changingMacroLib/MacroLib2.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "368619a5209b59995275187de21a71ef3be46732d71a92e2b694ae2270d151fa",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.mLib.myMacroLib.macro_myChildMacro"
+   },
+   "type": "MemberImplementationChanged"
+  },
+  "y/changingMacroLib/UsesMacroLibUser.tpl|MemberRemoved|this.mLib.myMacroLib.$MacroLib1": {
+   "causes": [
+    "x/changingMacroLib/MacroLibUser.tml|MemberRemoved|this.myMacroLib.$MacroLib1"
+   ],
+   "config": {
+    "impactedFile": "y/changingMacroLib/UsesMacroLibUser.tpl",
+    "member1": {
+     "filePath": "x/changingMacroLib/MacroLib1.tml",
+     "member": {
+      "type": "class"
+     }
+    },
+    "member2": null,
+    "memberName": "this.mLib.myMacroLib.$MacroLib1"
+   },
+   "type": "MemberRemoved"
+  },
+  "y/overridesParentDependency/ChildTemplate.tpl|OverriddenParentDependencyMemberAdded|this.myMacroLib.macro_myMacroToBeAdded": {
+   "causes": [
+    "y/overridesParentDependency/ParentTemplate.tpl|MemberAdded|this.myMacroLib.macro_myMacroToBeAdded"
+   ],
+   "config": {
+    "impactedFile": "y/overridesParentDependency/ChildTemplate.tpl",
+    "member2": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "5d5ee406edb1f53335b397ab45f94161df50071b9c2fa68ad7d0c2b591d085d2",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.myMacroLib.macro_myMacroToBeAdded",
+    "overridingMember1": {
+     "filePath": "y/overridesParentDependency/ChildTemplate.tpl",
+     "member": {
+      "hash": "98702757ee08e270d22367b418004c4110689be1c5ae90981054455ef051f2ab",
+      "path": "y/overridesParentDependency/OverridingLibrary.tml",
+      "type": "lib"
+     }
+    },
+    "overridingMember1Name": "this.myMacroLib",
+    "overridingMember2": {
+     "filePath": "y/overridesParentDependency/ChildTemplate.tpl",
+     "member": {
+      "hash": "98702757ee08e270d22367b418004c4110689be1c5ae90981054455ef051f2ab",
+      "path": "y/overridesParentDependency/OverridingLibrary.tml",
+      "type": "lib"
+     }
+    },
+    "overridingMember2Name": "this.myMacroLib"
+   },
+   "type": "OverriddenParentDependencyMemberAdded"
+  },
+  "y/overridesParentDependency/ChildTemplate.tpl|OverriddenParentDependencyMemberImplementationChanged|this.myMacroLib.macro_myMacroToChangeImplementation": {
+   "causes": [
+    "y/overridesParentDependency/ParentTemplate.tpl|MemberImplementationChanged|this.myMacroLib.macro_myMacroToChangeImplementation"
+   ],
+   "config": {
+    "impactedFile": "y/overridesParentDependency/ChildTemplate.tpl",
+    "member1": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "6d2636b8946062fe3c7398a6a116033f52d8bbf7fc3e14287f2a6e02262fa748",
+      "type": "macro"
+     }
+    },
+    "member2": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "6e60522da309667d50f3c26e28fc43812219f445a8597a06fc64e6725bd9b95e",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.myMacroLib.macro_myMacroToChangeImplementation",
+    "overridingMember1": {
+     "filePath": "y/overridesParentDependency/ChildTemplate.tpl",
+     "member": {
+      "hash": "98702757ee08e270d22367b418004c4110689be1c5ae90981054455ef051f2ab",
+      "path": "y/overridesParentDependency/OverridingLibrary.tml",
+      "type": "lib"
+     }
+    },
+    "overridingMember1Name": "this.myMacroLib",
+    "overridingMember2": {
+     "filePath": "y/overridesParentDependency/ChildTemplate.tpl",
+     "member": {
+      "hash": "98702757ee08e270d22367b418004c4110689be1c5ae90981054455ef051f2ab",
+      "path": "y/overridesParentDependency/OverridingLibrary.tml",
+      "type": "lib"
+     }
+    },
+    "overridingMember2Name": "this.myMacroLib"
+   },
+   "type": "OverriddenParentDependencyMemberImplementationChanged"
+  },
+  "y/overridesParentDependency/ChildTemplate.tpl|OverriddenParentDependencyMemberRemoved|this.myMacroLib.macro_myMacroToBeRemoved": {
+   "causes": [
+    "y/overridesParentDependency/ParentTemplate.tpl|MemberRemoved|this.myMacroLib.macro_myMacroToBeRemoved"
+   ],
+   "config": {
+    "impactedFile": "y/overridesParentDependency/ChildTemplate.tpl",
+    "member1": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "10c6bfee9a2d7d180bedd545d704c97925cbfda9b1ef880d1017006c501c21a0",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.myMacroLib.macro_myMacroToBeRemoved",
+    "overridingMember1": {
+     "filePath": "y/overridesParentDependency/ChildTemplate.tpl",
+     "member": {
+      "hash": "98702757ee08e270d22367b418004c4110689be1c5ae90981054455ef051f2ab",
+      "path": "y/overridesParentDependency/OverridingLibrary.tml",
+      "type": "lib"
+     }
+    },
+    "overridingMember1Name": "this.myMacroLib",
+    "overridingMember2": {
+     "filePath": "y/overridesParentDependency/ChildTemplate.tpl",
+     "member": {
+      "hash": "98702757ee08e270d22367b418004c4110689be1c5ae90981054455ef051f2ab",
+      "path": "y/overridesParentDependency/OverridingLibrary.tml",
+      "type": "lib"
+     }
+    },
+    "overridingMember2Name": "this.myMacroLib"
+   },
+   "type": "OverriddenParentDependencyMemberRemoved"
+  },
+  "y/overridesParentDependency/ChildTemplate.tpl|OverriddenParentDependencyMemberSignatureChanged|this.myMacroLib.macro_myMacroToChangeSignature": {
+   "causes": [
+    "y/overridesParentDependency/ParentTemplate.tpl|MemberSignatureChanged|this.myMacroLib.macro_myMacroToChangeSignature"
+   ],
+   "config": {
+    "impactedFile": "y/overridesParentDependency/ChildTemplate.tpl",
+    "member1": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+       "myParam"
+      ],
+      "hash": "fe984a746e0920bd3f6fe1a719670a137112357ea5fbeda8d6f8c55de9b49d3c",
+      "type": "macro"
+     }
+    },
+    "member2": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "9287a229038543d2e788bde677537b106706c4a3820e15a462cd3abc3dafe6e0",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.myMacroLib.macro_myMacroToChangeSignature",
+    "overridingMember1": {
+     "filePath": "y/overridesParentDependency/ChildTemplate.tpl",
+     "member": {
+      "hash": "98702757ee08e270d22367b418004c4110689be1c5ae90981054455ef051f2ab",
+      "path": "y/overridesParentDependency/OverridingLibrary.tml",
+      "type": "lib"
+     }
+    },
+    "overridingMember1Name": "this.myMacroLib",
+    "overridingMember2": {
+     "filePath": "y/overridesParentDependency/ChildTemplate.tpl",
+     "member": {
+      "hash": "98702757ee08e270d22367b418004c4110689be1c5ae90981054455ef051f2ab",
+      "path": "y/overridesParentDependency/OverridingLibrary.tml",
+      "type": "lib"
+     }
+    },
+    "overridingMember2Name": "this.myMacroLib"
+   },
+   "type": "OverriddenParentDependencyMemberSignatureChanged"
+  },
+  "y/overridesParentDependency/ParentTemplate.tpl|MemberAdded|this.myMacroLib.macro_myMacroToBeAdded": {
+   "causes": [
+    "x/FourMemberImpacts.tml|MemberAdded|this.macro_myMacroToBeAdded"
+   ],
+   "config": {
+    "impactedFile": "y/overridesParentDependency/ParentTemplate.tpl",
+    "member2": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "5d5ee406edb1f53335b397ab45f94161df50071b9c2fa68ad7d0c2b591d085d2",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.myMacroLib.macro_myMacroToBeAdded"
+   },
+   "type": "MemberAdded"
+  },
+  "y/overridesParentDependency/ParentTemplate.tpl|MemberImplementationChanged|this.myMacroLib.macro_myMacroToChangeImplementation": {
+   "causes": [
+    "x/FourMemberImpacts.tml|MemberImplementationChanged|this.macro_myMacroToChangeImplementation"
+   ],
+   "config": {
+    "impactedFile": "y/overridesParentDependency/ParentTemplate.tpl",
+    "member1": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "6d2636b8946062fe3c7398a6a116033f52d8bbf7fc3e14287f2a6e02262fa748",
+      "type": "macro"
+     }
+    },
+    "member2": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "6e60522da309667d50f3c26e28fc43812219f445a8597a06fc64e6725bd9b95e",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.myMacroLib.macro_myMacroToChangeImplementation"
+   },
+   "type": "MemberImplementationChanged"
+  },
+  "y/overridesParentDependency/ParentTemplate.tpl|MemberRemoved|this.myMacroLib.macro_myMacroToBeRemoved": {
+   "causes": [
+    "x/FourMemberImpacts.tml|MemberRemoved|this.macro_myMacroToBeRemoved"
+   ],
+   "config": {
+    "impactedFile": "y/overridesParentDependency/ParentTemplate.tpl",
+    "member1": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "10c6bfee9a2d7d180bedd545d704c97925cbfda9b1ef880d1017006c501c21a0",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.myMacroLib.macro_myMacroToBeRemoved"
+   },
+   "type": "MemberRemoved"
+  },
+  "y/overridesParentDependency/ParentTemplate.tpl|MemberSignatureChanged|this.myMacroLib.macro_myMacroToChangeSignature": {
+   "causes": [
+    "x/FourMemberImpacts.tml|MemberSignatureChanged|this.macro_myMacroToChangeSignature"
+   ],
+   "config": {
+    "impactedFile": "y/overridesParentDependency/ParentTemplate.tpl",
+    "member1": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+       "myParam"
+      ],
+      "hash": "fe984a746e0920bd3f6fe1a719670a137112357ea5fbeda8d6f8c55de9b49d3c",
+      "type": "macro"
+     }
+    },
+    "member2": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "9287a229038543d2e788bde677537b106706c4a3820e15a462cd3abc3dafe6e0",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.myMacroLib.macro_myMacroToChangeSignature"
+   },
+   "type": "MemberSignatureChanged"
+  }
+ },
+ "type": "at-diff:diff-data",
+ "version": "0.1"
+}

@@ -34,6 +34,10 @@ class MemberChange extends baseChanges.abstractConstructors.Change {
         return this.config.memberName;
     }
 
+    getKey() {
+        return `${super.getKey()}|${this.getMemberName()}`;
+    }
+
     getMember1() {
         return this.config.member1;
     }
@@ -47,6 +51,10 @@ constructors.MemberChange = MemberChange;
 class MemberImpact extends baseChanges.abstractConstructors.Impact {
     getMemberName() {
         return this.config.memberName;
+    }
+
+    getKey() {
+        return `${super.getKey()}|${this.getMemberName()}`;
     }
 
     getMember1() {
@@ -74,6 +82,10 @@ constructors.MemberImplementationChanged = MemberImplementationChanged;
 class SpecialMemberImpact extends baseChanges.abstractConstructors.Impact {
     getMemberName() {
         return this.config.memberName;
+    }
+
+    getKey() {
+        return `${super.getKey()}|${this.getMemberName()}`;
     }
 
     isPropagatable() {

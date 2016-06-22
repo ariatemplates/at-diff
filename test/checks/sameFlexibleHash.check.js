@@ -15,7 +15,7 @@
 "use strict";
 
 const assert = require("assert");
-const changeConstructors = require("../../src/comparator/changes").defaultConstructors;
+const changeConstructors = require("../../src/comparator/changes");
 
 module.exports = function (results) {
     function checkSameFlexibleHash(fileName) {

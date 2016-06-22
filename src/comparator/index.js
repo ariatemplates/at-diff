@@ -16,7 +16,7 @@
 
 const BaseComparison = require("./types/base");
 const compareMaps = require("../utils/compareMaps");
-const changesMgr = require("./changes");
+const defaultChangeConstructors = require("./changes");
 const defaultComparisonConstructors = Object.assign(Object.create(null), {
     "template": require("./types/template"),
     "classDefinition": require("./types/classDefinition"),
@@ -24,6 +24,7 @@ const defaultComparisonConstructors = Object.assign(Object.create(null), {
 });
 const fileFormat = require("../fileFormat");
 const deserializeDiffData = require("./deserializeDiffData");
+const Serializer = require("./serializer");
 const reverseMap = require("../utils/reverseMap");
 
 function computeReverseDependencies(map) {
@@ -35,7 +36,8 @@ class Comparator {
     constructor (config) {
         config = config || {};
         this.comparisonConstructors = config.comparisonConstructors || defaultComparisonConstructors;
-        this.changeConstructors = config.changeConstructors || changesMgr.defaultConstructors;
+        this.changeConstructors = config.changeConstructors || defaultChangeConstructors;
+        this.deterministicOutput = !!config.deterministicOutput;
     }
 
     createFileComparison(filePath, version1, version2, getFileComparison) {
@@ -76,23 +78,27 @@ class Comparator {
 
     _postProcessFileComparisonsMap(fileComparisonsMap) {
         const result = fileFormat.createDiffData();
-        const objects = {};
+        const serializer = new Serializer({
+            deterministicOutput: this.deterministicOutput
+        });
         const changes = result.changes = [];
         const impacts = result.impacts = [];
         const addChange = (change) => {
-            change.store(objects);
-            changes.push(change.getId());
+            changes.push(serializer.store(change));
         };
         const addImpact = (impact) => {
-            impact.store(objects);
-            impacts.push(impact.getId());
+            impacts.push(serializer.store(impact));
         };
         Object.keys(fileComparisonsMap).forEach(filePath => {
             const curFile = fileComparisonsMap[filePath];
             curFile.getChanges().forEach(addChange);
             curFile.getImpacts().forEach(addImpact);
         });
-        result.objects = changesMgr.serialize(objects);
+        if (this.deterministicOutput) {
+            changes.sort();
+            impacts.sort();
+        }
+        result.objects = serializer.getSerializedData();
         return result;
     }
 

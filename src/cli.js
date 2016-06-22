@@ -25,6 +25,7 @@ const readJson = require("./readJson");
 const processOutput = require("./processOutput");
 const glob = promisify(require("glob"));
 const open = require("./utils/open");
+const reserializeDiffData = require("./comparator/reserializeDiffData");
 
 const globParseFiles = co.wrap(function * (extractor, pattern, options) {
     options = options || {};
@@ -47,13 +48,13 @@ const commands = {
     },
     * compare (config, file1, file2) {
         const data = yield Promise.all([file1, file2].map(fileName => readJson(fileName)));
-        const comparator = new Comparator();
+        const comparator = new Comparator(config);
         const diff = comparator.compareFiles(data[0], data[1]);
         yield processOutput(config, diff);
     },
     * evalimpacts (config, diffFile, filesMap) {
         const data = yield Promise.all([diffFile, filesMap].map(fileName => readJson(fileName)));
-        const comparator = new Comparator();
+        const comparator = new Comparator(config);
         const diff = comparator.evaluateImpacts(data[0], data[1]);
         yield processOutput(config, diff);
     },
@@ -63,7 +64,7 @@ const commands = {
             cwd: directory,
             ignore: config.ignore
         })));
-        const comparator = new Comparator();
+        const comparator = new Comparator(config);
         const diff = comparator.compareFiles(data[0], data[1]);
         yield processOutput(config, diff);
     },
@@ -73,19 +74,24 @@ const commands = {
             cwd: directory,
             ignore: config.ignore
         })]);
-        const comparator = new Comparator();
+        const comparator = new Comparator(config);
         const diff = comparator.evaluateImpacts(data[0], data[1]);
         yield processOutput(config, diff);
     },
     * reformat (config, diffFile) {
         const diff = yield readJson(diffFile);
         yield processOutput(config, diff);
+    },
+    * reserialize (config, diffFile) {
+        const diff = yield readJson(diffFile);
+        const reserialized = reserializeDiffData(config, diff);
+        yield processOutput(config, reserialized);
     }
 };
 
 module.exports = co.wrap(function * (argv) {
     const minimistConfig = minimist(argv, {
-        "boolean": ["help", "version", "json-beautify", "open", "console-output"]
+        "boolean": ["help", "version", "json-beautify", "open", "console-output", "deterministic-output"]
     });
     if (minimistConfig.help) {
         yield open("https://github.com/ariatemplates/at-diff/blob/master/README.md");

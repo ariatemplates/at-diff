@@ -14,12 +14,24 @@
  */
 "use strict";
 
-const defaultConstructors = module.exports =
-    Object.assign({},
-         require("./base").constructors,
-         require("./baseClass").constructors,
-         require("./template").constructors
-     );
+const defaultConstructors = require("./changes");
 
-// set the type property on each constructor:
-Object.keys(defaultConstructors).forEach(type => defaultConstructors[type].type = type);
+class Deserializer {
+    constructor(data, constructors) {
+        this._data = data;
+        this._constructors = constructors || defaultConstructors;
+        this._ids = Object.create(null);
+    }
+
+    restore(id) {
+        let obj = this._ids[id];
+        if (!obj) {
+            const storedData = this._data[id];
+            obj = this._ids[id] = new (this._constructors[storedData.type])(storedData.config);
+            obj.fromStoredData(this, storedData);
+        }
+        return obj;
+    }
+}
+
+module.exports = Deserializer;
