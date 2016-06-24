@@ -33,7 +33,7 @@ class BaseClassComparison extends BaseComparison {
         let res = this[`members${versionIndex}`];
         if (!res) {
             const filePath = this.filePath;
-            res = mapObject(this.getVersion(versionIndex).content.members, member => ({
+            res = this[`members${versionIndex}`] = mapObject(this.getVersion(versionIndex).content.members, member => ({
                 filePath: filePath,
                 member: member
             }));
