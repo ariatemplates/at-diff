@@ -120,7 +120,7 @@ class BaseComparison {
     }
 
     compareDifferentTypes() {
-        this.addChange(baseChanges.FileChangedType);
+        this.addUniqueImpact(baseChanges.UnknownImpact).addCause(this.addChange(baseChanges.FileChangedType));
     }
 
     compareSameType() {
