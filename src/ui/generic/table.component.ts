@@ -14,20 +14,19 @@
  */
 "use strict";
 
-import {Component, Directive, Input, ContentChild, TemplateRef} from 'angular2/core';
+import {Component, Directive, Input, ContentChild, TemplateRef} from '@angular/core';
 import {Dropdown, DropdownMenu} from './dropdown.component';
-import {Insert} from './insert.directive';
 
 @Directive({
     selector: '[atdiff-table-item]'
 })
 export class TableItem {
-    constructor(public template: TemplateRef) {}
+    constructor(public template: TemplateRef<any>) {}
 }
 
 @Component({
     selector: 'atdiff-table',
-    directives: [Insert, Dropdown, DropdownMenu],
+    directives: [Dropdown, DropdownMenu],
     template: `<div>
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -35,7 +34,7 @@ export class TableItem {
                     <span atdiff-dropdown>
                         <button type="button" class="btn btn-link btn-xs dropdown-toggle">{{maxItemsPerPage}} items/page <span class="caret"></span></button>
                         <template atdiff-dropdown-menu>
-                            <li *ngFor="#num of maxItemsPerPageOptions" (click)="clickItemsPerPage(num, $event)"><a href="#"><template [ngIf]="num !== maxItemsPerPage">{{num}}</template><strong *ngIf="num == maxItemsPerPage">{{num}}</strong></a></li>
+                            <li *ngFor="let num of maxItemsPerPageOptions" (click)="clickItemsPerPage(num, $event)"><a href="#"><template [ngIf]="num !== maxItemsPerPage">{{num}}</template><strong *ngIf="num == maxItemsPerPage">{{num}}</strong></a></li>
                         </template>
                     </span> <span class="badge">{{items.length}}</span>
                 </span>
@@ -44,13 +43,13 @@ export class TableItem {
             </div>
             <ng-content></ng-content>
             <ul class="list-group">
-                <li *ngFor="#item of curPageItems" class="list-group-item"><template [atdiff-insert]="tableItemTemplate" [data]="item">{{item}}</template></li>
+                <li *ngFor="let item of curPageItems" class="list-group-item"><template [ngTemplateOutlet]="tableItemTemplate" [ngOutletContext]="{$implicit:item}"></template></li>
             </ul>
         </div>
         <nav class="text-center">
             <ul class="pagination">
                 <li [class.disabled]="curPageIndex === 1" (click)="clickPage(curPageIndex - 1, $event)"><a href="#"><span>&laquo;</span></a></li>
-                <li *ngFor="#page of paginationItems" [class.active]="curPageIndex === page" (click)="clickPage(page, $event)" [class.disabled]="page === skipPages"><a href="#">{{page}}</a></li>
+                <li *ngFor="let page of paginationItems" [class.active]="curPageIndex === page" (click)="clickPage(page, $event)" [class.disabled]="page === skipPages"><a href="#">{{page}}</a></li>
                 <li [class.disabled]="curPageIndex === pagesCount" (click)="clickPage(curPageIndex + 1, $event)"><a href="#"><span>&raquo;</span></a></li>
             </ul>
         </nav>

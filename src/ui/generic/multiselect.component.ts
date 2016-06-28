@@ -14,7 +14,7 @@
  */
 "use strict";
 
-import {Component, Input, Output, EventEmitter} from 'angular2/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {Dropdown, DropdownMenu} from './dropdown.component';
 
 @Component({
@@ -29,7 +29,7 @@ import {Dropdown, DropdownMenu} from './dropdown.component';
                                 <li class="disabled" (click)="$event.preventDefault()"><a href="#">(No option)</a></li>
                             </template>
                             <template [ngIf]="options.length > 0">
-                                <li *ngFor="#opt of options" (click)="clickOption(opt, $event)"><a href="#"><span class="glyphicon" [class.glyphicon-unchecked]="!opt.selected" [class.glyphicon-check]="opt.selected"></span> {{ opt.name }} ({{ opt.count }})</a></li>
+                                <li *ngFor="let opt of options" (click)="clickOption(opt, $event)"><a href="#"><span class="glyphicon" [class.glyphicon-unchecked]="!opt.selected" [class.glyphicon-check]="opt.selected"></span> {{ opt.name }} ({{ opt.count }})</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li (click)="clickAll(true, $event)"><a href="#">Select all</a></li>
                                 <li (click)="clickAll(false, $event)"><a href="#">Unselect all</a></li>

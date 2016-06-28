@@ -14,7 +14,7 @@
  */
 "use strict";
 
-import {Component, Input} from 'angular2/core';
+import {Component, Input} from '@angular/core';
 import {Multiselect} from './generic/multiselect.component';
 import {Table, TableItem} from './generic/table.component';
 import {Dropdown, DropdownMenu} from './generic/dropdown.component';
@@ -38,7 +38,7 @@ import sortAndRemoveDuplicates = require('../utils/sortAndRemoveDuplicates');
                 <div class="col-md-3"><input class="form-control input-sm" [(ngModel)]="filterChangeModifiedFile" (ngModelChange)="updateChangesFiltering()"></div>
             </div>
         </div>
-        <template atdiff-table-item #change>
+        <template atdiff-table-item let-change>
             <div class="row">
                 <div class="col-md-3">{{change.getType()}}</div>
                 <div class="col-md-3">{{change.getMemberName ? change.getMemberName() : null}}</div>
@@ -62,7 +62,7 @@ import sortAndRemoveDuplicates = require('../utils/sortAndRemoveDuplicates');
                 <div class="col-md-3"><input class="form-control input-sm" [(ngModel)]="filterImpactModifiedFiles" (ngModelChange)="updateImpactsFiltering()"></div>
             </div>
         </div>
-        <template atdiff-table-item #impact>
+        <template atdiff-table-item let-impact>
             <div class="row">
                 <div class="col-md-3">{{impact.getType()}}</div>
                 <div class="col-md-3">{{impact.getMemberName ? impact.getMemberName() : null}}</div>

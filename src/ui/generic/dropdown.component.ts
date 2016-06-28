@@ -14,14 +14,13 @@
  */
 "use strict";
 
-import {Component, Directive, ContentChild, TemplateRef} from 'angular2/core';
-import {Insert} from './insert.directive';
+import {Component, Directive, ContentChild, TemplateRef} from '@angular/core';
 
 @Directive({
     selector: '[atdiff-dropdown-menu]'
 })
 export class DropdownMenu {
-    constructor(public template: TemplateRef) {}
+    constructor(public template: TemplateRef<any>) {}
 }
 
 @Component({
@@ -33,9 +32,8 @@ export class DropdownMenu {
     },
     template: `
 <ng-content></ng-content>
-<ul *ngIf="open" class="dropdown-menu" style="min-width:100%;"><template [atdiff-insert]="dropdownMenu.template"></template></ul>
-`,
-    directives: [Insert]
+<ul *ngIf="open" class="dropdown-menu" style="min-width:100%;"><template [ngTemplateOutlet]="dropdownMenu.template"></template></ul>
+`
 })
 export class Dropdown {
     @ContentChild(DropdownMenu) dropdownMenu: DropdownMenu;

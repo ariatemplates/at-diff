@@ -61,19 +61,14 @@ gulp.task("build", function(done) {
             }]
         },
         externals: {
-            "angular2/core": "var ng.core",
-            "angular2/platform/browser": "var ng.platform.browser"
+            "@angular/core": "var ng.core",
+            "@angular/platform-browser-dynamic": "var ng.platformBrowserDynamic"
         },
         plugins: [
             new webpack.optimize.UglifyJsPlugin({
-                mangle: {
-                    // There seems to be a bug in angular 2 when mangling function names
-                    keep_fnames: true
-                },
                 output: {
                     inline_script: true,
-                    ascii_only: true,
-                    beautify: true // currently needed for IE to work fine
+                    ascii_only: true
                 }
             })
         ]

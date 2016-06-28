@@ -14,7 +14,7 @@
  */
 "use strict";
 
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {ATDiffDataService} from './atdiffdata.service';
 import {DiffDisplay} from './diffdisplay.component';
 
