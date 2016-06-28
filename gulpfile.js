@@ -37,6 +37,10 @@ gulp.task("clean", function() {
     return rimraf(path.join(__dirname, "build"));
 });
 
+gulp.task("clean-doc", function() {
+    return rimraf(path.join(__dirname, "doc-output"));
+});
+
 gulp.task("build", function(done) {
     webpack({
         entry: [path.join(__dirname, "src/ui/atdiff.ts")],
@@ -74,3 +78,9 @@ gulp.task("build", function(done) {
         ]
     }).run(checkWebpackErrors(done));
 });
+
+gulp.task("build-doc-copy", function() {
+    return gulp.src(["doc/**/*", "!doc/*.md", "!doc/*.json", "!doc/*.html"]).pipe(gulp.dest("doc-output"));
+});
+
+gulp.task("build-doc", ["build-doc-copy"]);

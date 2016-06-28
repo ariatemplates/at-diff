@@ -110,27 +110,90 @@ class Impact extends Serializable {
 }
 abstractConstructors.Impact = Impact;
 
+/**
+ * A `SameFlexibleHashChange` change is generated on a file when the file only contains changes which do not affect its meaning.
+ * For example, reformatting the file or adding / removing comments will produce a SameFlexibleHashChange change if there is
+ * no other change in the file.
+ *
+ * This type of change does not cause any impact. It is only generated on Javascript files and Aria Templates templates. It cannot be generated on binary files.
+ * @atdiff-change
+ */
 class SameFlexibleHashChange extends Change {}
 constructors.SameFlexibleHashChange = SameFlexibleHashChange;
 
+/**
+ * A `FileAdded` change is generated for each new file.
+ *
+ * This type of change does not cause any impact.
+ * @atdiff-change
+ */
 class FileAdded extends Change {}
 constructors.FileAdded = FileAdded;
 
+/**
+ * A `FileRemoved` change is generated for each deleted file.
+ *
+ * This change causes the `UnusableFile` impact on the deleted file and any other file which depends on it.
+ * @atdiff-change
+ */
 class FileRemoved extends Change {}
 constructors.FileRemoved = FileRemoved;
 
+/**
+ * An `UnusableFile` impact is generated for each deleted file and for each file which directly
+ * or indirectly depends on the deleted files.
+ *
+ * @atdiff-impact
+ */
 class UnusableFile extends Impact {}
 constructors.UnusableFile = UnusableFile;
 
+/**
+ * An `UnknownChange` change is generated for each file which changed and for which no comparator is implemented.
+ * This includes all binary files, and also the Javascript files which do not contain an Aria Templates definition
+ * or which contain an Aria Templates definition for which support is limited (such as `Aria.resourcesDefinition`
+ * and `Aria.interfaceDefinition`).
+ *
+ * This change causes the `UnknownImpact` impact.
+ * @atdiff-change
+ */
 class UnknownChange extends Change {}
 constructors.UnknownChange = UnknownChange;
 
+/**
+ * A `FileChangedType` change is generated for each file whose type changed.
+ *
+ * Here are the different types:
+ *  * `classDefinition`
+ *  * `tplScriptDefinition`
+ *  * `beansDefinition`
+ *  * `interfaceDefinition`
+ *  * `resourcesDefinition`
+ *  * `js`
+ *  * `template`
+ *
+ * For example, removing the `Aria.classDefinition` definition from a Javascript file makes
+ * it pass from the `classDefinition` specific type to the `js` general type, which generates a
+ * `FileChangedType` change.
+ *
+ * A `FileChangedType` change causes the `UnknownImpact` impact.
+ * @atdiff-change
+ */
 class FileChangedType extends UnknownChange {}
 constructors.FileChangedType = FileChangedType;
 
+/**
+ * An `UnknownImpact` impact is generated on files for which an `UnknownChange` or a `FileChangedType` change has been generated.
+ * @atdiff-impact
+ */
 class UnknownImpact extends Impact {}
 constructors.UnknownImpact = UnknownImpact;
 
+/**
+ * An `ImpactsInDependency` impact is generated on files which have a dependency which has one or more impacts
+ * when the impact of those impacts on the dependent file is unknown.
+ * @atdiff-impact
+ */
 class ImpactsInDependency extends Impact {
     isPropagatable() {
         return false;

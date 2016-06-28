@@ -1,0 +1,13 @@
+{
+    "opts": {
+        "recurse": true,
+        "destination": "doc-output/",
+        "template": "doc-templates",
+        "tutorials": "doc"
+    },
+    "source": {
+        "include": "src/comparator/changes",
+        "includePattern": "\\.js$"
+    },
+    "plugins": ["plugins/markdown.js"]
+}

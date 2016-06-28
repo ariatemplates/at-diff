@@ -7,3 +7,9 @@ cache:
 before_install:
   - npm install -g npm@3
   - npm --version
+env:
+  global:
+    - secure: "W3VxnQU/3ADyI0dQzFyzJsGVNJkL3TvmuzVozZazyEu1tzdeoWZ7GEsN03U5a8tYxDHE845WG3MrLmvp9LKC7yj6jaBm6T6AU4fuzv+gJGnqSYwDs6XxfFfisHfa8SA2UV/rabsiS3gjRMYYn0mEPWQgCT3wOETW3ct86e5WzYHK7HXRVPZmCjvG2HLTbB3TGYTNkGw8m6PHAoPvYPgjvvdyoudvs2Qzg+z2SvVjVF3NNzNDaNsO4PxnBKua866L3yuOis/kft8NmYHoUoA5b6wT88M4QwsoxJThLZJlxhfzWDUE/ewzWTWJKjO3LAzCqzXWaK2xZrtw5gnsyBrnWg/HFPf92Sjxc0AV3U6HHzqrF/qeBAegvDmvsOEDmlIZWcWW7WaTp+h9PZRZeX6nSoktHpFVJVD8/F90EkwzlIuuo7NoM77wxKJTv6RiKgi5h0xRFxOG4IfnDi2jCThlw4NzXTwO5K+/3itWXJ6aKl5x7xB54ZPDctR1t3/9NfxY8zEpeGRka+bLTxWgeCzkZ6UqwsG8k+bsU3/VsOOTY8LKKOxPF5JiPEY63vD5IP3qHGAWJ7HZV+FNoU++I8kFvipsoD1n4pqNgyuWfzxUU4baO/kYb04ChSXF3Th+FBztiSfc1lTLRxpuEcaXTLfueSTlAh7rBLuHBkdHr2Cbnkk="
+after_success:
+  - chmod -R 777 ./ci-release.sh
+  - ./ci-release.sh

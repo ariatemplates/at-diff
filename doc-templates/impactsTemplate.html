@@ -1,0 +1,33 @@
+<%
+function display(items) {
+%>
+    <% items.forEach(item => { %>
+        <a id="<%= item.name %>" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3><%= item.name %></h3>
+
+        <%= item.classdesc %>
+    <% }); %>
+<%
+}
+%>
+
+<h1>Types of changes / impacts</h1>
+
+<p>at-diff produces a list of changes and a list of impacts. This page lists the possible types of changes and impacts produced by at-diff.</p>
+
+<p>Note that you should not rely only on at-diff to find possible breaking changes.
+at-diff does not replace tests. It cannot detect all breaking changes.</p>
+
+<h2>Changes</h2>
+
+<p>A change directly corresponds to a modification in a source file.</p>
+<p>Here are the types of changes that can be produced by at-diff:</p>
+
+<% display(changes) %>
+
+<h2>Impacts</h2>
+
+<p>An impact is a consequence of a change.</p>
+<p>Here are the types of impacts that can be produced by at-diff:</p>
+
+<% display(impacts) %>

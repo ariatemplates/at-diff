@@ -10,11 +10,12 @@
   "bin": "./bin/at-diff",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublish": "typings install && gulp clean && gulp build",
-    "lint": "eslint src test *.js",
+    "prepublish": "typings install && gulp clean && gulp build && npm run doc",
+    "lint": "eslint src test doc-templates *.js",
     "mocha": "mocha test",
     "test": "npm run lint && npm run mocha",
-    "typings": "typings"
+    "typings": "typings",
+    "doc": "gulp clean-doc && jsdoc -c doc-templates/conf.json && gulp build-doc"
   },
   "dependencies": {
     "ariatemplates": "1.7.19",
@@ -40,6 +41,10 @@
     "grunt": "^1.0.1",
     "gulp": "^3.9.1",
     "gulp-uglify": "^1.5.3",
+    "highlight.js": "^9.4.0",
+    "jsdoc": "^3.4.0",
+    "lodash": "^4.13.1",
+    "marked": "^0.3.5",
     "mocha": "^2.4.5",
     "rimraf": "^2.5.2",
     "rxjs": "5.0.0-beta.9",

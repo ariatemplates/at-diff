@@ -4,3 +4,5 @@
 /test/grunt/out
 /test/cli-out
 /maven/target
+/doc/impacts.md
+/doc-output

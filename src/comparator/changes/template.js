@@ -17,6 +17,10 @@
 const baseChanges = require("./base");
 const constructors = exports.constructors = {};
 
+/**
+ * A `ScriptChange` change is generated when the `$hasScript` property has changed in a template.
+ * @atdiff-impact
+ */
 class ScriptChange extends baseChanges.abstractConstructors.Change {
     getScript1() {
         return this.config.script1;

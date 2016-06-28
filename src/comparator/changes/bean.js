@@ -19,6 +19,14 @@ const baseChanges = require("./base");
 const constructors = exports.constructors = {};
 const abstractConstructors = exports.abstractConstructors = {};
 
+/**
+ * A `BeanChange` change is generated when a bean is directly modified
+ * (the bean may have been added, removed, or one of its attribute may have changed).
+ *
+ * Depending on the type of change, and on the inherited attributes from the parent, a `BeanChange` change
+ * can generate different kinds of impacts, including `BeanAdded`, `BeanRemoved` and `BeanAttributeChanged`.
+ * @atdiff-change
+ */
 class BeanChange extends baseChanges.abstractConstructors.Change {
     getBeanName() {
         return this.config.beanName;
@@ -60,15 +68,36 @@ class BeanImpact extends baseChanges.abstractConstructors.Impact {
 }
 abstractConstructors.BeanImpact = BeanImpact;
 
+/**
+ * A `BeanAdded` impact is generated when a bean has been added.
+ * @atdiff-impact
+ */
 class BeanAdded extends BeanImpact {}
 constructors.BeanAdded = BeanAdded;
 
+/**
+ * A `BeanAdded` impact is generated when a bean has been removed.
+ * @atdiff-impact
+ */
 class BeanRemoved extends BeanImpact {}
 constructors.BeanRemoved = BeanRemoved;
 
+/**
+ * An `InheritFromDifferentBean` impact is generated when the direct parent of a bean changed.
+ *
+ * For example, suppose that bean `C` extends bean `B` which extends bean `A`, and bean `A` has
+ * a `myProperty` property which is not overridden in `B`. The direct parent of `C.myProperty` is
+ * `A.myProperty`. Now, if in a new version, `myProperty` is overridden in `B`, then the direct parent of
+ * `C.myProperty` becomes `B.myProperty`. This generates an `InheritFromDifferentBean` impact on `C.myProperty`.
+ * @atdiff-impact
+ */
 class InheritFromDifferentBean extends BeanImpact {}
 constructors.InheritFromDifferentBean = InheritFromDifferentBean;
 
+/**
+ * A `BeanAttributeChanged` impact is generated when an attribute of a bean has been modified.
+ * @atdiff-impact
+ */
 class BeanAttributeChanged extends BeanImpact {
     getAttributeName() {
         return this.config.attributeName;
@@ -102,15 +131,38 @@ class SpecialBeanImpact extends baseChanges.abstractConstructors.Impact {
 }
 abstractConstructors.SpecialBeanImpact = SpecialBeanImpact;
 
+/**
+ * The `RemovedBeanStillUsed` impact is generated when it is detected that a bean which has been removed is still used.
+ * @atdiff-impact
+ */
 class RemovedBeanStillUsed extends SpecialBeanImpact {}
 constructors.RemovedBeanStillUsed = RemovedBeanStillUsed;
 
+/**
+ * The `AddedBeanAlreadyOverridden` impact is generated when it is detected that a bean which has just been added is
+ * already overridden. This is a name collision.
+ *
+ * This is usually a breaking change, as the overriding bean cannot inherit from the new bean (because, as it is new,
+ * it cannot already know it).
+ * @atdiff-impact
+ */
 class AddedBeanAlreadyOverridden extends SpecialBeanImpact {}
 constructors.AddedBeanAlreadyOverridden = AddedBeanAlreadyOverridden;
 
+/**
+ * The `OverridingChangingBean` impact is generated on a bean when it overrides a bean that
+ * has an `InheritFromDifferentBean` impact.
+ * This can be a breaking change if the overriding bean does not inherit from the new direct parent.
+ * @atdiff-impact
+ */
 class OverridingChangingBean extends SpecialBeanImpact {}
 constructors.OverridingChangingBean = OverridingChangingBean;
 
+/**
+ * The `OverriddenParentBeanAttributeChanged` impact is generated on a bean which overrides an attribute of
+ * its parent, if that attribute changed in the parent.
+ * @atdiff-impact
+ */
 class OverriddenParentBeanAttributeChanged extends SpecialBeanImpact {
     getAttributeName() {
         return this.config.attributeName;

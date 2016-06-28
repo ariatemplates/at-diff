@@ -1,0 +1,17 @@
+{
+    "index": {
+        "title": "Home"
+    },
+    "operations": {
+        "title": "Operations"
+    },
+    "filetypes": {
+        "title": "File types"
+    },
+    "cmdline": {
+        "title": "Command line usage"
+    },
+    "grunt": {
+        "title": "Usage with grunt"
+    }
+}
