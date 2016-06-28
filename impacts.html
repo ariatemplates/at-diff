@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>at-diff - List of changes/impacts</title>
+		<meta charset="utf-8">
+		<link href="//noder-js.ariatemplates.com/images/favicon.ico" type="image/ico" rel="shortcut icon">
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/all.css" type="text/css">
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/noder.css" type="text/css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+		
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/snippets/style.css" type="text/css">
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/snippets/highlight_skin.css" type="text/css">
+		
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/documentation.css" type="text/css">
+		<!--[if lt IE 8]>
+			<link href="//noder-js.ariatemplates.com/css/ie7.css" rel="stylesheet" type="text/css">
+    	<![endif]-->
+		<!--[if lt IE 9]>
+			<script type="text/javascript" src="//noder-js.ariatemplates.com/js/iemap.js"></script>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript" charset="utf-8"></script>
+			<style>.ie-hidden {display:none;}</style>
+		<![endif]-->
+	</head>
+	
+	<body class="documentation">
+	
+		<header id="header">
+			<div class="logo">
+				<h5>
+					<a href="./index.html"><img alt="at-diff" src="images/logo-nav.png"></a>
+				</h5>
+			</div>
+			<nav style="left:80px;">
+				
+					<a class="" href="./operations.html">Operations</a>
+				
+					<a class="" href="./filetypes.html">File types</a>
+				
+					<a class="" href="./cmdline.html">Command line usage</a>
+				
+					<a class="" href="./grunt.html">Usage with grunt</a>
+				
+					<a class="selected" href="./impacts.html">List of changes/impacts</a>
+				
+			</nav>
+		</header>
+		
+		<div class="content-wrapper">
+			<section class="content">
+				<div class="wrapper">
+					<div class="columns main-page one">
+						<article class="column">
+
+<h1>Types of changes / impacts</h1>
+
+<p>at-diff produces a list of changes and a list of impacts. This page lists the possible types of changes and impacts produced by at-diff.</p>
+
+<p>Note that you should not rely only on at-diff to find possible breaking changes.
+at-diff does not replace tests. It cannot detect all breaking changes.</p>
+
+<h2>Changes</h2>
+
+<p>A change directly corresponds to a modification in a source file.</p>
+<p>Here are the types of changes that can be produced by at-diff:</p>
+
+
+    
+        <a id="BeanChange" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>BeanChange</h3>
+
+        <p>A <code>BeanChange</code> change is generated when a bean is directly modified
+(the bean may have been added, removed, or one of its attribute may have changed).</p>
+<p>Depending on the type of change, and on the inherited attributes from the parent, a <code>BeanChange</code> change
+can generate different kinds of impacts, including <code>BeanAdded</code>, <code>BeanRemoved</code> and <code>BeanAttributeChanged</code>.</p>
+    
+        <a id="FileAdded" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>FileAdded</h3>
+
+        <p>A <code>FileAdded</code> change is generated for each new file.</p>
+<p>This type of change does not cause any impact.</p>
+    
+        <a id="FileChangedType" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>FileChangedType</h3>
+
+        <p>A <code>FileChangedType</code> change is generated for each file whose type changed.</p>
+<p>Here are the different types:</p>
+<ul>
+<li><code>classDefinition</code></li>
+<li><code>tplScriptDefinition</code></li>
+<li><code>beansDefinition</code></li>
+<li><code>interfaceDefinition</code></li>
+<li><code>resourcesDefinition</code></li>
+<li><code>js</code></li>
+<li><code>template</code></li>
+</ul>
+<p>For example, removing the <code>Aria.classDefinition</code> definition from a Javascript file makes
+it pass from the <code>classDefinition</code> specific type to the <code>js</code> general type, which generates a
+<code>FileChangedType</code> change.</p>
+<p>A <code>FileChangedType</code> change causes the <code>UnknownImpact</code> impact.</p>
+    
+        <a id="FileRemoved" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>FileRemoved</h3>
+
+        <p>A <code>FileRemoved</code> change is generated for each deleted file.</p>
+<p>This change causes the <code>UnusableFile</code> impact on the deleted file and any other file which depend on it.</p>
+    
+        <a id="MemberChange" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>MemberChange</h3>
+
+        <p>A <code>MemberChange</code> change is generated when a member of a class is directly modified
+(the member may have been added, removed, its signature may have changed or only the implementation
+may have changed).</p>
+<p>Depending on the type of change, and on the inherited members from the parent, a <code>MemberChange</code> change
+can generate different kinds of impacts, including <code>MemberAdded</code>, <code>MemberRemoved</code>, <code>MemberSignatureChanged</code>
+and <code>MemberImplementationChanged</code>.</p>
+    
+        <a id="ParentChange" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>ParentChange</h3>
+
+        <p>A <code>ParentChange</code> change is generated when the <code>$extends</code> property changed in a class.</p>
+    
+        <a id="SameFlexibleHashChange" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>SameFlexibleHashChange</h3>
+
+        <p>A <code>SameFlexibleHashChange</code> change is generated on a file when the file only contains changes which do not affect its meaning.
+For example, reformatting the file or adding / removing comments will produce a SameFlexibleHashChange change if there is
+no other change in the file.</p>
+<p>This type of change does not cause any impact. It is only generated on Javascript files and Aria Templates templates. It cannot be generated on binary files.</p>
+    
+        <a id="UnknownChange" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>UnknownChange</h3>
+
+        <p>An <code>UnknownChange</code> change is generated for each file which changed and for which no comparator is implemented.
+This includes all binary files, and also the Javascript files which do not contain an Aria Templates definition
+or which contain an Aria Templates definition for which support is limited (such as <code>Aria.resourcesDefinition</code>
+and <code>Aria.interfaceDefinition</code>).</p>
+<p>This change causes the <code>UnknownImpact</code> impact.</p>
+    
+
+
+<h2>Impacts</h2>
+
+<p>An impact is a consequence of a change.</p>
+<p>Here are the types of impacts that can be produced by at-diff:</p>
+
+
+    
+        <a id="AddedBeanAlreadyOverridden" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>AddedBeanAlreadyOverridden</h3>
+
+        <p>The <code>AddedBeanAlreadyOverridden</code> impact is generated when it is detected that a bean which has just been added is
+already overridden. This is a name collision.</p>
+<p>This is usually a breaking change, as the overriding bean cannot inherit from the new bean (because, as it is new,
+it cannot already know it).</p>
+    
+        <a id="BeanAdded" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>BeanAdded</h3>
+
+        <p>A <code>BeanAdded</code> impact is generated when a bean has been added.</p>
+    
+        <a id="BeanAttributeChanged" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>BeanAttributeChanged</h3>
+
+        <p>A <code>BeanAttributeChanged</code> impact is generated when an attribute of a bean has been modified.</p>
+    
+        <a id="BeanRemoved" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>BeanRemoved</h3>
+
+        <p>A <code>BeanAdded</code> impact is generated when a bean has been removed.</p>
+    
+        <a id="ImpactsInDependency" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>ImpactsInDependency</h3>
+
+        <p>An <code>ImpactsInDependency</code> impact is generated on files which have a dependency which has one or more impacts
+when the impact of those impacts on the dependent file is unknown.</p>
+    
+        <a id="InheritFromDifferentBean" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>InheritFromDifferentBean</h3>
+
+        <p>An <code>InheritFromDifferentBean</code> impact is generated when the direct parent of a bean changed.</p>
+<p>For example, suppose that bean <code>C</code> extends bean <code>B</code> which extends bean <code>A</code>, and bean <code>A</code> has
+a <code>myProperty</code> property which is not overridden in <code>B</code>. The direct parent of <code>C.myProperty</code> is
+<code>A.myProperty</code>. Now, if in a new version, <code>myProperty</code> is overridden in <code>B</code>, then the direct parent of
+<code>C.myProperty</code> becomes <code>B.myProperty</code>. This generates an <code>InheritFromDifferentBean</code> impact on <code>C.myProperty</code>.</p>
+    
+        <a id="MemberAdded" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>MemberAdded</h3>
+
+        <p>A <code>MemberAdded</code> impact is generated when a member is added in a class.</p>
+    
+        <a id="MemberImplementationChanged" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>MemberImplementationChanged</h3>
+
+        <p>A <code>MemberImplementationChanged</code> impact is generated when the implementation of a member changed.</p>
+    
+        <a id="MemberRemoved" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>MemberRemoved</h3>
+
+        <p>A <code>MemberRemoved</code> impact is generated when a member is removed in a class.</p>
+<p>This impact can cause the <code>RemovedMemberStillUsed</code> impact if it can be detected that the removed member is still used.</p>
+    
+        <a id="MemberSignatureChanged" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>MemberSignatureChanged</h3>
+
+        <p>A <code>MemberSignatureChanged</code> impact is generated when the signature of a member changed.</p>
+<p>This impact can cause the <code>UsedMemberChangedSignature</code> impact if it can be detected that the member which changed signature is used.</p>
+    
+        <a id="OverriddenParentBeanAttributeChanged" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>OverriddenParentBeanAttributeChanged</h3>
+
+        <p>The <code>OverriddenParentBeanAttributeChanged</code> impact is generated on a bean which overrides an attribute of
+its parent, if that attribute changed in the parent.</p>
+    
+        <a id="OverriddenParentDependencyMemberAdded" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>OverriddenParentDependencyMemberAdded</h3>
+
+        <p>An <code>OverriddenParentDependencyMemberAdded</code> impact is generated on a class member when it overrides
+a member of its parent on which a member was added.</p>
+<p>For example, if template <code>A</code> uses a macro library <code>M</code> as its <code>myLib</code> member, and template <code>B</code>, which
+inherits from <code>A</code>, overrides the <code>myLib</code> member to use macro library <code>N</code>. If <code>M</code> has a new macro <code>myMacro</code>,
+an <code>OverriddenParentDependencyMemberAdded</code> will be generated on <code>B.myLib.myMacro</code>. This can be a breaking
+change if the macro library <code>N</code> does not inherit from <code>M</code> and if the new macro is called.</p>
+    
+        <a id="OverriddenParentDependencyMemberImplementationChanged" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>OverriddenParentDependencyMemberImplementationChanged</h3>
+
+        <p>An <code>OverriddenParentDependencyMemberImplementationChanged</code> impact is generated on a class member when it overrides
+a member of its parent on which the implementation of a member changed.</p>
+<p>For example, if template <code>A</code> uses a macro library <code>M</code> as its <code>myLib</code> member, and template <code>B</code>, which
+inherits from <code>A</code>, overrides the <code>myLib</code> member to use macro library <code>N</code>. If <code>M</code> has a macro <code>myMacro</code> whose
+implementation changed, an <code>OverriddenParentDependencyMemberImplementationChanged</code> will be generated on <code>B.myLib.myMacro</code>.</p>
+    
+        <a id="OverriddenParentDependencyMemberRemoved" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>OverriddenParentDependencyMemberRemoved</h3>
+
+        <p>An <code>OverriddenParentDependencyMemberRemoved</code> impact is generated on a class member when it overrides
+a member of its parent on which a member was removed.</p>
+<p>For example, if template <code>A</code> uses a macro library <code>M</code> as its <code>myLib</code> member, and template <code>B</code>, which
+inherits from <code>A</code>, overrides the <code>myLib</code> member to use macro library <code>N</code>. If the macro <code>myMacro</code> was removed
+from <code>M</code>, an <code>OverriddenParentDependencyMemberRemoved</code> will be generated on <code>B.myLib.myMacro</code>.</p>
+    
+        <a id="OverriddenParentDependencyMemberSignatureChanged" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>OverriddenParentDependencyMemberSignatureChanged</h3>
+
+        <p>An <code>OverriddenParentDependencyMemberSignatureChanged</code> impact is generated on a class member when it overrides
+a member of its parent on which the signature of a member changed.</p>
+<p>For example, if template <code>A</code> uses a macro library <code>M</code> as its <code>myLib</code> member, and template <code>B</code>, which
+inherits from <code>A</code>, overrides the <code>myLib</code> member to use macro library <code>N</code>. If <code>M</code> has a macro <code>myMacro</code> whose
+signature changed, an <code>OverriddenParentDependencyMemberAdded</code> will be generated on <code>B.myLib.myMacro</code>. This can
+be a breaking change if the signature of <code>N.myMacro</code> is not compatible with the new signature of <code>M.myMacro</code>.</p>
+    
+        <a id="OverriddenParentMemberAdded" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>OverriddenParentMemberAdded</h3>
+
+        <p>An <code>OverriddenParentMemberAdded</code> impact is generated on a class member when it overrides
+a class member of its parent which has been added. This looks like a name collision
+(a parent class added a member which has the same name as a member of a child class).</p>
+    
+        <a id="OverriddenParentMemberImplementationChanged" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>OverriddenParentMemberImplementationChanged</h3>
+
+        <p>An <code>OverriddenParentMemberSignatureChanged</code> impact is generated on a class member when it overrides
+a class member of its parent whose implementation has been changed.</p>
+    
+        <a id="OverriddenParentMemberRemoved" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>OverriddenParentMemberRemoved</h3>
+
+        <p>An <code>OverriddenParentMemberRemoved</code> impact is generated on a class member when it overrides
+a class member of its parent which has been removed.</p>
+    
+        <a id="OverriddenParentMemberSignatureChanged" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>OverriddenParentMemberSignatureChanged</h3>
+
+        <p>An <code>OverriddenParentMemberSignatureChanged</code> impact is generated on a class member when it overrides
+a class member of its parent whose signature has been changed.</p>
+    
+        <a id="OverridingChangingBean" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>OverridingChangingBean</h3>
+
+        <p>The <code>OverridingChangingBean</code> impact is generated on a bean when it overrides a bean that
+has an <code>InheritFromDifferentBean</code> impact.
+This can be a breaking change if the overriding bean does not inherit from the new direct parent.</p>
+    
+        <a id="RemovedBeanStillUsed" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>RemovedBeanStillUsed</h3>
+
+        <p>The <code>RemovedBeanStillUsed</code> impact is generated when it is detected that a bean which has been removed is still used.</p>
+    
+        <a id="RemovedMemberStillUsed" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>RemovedMemberStillUsed</h3>
+
+        <p>The <code>RemovedMemberStillUsed</code> impact is generated when it is detected that a class
+member which has been removed is still used.</p>
+    
+        <a id="ScriptChange" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>ScriptChange</h3>
+
+        <p>A <code>ScriptChange</code> change is generated when the <code>$hasScript</code> property has changed in a template.</p>
+    
+        <a id="UnknownImpact" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>UnknownImpact</h3>
+
+        <p>An <code>UnknownImpact</code> impact is generated on files for which an <code>UnknownChange</code> or a <code>FileChangedType</code> change has been generated.</p>
+    
+        <a id="UnusableFile" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>UnusableFile</h3>
+
+        <p>An <code>UnusableFile</code> impact is generated for each deleted file and for each file which directly
+or indirectly depends on the deleted files.</p>
+    
+        <a id="UsedMemberChangedSignature" style="display:block;position:relative;top:-50px;visibility:hidden;"></a>
+        <h3>UsedMemberChangedSignature</h3>
+
+        <p>The <code>UsedMemberChangedSignature</code> impact is generated when it is detected that a class
+member whose signature changed is used.</p>
+    
+
+</article>
+					</div>
+				</div>
+			</section>
+		</div>
+		
+		<footer id="footer">
+			<section class="content legal">
+			© 2012 Aria Templates is licensed under Apache 2.0 license. See our <a href="http://ariatemplates.com/license">licensing page</a>
+			</section>
+		</footer>
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-29575860-4', 'ariatemplates.com');
+			ga('send', 'pageview');
+		</script>
+	</body>
+</html>

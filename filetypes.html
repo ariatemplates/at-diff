@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>at-diff - File types</title>
+		<meta charset="utf-8">
+		<link href="//noder-js.ariatemplates.com/images/favicon.ico" type="image/ico" rel="shortcut icon">
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/all.css" type="text/css">
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/noder.css" type="text/css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+		
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/snippets/style.css" type="text/css">
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/snippets/highlight_skin.css" type="text/css">
+		
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/documentation.css" type="text/css">
+		<!--[if lt IE 8]>
+			<link href="//noder-js.ariatemplates.com/css/ie7.css" rel="stylesheet" type="text/css">
+    	<![endif]-->
+		<!--[if lt IE 9]>
+			<script type="text/javascript" src="//noder-js.ariatemplates.com/js/iemap.js"></script>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript" charset="utf-8"></script>
+			<style>.ie-hidden {display:none;}</style>
+		<![endif]-->
+	</head>
+	
+	<body class="documentation">
+	
+		<header id="header">
+			<div class="logo">
+				<h5>
+					<a href="./index.html"><img alt="at-diff" src="images/logo-nav.png"></a>
+				</h5>
+			</div>
+			<nav style="left:80px;">
+				
+					<a class="" href="./operations.html">Operations</a>
+				
+					<a class="selected" href="./filetypes.html">File types</a>
+				
+					<a class="" href="./cmdline.html">Command line usage</a>
+				
+					<a class="" href="./grunt.html">Usage with grunt</a>
+				
+					<a class="" href="./impacts.html">List of changes/impacts</a>
+				
+			</nav>
+		</header>
+		
+		<div class="content-wrapper">
+			<section class="content">
+				<div class="wrapper">
+					<div class="columns main-page one">
+						<article class="column"><h1 id="file-types-recognized-by-at-diff">File types recognized by at-diff</h1>
+<p><em>at-diff</em> recognizes the following file types:</p>
+<ul>
+<li>Javascript files, with the <code>.js</code> extension</li>
+<li>Aria Templates template files with the <code>.tpl</code>, <code>.tpl.css</code>, <code>.tml</code>, <code>.cml</code> or <code>.tpl.txt</code> extensions</li>
+<li>Binary files, which correspond to any other file</li>
+</ul>
+<h2 id="javascript-files">Javascript files</h2>
+<p>Javascript files are parsed with <a href="https://github.com/mishoo/UglifyJS2">uglify-js</a>. Only ECMAScript 5 is supported.</p>
+<p>A flexible hash is computed in order to ignore reformatting changes, including changes in comments.</p>
+<p>CommonJS-style dependencies (with <code>require</code>) are recognized. Note that only dependencies expressed as a string literal are interpreted. If there is an expression in the call to <code>require</code>, it is simply ignored.</p>
+<p><em>at-diff</em> looks for a call to one of the following Aria Templates definition functions:</p>
+<ul>
+<li><code>Aria.classDefinition</code></li>
+<li><code>Aria.tplScriptDefinition</code></li>
+<li><code>Aria.beansDefinition</code></li>
+<li><code>Aria.interfaceDefinition</code></li>
+<li><code>Aria.resourcesDefinition</code></li>
+</ul>
+<p>There should be at most one call to one of those functions in a given file.</p>
+<p>Support for files which do not contain any Aria Templates definition is very limited: only CommonJS-style dependencies are recognized, and only generic <code>UnknownChange</code> changes and <code>UnknownImpact</code> impacts will be generated in case any change is done on such files.</p>
+<p>In the same way, support for <code>Aria.interfaceDefinition</code> and <code>Aria.resourcesDefinition</code> is also currently very limited. The content of the <code>$interface</code> or <code>$resources</code> fields is not interpreted. Only dependencies are recognized, either in the CommonJS style or in the classpath style.</p>
+<p>Note that the parameter passed to the Aria definition function must be an object literal. For example, the following declaration cannot be recognized successfully:</p>
+<div class='snippet'><pre><code class="lang-js"><span class="keyword">var</span> myClass = {
+    $classpath: <span class="string">"x.y.MyClass"</span>,
+    $prototype: {
+        myMethod: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{}
+    }
+};
+Aria.classDefinition(myClass);
+</code></pre></div>
+<p>To be accepted, the previous definition should be written in the following way:</p>
+<div class='snippet'><pre><code class="lang-js">Aria.classDefinition({
+    $classpath: <span class="string">"x.y.MyClass"</span>,
+    $prototype: {
+        myMethod: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{}
+    }
+});
+</code></pre></div>
+<p>Note that even if Aria Templates accepts it, <em>at-diff</em> does not support having a function as the <code>$prototype</code> property, it has to be an object literal.</p>
+<p>To be correctly interpreted, method members should be function literals (and not expressions).
+For example, this should be avoided:</p>
+<div class='snippet'><pre><code class="lang-js"><span class="keyword">var</span> myMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{};
+Aria.classDefinition({
+    $classpath: <span class="string">"x.y.MyClass"</span>,
+    $prototype: {
+        myMethod: myMethod
+    }
+});
+</code></pre></div>
+<p>This is better interpreted:</p>
+<div class='snippet'><pre><code class="lang-js">Aria.classDefinition({
+    $classpath: <span class="string">"x.y.MyClass"</span>,
+    $prototype: {
+        myMethod: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{}
+    }
+});
+</code></pre></div>
+<p>The following items are compared in the parameter of <code>Aria.classDefinition</code> or <code>Aria.tplScriptDefinition</code>:</p>
+<ul>
+<li><code>$constructor</code></li>
+<li><code>$destructor</code></li>
+<li>Functions in <code>$prototype</code></li>
+<li>Functions in <code>$statics</code></li>
+</ul>
+<p>Changes outside of those fields may not be detected.</p>
+<h2 id="aria-templates-template-files">Aria Templates template files</h2>
+<p>Aria Templates template files are parsed with Aria Templates directly.</p>
+<p>A flexible hash is computed in order to ignore some reformatting changes, including changes in comments and in the order of macros.</p>
+<p>The following items are compared:</p>
+<ul>
+<li>macros</li>
+<li><code>$hasScript</code></li>
+<li>macro libraries</li>
+</ul>
+<p>Macro calls are detected and taken into account to report problems. For example, if a macro calls another macro and that macro removed, the <code>RemovedMemberStillUsed</code> impact will be generated.</p>
+<p>The detection of macro calls is only done with the <code>call</code>, <code>section</code> and <code>repeater</code> statements, and only when the macro is referenced statically (with a string literal). Macro calls done through widgets (such as <code>@aria:Dialog</code>, <code>@aria:Tooltip</code> or custom widgets) are not recognized.</p>
+<h2 id="binary-files">Binary files</h2>
+<p>The content of binary files is not interpreted. The hash is recorded in order to detect any change. Generic <code>UnknownChange</code> changes and <code>UnknownImpact</code> impacts will be generated in case any change is done on such files.</p>
+</article>
+					</div>
+				</div>
+			</section>
+		</div>
+		
+		<footer id="footer">
+			<section class="content legal">
+			© 2012 Aria Templates is licensed under Apache 2.0 license. See our <a href="http://ariatemplates.com/license">licensing page</a>
+			</section>
+		</footer>
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-29575860-4', 'ariatemplates.com');
+			ga('send', 'pageview');
+		</script>
+	</body>
+</html>

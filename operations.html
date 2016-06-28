@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>at-diff - Operations</title>
+		<meta charset="utf-8">
+		<link href="//noder-js.ariatemplates.com/images/favicon.ico" type="image/ico" rel="shortcut icon">
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/all.css" type="text/css">
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/noder.css" type="text/css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+		
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/snippets/style.css" type="text/css">
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/snippets/highlight_skin.css" type="text/css">
+		
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/documentation.css" type="text/css">
+		<!--[if lt IE 8]>
+			<link href="//noder-js.ariatemplates.com/css/ie7.css" rel="stylesheet" type="text/css">
+    	<![endif]-->
+		<!--[if lt IE 9]>
+			<script type="text/javascript" src="//noder-js.ariatemplates.com/js/iemap.js"></script>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript" charset="utf-8"></script>
+			<style>.ie-hidden {display:none;}</style>
+		<![endif]-->
+	</head>
+	
+	<body class="documentation">
+	
+		<header id="header">
+			<div class="logo">
+				<h5>
+					<a href="./index.html"><img alt="at-diff" src="images/logo-nav.png"></a>
+				</h5>
+			</div>
+			<nav style="left:80px;">
+				
+					<a class="selected" href="./operations.html">Operations</a>
+				
+					<a class="" href="./filetypes.html">File types</a>
+				
+					<a class="" href="./cmdline.html">Command line usage</a>
+				
+					<a class="" href="./grunt.html">Usage with grunt</a>
+				
+					<a class="" href="./impacts.html">List of changes/impacts</a>
+				
+			</nav>
+		</header>
+		
+		<div class="content-wrapper">
+			<section class="content">
+				<div class="wrapper">
+					<div class="columns main-page one">
+						<article class="column"><h1 id="operations-supported-by-at-diff">Operations supported by at-diff</h1>
+<p><em>at-diff</em> can execute the following operations:</p>
+<h2 id="parse">parse</h2>
+<p>The <em>parse</em> operation parses a set of source files and creates a json file containing relevant pieces of information from each source file, including:</p>
+<ul>
+<li>the list of dependencies</li>
+<li>the list of macros/methods</li>
+<li>hash values computed from different parts of the file</li>
+</ul>
+<p>The <em>parse</em> operation is the only one which directly reads source files. Other operations rely on the output of the <em>parse</em> operation.</p>
+<h2 id="compare">compare</h2>
+<p>The <em>compare</em> operation compares two different versions of a set of source files (provided as two different json files produced by the <em>parse</em> operation). It generates a list of <em>changes</em> and a list of <em>impacts</em>.</p>
+<p>A <em>change</em> directly corresponds to a modification in a source file (for example, method <code>myMethod</code> was changed in file <code>x/y/MyClass.js</code>).</p>
+<p>A <em>change</em> can have zero or more <em>impacts</em> in both the changed file and depending files, including transitive dependencies (for example, if the <code>x/y/MyChildClass.js</code> class inherits from <code>x/y/MyClass.js</code>, there is an impact on <code>x/y/MyChildClass.js</code> if <code>myMethod</code> was changed in file <code>x/y/MyClass.js</code>).</p>
+<p>In its output, the <em>compare</em> operation keeps the links between an <em>impact</em> and the set of other <em>impacts</em> or <em>changes</em> which caused it.</p>
+<p>The output of the <em>compare</em> operation can be saved either in the json or in the html format (or both).</p>
+<h2 id="evalimpacts">evalimpacts</h2>
+<p>The <em>evalimpacts</em> operation evaluates the impacts of a change in a set of source files (which is described by the output of the <em>compare</em> operation) on another set of source files which depends on the first set of source files (and which is provided by the output of the <em>parse</em> operation).</p>
+<p>The output of the <em>evalimpacts</em> operation is similar to the output of the <em>compare</em> operation and can be either in the json or in the html format (or both).</p>
+</article>
+					</div>
+				</div>
+			</section>
+		</div>
+		
+		<footer id="footer">
+			<section class="content legal">
+			© 2012 Aria Templates is licensed under Apache 2.0 license. See our <a href="http://ariatemplates.com/license">licensing page</a>
+			</section>
+		</footer>
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-29575860-4', 'ariatemplates.com');
+			ga('send', 'pageview');
+		</script>
+	</body>
+</html>

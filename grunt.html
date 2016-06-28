@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>at-diff - Usage with grunt</title>
+		<meta charset="utf-8">
+		<link href="//noder-js.ariatemplates.com/images/favicon.ico" type="image/ico" rel="shortcut icon">
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/all.css" type="text/css">
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/noder.css" type="text/css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+		
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/snippets/style.css" type="text/css">
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/snippets/highlight_skin.css" type="text/css">
+		
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/documentation.css" type="text/css">
+		<!--[if lt IE 8]>
+			<link href="//noder-js.ariatemplates.com/css/ie7.css" rel="stylesheet" type="text/css">
+    	<![endif]-->
+		<!--[if lt IE 9]>
+			<script type="text/javascript" src="//noder-js.ariatemplates.com/js/iemap.js"></script>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript" charset="utf-8"></script>
+			<style>.ie-hidden {display:none;}</style>
+		<![endif]-->
+	</head>
+	
+	<body class="documentation">
+	
+		<header id="header">
+			<div class="logo">
+				<h5>
+					<a href="./index.html"><img alt="at-diff" src="images/logo-nav.png"></a>
+				</h5>
+			</div>
+			<nav style="left:80px;">
+				
+					<a class="" href="./operations.html">Operations</a>
+				
+					<a class="" href="./filetypes.html">File types</a>
+				
+					<a class="" href="./cmdline.html">Command line usage</a>
+				
+					<a class="selected" href="./grunt.html">Usage with grunt</a>
+				
+					<a class="" href="./impacts.html">List of changes/impacts</a>
+				
+			</nav>
+		</header>
+		
+		<div class="content-wrapper">
+			<section class="content">
+				<div class="wrapper">
+					<div class="columns main-page one">
+						<article class="column"><h1 id="using-at-diff-with-grunt">Using at-diff with grunt</h1>
+<ul>
+<li>Install <code>at-diff</code> in the <code>node_modules</code> folder of the project where you intend to use it (probably as a development dependency):</li>
+</ul>
+<div class='snippet'><pre><code>npm install --save-dev at-diff
+</code></pre></div><ul>
+<li>Add the following line in the <code>gruntfile.js</code> file of your project:</li>
+</ul>
+<div class='snippet'><pre><code class="lang-js">grunt.loadNpmTasks(<span class="string">"at-diff"</span>);
+</code></pre></div>
+<ul>
+<li>Configure the tasks you intend to use. There are 3 different available tasks corresponding to the 3 operations described in <a href="./operations.html">this page</a>.</li>
+</ul>
+<h2 id="parse">parse</h2>
+<div class='snippet'><pre><code class="lang-js">grunt.initConfig({
+
+    <span class="comment">// ...</span>
+
+    <span class="string">"at-diff-parse"</span>: {
+        <span class="comment">// at-diff-parse is a multi-task, so it can have multiple executions configured with different</span>
+        <span class="comment">// names (such as 'parse' here):</span>
+        parse: {
+            options: {
+                jsonOutput: <span class="string">"at-diff-output/atdiff-data.json"</span>,
+
+                <span class="comment">// The loadParserCache option specifies a set of previous outputs of the *parse* operation</span>
+                <span class="comment">// to be initially loaded in the cache to speed up the *parse* operation in case files</span>
+                <span class="comment">// did not change:</span>
+                loadParserCache: [],
+
+                <span class="comment">// The atSetup option specifies a set of js files to execute in order to configure the</span>
+                <span class="comment">// Aria Templates environment used when parsing templates. This is especially useful</span>
+                <span class="comment">// to configure global widget libraries.</span>
+                atSetup: [],
+
+                <span class="comment">// The cache option allows to specify the name of a cache which will be shared among</span>
+                <span class="comment">// multiple at-diff-parse executions (note that such a cache is not stored on the disk,</span>
+                <span class="comment">// it is only kept in RAM while the grunt process is alive). It can be any string.</span>
+                <span class="comment">// It can be "none" to disable caching between multiple at-diff-executions. It is set</span>
+                <span class="comment">// to "default" by default.</span>
+                cache: <span class="string">"default"</span>
+            },
+            filter: <span class="string">"isFile"</span>,
+            cwd: <span class="string">"src"</span>,
+            src: [<span class="string">"**"</span>]
+        }
+    }
+
+    <span class="comment">// ...</span>
+
+});
+</code></pre></div>
+<p>Note that the set of files to be parsed can be defined in <a href="http://gruntjs.com/configuring-tasks#files">any of the ways defined in the Grunt documentation</a>.
+If the patterns set in the <code>src</code> field also match directories, it is important to specify the <code>filter: &quot;isFile&quot;</code> property (as shown on the previous example) to avoid the <code>EISDIR: illegal operation on a directory</code> error.</p>
+<h2 id="compare">compare</h2>
+<div class='snippet'><pre><code class="lang-js">grunt.initConfig({
+
+    <span class="comment">// ...</span>
+
+    <span class="string">"at-diff-compare"</span>: {
+        <span class="comment">// at-diff-compare is a multi-task, so it can have multiple executions configured with different</span>
+        <span class="comment">// names (such as 'compare' here):</span>
+        compare: {
+            options: {
+                version1: <span class="string">"at-diff-input/atdiff-data1.json"</span>,
+                version2: <span class="string">"at-diff-input/atdiff-data2.json"</span>,
+                jsonOutput: <span class="string">"at-diff-output/atdiff-comparison.json"</span>,
+                htmlOutput: <span class="string">"at-diff-output/atdiff-comparison.html"</span>
+            }
+        }
+    }
+
+    <span class="comment">// ...</span>
+
+})
+</code></pre></div>
+<h2 id="evalimpacts">evalimpacts</h2>
+<div class='snippet'><pre><code class="lang-js">grunt.initConfig({
+
+    <span class="comment">// ...</span>
+
+    <span class="string">"at-diff-evalimpacts"</span>: {
+        <span class="comment">// at-diff-compare is a multi-task, so it can have multiple executions configured with different</span>
+        <span class="comment">// names (such as 'evalimpacts' here):</span>
+        evalimpacts: {
+            options: {
+                versionsDiff: <span class="string">"at-diff-input/atdiff-comparison.json"</span>,
+                impactedFiles: <span class="string">"at-diff-input/atdiff-data.json"</span>,
+                jsonOutput: <span class="string">"at-diff-output/atdiff-impacts.json"</span>,
+                htmlOutput: <span class="string">"at-diff-output/atdiff-impacts.html"</span>
+            }
+        }
+    }
+
+    <span class="comment">// ...</span>
+
+});
+</code></pre></div>
+</article>
+					</div>
+				</div>
+			</section>
+		</div>
+		
+		<footer id="footer">
+			<section class="content legal">
+			© 2012 Aria Templates is licensed under Apache 2.0 license. See our <a href="http://ariatemplates.com/license">licensing page</a>
+			</section>
+		</footer>
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-29575860-4', 'ariatemplates.com');
+			ga('send', 'pageview');
+		</script>
+	</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>at-diff - Command line usage</title>
+		<meta charset="utf-8">
+		<link href="//noder-js.ariatemplates.com/images/favicon.ico" type="image/ico" rel="shortcut icon">
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/all.css" type="text/css">
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/noder.css" type="text/css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+		
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/snippets/style.css" type="text/css">
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/snippets/highlight_skin.css" type="text/css">
+		
+		<link rel="stylesheet" href="//noder-js.ariatemplates.com/css/documentation.css" type="text/css">
+		<!--[if lt IE 8]>
+			<link href="//noder-js.ariatemplates.com/css/ie7.css" rel="stylesheet" type="text/css">
+    	<![endif]-->
+		<!--[if lt IE 9]>
+			<script type="text/javascript" src="//noder-js.ariatemplates.com/js/iemap.js"></script>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript" charset="utf-8"></script>
+			<style>.ie-hidden {display:none;}</style>
+		<![endif]-->
+	</head>
+	
+	<body class="documentation">
+	
+		<header id="header">
+			<div class="logo">
+				<h5>
+					<a href="./index.html"><img alt="at-diff" src="images/logo-nav.png"></a>
+				</h5>
+			</div>
+			<nav style="left:80px;">
+				
+					<a class="" href="./operations.html">Operations</a>
+				
+					<a class="" href="./filetypes.html">File types</a>
+				
+					<a class="selected" href="./cmdline.html">Command line usage</a>
+				
+					<a class="" href="./grunt.html">Usage with grunt</a>
+				
+					<a class="" href="./impacts.html">List of changes/impacts</a>
+				
+			</nav>
+		</header>
+		
+		<div class="content-wrapper">
+			<section class="content">
+				<div class="wrapper">
+					<div class="columns main-page one">
+						<article class="column"><h1 id="using-at-diff-from-the-command-line">Using at-diff from the command line</h1>
+<p><em>at-diff</em> is tested with node.js version 4.2. It probably works fine with later versions. It may not work with previous versions.</p>
+<p>Make sure you have node.js version 4.2 or later:</p>
+<div class='snippet'><pre><code>node --version
+</code></pre></div><p>Install at-diff globally:</p>
+<div class='snippet'><pre><code>npm install -g at-diff
+</code></pre></div><p>Now, the <code>at-diff</code> command is available, and can be used to execute each operation.</p>
+<h2 id="parse">parse</h2>
+<p>It is possible to execute the <em>parse</em> operation with the following command:</p>
+<div class='snippet'><pre><code>at-diff parse src --json-output atdiff-data.json
+</code></pre></div><ul>
+<li><code>src</code> is the directory containing source code</li>
+<li><code>atdiff-data.json</code> is the json file which will contain the output</li>
+</ul>
+<p>You can also use the following options:</p>
+<ul>
+<li><code>--at-setup atSetupFile.js</code> Specifies a js file to execute in order to configure the Aria Templates environment used when parsing templates. This is especially useful to configure global widget libraries. This option can be repeated multiple times.</li>
+<li><code>--load-parser-cache previousOutput.json</code> Specifies a previous output of the <em>parse</em> operation to be loaded in the cache to speed up the <em>parse</em> operation in case files did not change. This option can be repeated multiple times.</li>
+<li><code>--filter **/*</code> Specifies the pattern to use to create the list of files to be parsed. The default filter is <code>**/*</code>.</li>
+<li><code>--ignore **/*.bak</code> Specifies a pattern to exclude from the list of files to be parsed. This option can be repeated multiple times.</li>
+<li><code>--json-beautify</code> This option can be used to beautify the output.</li>
+<li><code>--console-output</code> This option can be used to display the resulting json file on the console.</li>
+<li><code>--deterministic-output</code> This option can be used to produce a file that is easier to compare with other files of the same kind (with classic diff tools): json keys are sorted so that the order in which files are parsed does not impact the output.</li>
+</ul>
+<h2 id="compare">compare</h2>
+<p>It is possible to execute the <em>compare</em> operation with the following command:</p>
+<div class='snippet'><pre><code>at-diff compare atdiff-data1.json atdiff-data2.json --json-output atdiff-comparison.json --html-output atdiff-comparison.html
+</code></pre></div><p>You can also use the following options:</p>
+<ul>
+<li><code>--open</code> Open the html file in a browser when the comparison is done. This is only taken into account if the <code>--html-output</code> option is used.</li>
+<li><code>--json-beautify</code> This option can be used to beautify the output.</li>
+<li><code>--console-output</code> This option can be used to display the resulting json file on the console.</li>
+<li><code>--deterministic-output</code> This option can be used to produce a file that is easier to compare with other files of the same kind (with classic diff tools): the resulting json file contains meaningful ids instead of sequential ones and json keys are sorted so that the order in which files are compared does not impact the output. When this option is present, the output file is significantly larger and maybe a bit slower to generate.</li>
+</ul>
+<p>It is also possible to parse and immediately compare in one command:</p>
+<div class='snippet'><pre><code>at-diff parse+compare src1 src2
+</code></pre></div><p>In that case, any of the <em>parse</em> options can be used as well.</p>
+<h2 id="evalimpacts">evalimpacts</h2>
+<div class='snippet'><pre><code>at-diff evalimpacts atdiff-comparison.json atdiff-data.json --json-output atdiff-impacts.json --html-output atdiff-impacts.html
+</code></pre></div><p>The same options as for the <em>compare</em> operation are available.</p>
+<p>It is also possible to parse the impacted source files and immediately evaluate the impacts in one command, as shown below. Note that the <em>compare</em> operation still has to be done before separately.</p>
+<div class='snippet'><pre><code>at-diff parse+evalimpacts atdiff-comparison.json src-folder --json-output atdiff-impacts.json --html-output atdiff-impacts.html
+</code></pre></div><p>In that case, any of the <em>parse</em> options can be used as well.</p>
+</article>
+					</div>
+				</div>
+			</section>
+		</div>
+		
+		<footer id="footer">
+			<section class="content legal">
+			© 2012 Aria Templates is licensed under Apache 2.0 license. See our <a href="http://ariatemplates.com/license">licensing page</a>
+			</section>
+		</footer>
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-29575860-4', 'ariatemplates.com');
+			ga('send', 'pageview');
+		</script>
+	</body>
+</html>
