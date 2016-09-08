@@ -94,7 +94,7 @@ module.exports = co.wrap(function * (argv) {
         "boolean": ["help", "version", "json-beautify", "open", "console-output", "deterministic-output"]
     });
     if (minimistConfig.help) {
-        yield open("https://github.com/ariatemplates/at-diff/blob/master/README.md");
+        yield open("http://at-diff.ariatemplates.com");
         return;
     }
     if (minimistConfig.version) {
