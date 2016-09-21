@@ -66,6 +66,8 @@ gulp.task("build", function(done) {
         },
         externals: {
             "@angular/core": "var ng.core",
+            "@angular/forms": "var ng.forms",
+            "@angular/platform-browser": "var ng.platformBrowser",
             "@angular/platform-browser-dynamic": "var ng.platformBrowserDynamic"
         },
         plugins: [

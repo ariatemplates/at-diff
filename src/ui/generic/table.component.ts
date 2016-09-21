@@ -15,7 +15,6 @@
 "use strict";
 
 import {Component, Directive, Input, ContentChild, TemplateRef} from '@angular/core';
-import {Dropdown, DropdownMenu} from './dropdown.component';
 
 @Directive({
     selector: '[atdiff-table-item]'
@@ -24,9 +23,13 @@ export class TableItem {
     constructor(public template: TemplateRef<any>) {}
 }
 
+@Directive({
+    selector: 'atdiff-table-title'
+})
+export class TableTitle {}
+
 @Component({
     selector: 'atdiff-table',
-    directives: [Dropdown, DropdownMenu],
     template: `<div>
         <div class="panel panel-default">
             <div class="panel-heading">

@@ -14,12 +14,12 @@
  */
 "use strict";
 
-import {bootstrap}    from '@angular/platform-browser-dynamic';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {enableProdMode} from '@angular/core';
-import {AppComponent} from './app.component';
-import {ATDiffDataService} from './atdiffdata.service'
+import {AppModule} from './app.module';
 
 if (!window["development"]) {
     enableProdMode();
 }
-bootstrap(AppComponent, [ATDiffDataService]);
+const platform = platformBrowserDynamic();
+platform.bootstrapModule(AppModule);

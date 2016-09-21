@@ -16,11 +16,10 @@
 
 import {Component} from '@angular/core';
 import {ATDiffDataService} from './atdiffdata.service';
-import {DiffDisplay} from './diffdisplay.component';
 
 @Component({
     selector: 'atdiff-app',
-    directives: [DiffDisplay],
+    providers: [ATDiffDataService],
     template: `
 <div class="container-fluid">
     <h1>at-diff results</h1>

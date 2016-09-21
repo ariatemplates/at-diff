@@ -15,9 +15,6 @@
 "use strict";
 
 import {Component, Input} from '@angular/core';
-import {Multiselect} from './generic/multiselect.component';
-import {Table, TableItem} from './generic/table.component';
-import {Dropdown, DropdownMenu} from './generic/dropdown.component';
 import sortAndRemoveDuplicates = require('../utils/sortAndRemoveDuplicates');
 
 @Component({
@@ -71,8 +68,7 @@ import sortAndRemoveDuplicates = require('../utils/sortAndRemoveDuplicates');
             </div>
         </template>
     </atdiff-table>
-`,
-    directives: [Table, TableItem, Dropdown, DropdownMenu, Multiselect]
+`
 })
 export class DiffDisplay {
     @Input()

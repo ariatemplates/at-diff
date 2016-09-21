@@ -15,11 +15,9 @@
 "use strict";
 
 import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {Dropdown, DropdownMenu} from './dropdown.component';
 
 @Component({
     selector: 'atdiff-multiselect',
-    directives: [Dropdown, DropdownMenu],
     template: `<div class="input-group input-group-sm">
                     <input type="text" class="form-control" [value]="getDisplayText()" readonly>
                     <span class="input-group-btn" atdiff-dropdown style="position:static;">

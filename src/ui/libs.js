@@ -18,25 +18,27 @@ const bootstrap = `<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bo
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme.min.css" rel="stylesheet" />`;
 
 exports.development = `${bootstrap}
-<script src="https://unpkg.com/core-js@2.4.0/client/shim.js" integrity="sha384-pX7Ahc7H2ApnTuaWaSMT6trarh+bpAs1w7xImCIDSrFQ/6BV/yoZg9+C/27DfUvb" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/zone.js@0.6.12/dist/zone.js" integrity="sha384-RIC6AHYa4rV9qgJMzoee3Fs6zo5C7tV9ddYqlAW+8JB22lWFBq9SQ1gNJGG7yJTY" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/core-js@2.4.1/client/shim.js" integrity="sha384-uIQcZj6EIUwjiq+fSnpGQDEI3hg/cYFertKIL0Vhby6kZT9FJQzcpa6rYHFQLvb/" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/zone.js@0.6.23/dist/zone.js" integrity="sha384-W3bsMWlGoFY4RaQ6+LWC+bdA/xjcmSjkWKqjbPSJEMfu3qNZwXa+d4ToldqUXHuu" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/reflect-metadata@0.1.3/Reflect.js" integrity="sha384-FH+k0oZoE9Oi+oLkwlSYKw854fCXw4at5e/uPQX0rHP/6Dp8iVWBlScfDNlqegaA" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/rxjs@5.0.0-beta.9/bundles/Rx.umd.js" integrity="sha384-MryZ1bSx4w1xnwELtXIjvuQsWk2RgsDZYc58NML9B0o4JSi+ARCLy3xAW6uvY+K1" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@angular/core@2.0.0-rc.3/bundles/core.umd.js" integrity="sha384-inFE6BlY5M1S5IVoNhnrKXAdVkb/1VcrsUipYfNm72C3hMo1OHZsnwjkCNqXsjNh" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@angular/common@2.0.0-rc.3/bundles/common.umd.js" integrity="sha384-IHl3Rv5Cbo8m3AvuvGPC9tZEH1YpHZmRm828Gg8W+rNCZeJMuVSwp2oHKqyt2VGl" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@angular/compiler@2.0.0-rc.3/bundles/compiler.umd.js" integrity="sha384-nQB9ZEVdEuDn+2rmsqiKbnAielCrA7elQ7DvuI/s+jUoWsb4t9X5tlkFTnVFRwAr" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@angular/platform-browser@2.0.0-rc.3/bundles/platform-browser.umd.js" integrity="sha384-g2iADb+i5sFawO5lpmu5KAdGKVKyJuxGkoXjzxGgtSizN+DKPC3e+8EDC1iezT9X" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@angular/platform-browser-dynamic@2.0.0-rc.3/bundles/platform-browser-dynamic.umd.js" integrity="sha384-SxXIQLFmtjjJpthKP4KM/nhawD4qOhd+cyZoM8nWFii01+QcqTVkkjsyIvQMT2A0" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/rxjs@5.0.0-beta.12/bundles/Rx.js" integrity="sha384-8APZLk0LA7tuPcO11EkPfDN8wsDmkOrehD1e0pslROmV80bskAZB57KJotwFK/eW" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@angular/core@2.0.0/bundles/core.umd.js" integrity="sha384-7GPySWchCEPdlC+/KNHeFVBXiHHhiWGhCLMa3INVaWwyvPsJWY1R630Hx6TQPadf" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@angular/common@2.0.0/bundles/common.umd.js" integrity="sha384-yMJ0U4hxS18O3g3eBfywUxfH4ysVKIMpSXYqzAVCF1A5/vR//BP+Gkhhfn5Y/CES" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@angular/compiler@2.0.0/bundles/compiler.umd.js" integrity="sha384-Lq348fsDDZYK7KPhffeweCQQ/d+I7jQTAroQ/u6KQuXSs2rTXm/60+UeUpkfPZ8E" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@angular/forms@2.0.0/bundles/forms.umd.js" integrity="sha384-Q5DM3b1PWQ9lmOUqREvHxesd2++Zlf7815mA1t7v0rLg0UGtCsIoEa8zHUCW3hzf" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@angular/platform-browser@2.0.0/bundles/platform-browser.umd.js" integrity="sha384-3rh1PfqNOTUMhhjnvfEBuOlDgVF0knJolKx/zDDddLTrdtQCxQv1NK7PWMKwDAas" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@angular/platform-browser-dynamic@2.0.0/bundles/platform-browser-dynamic.umd.js" integrity="sha384-ZDuiOFdLAHqvlkLO4d0rUkYRzT5HDP1t35Q56Dxq3DGe7ZSa7NRx4kni40m7m+ff" crossorigin="anonymous"></script>
 `;
 
 exports.production = `${bootstrap}
-<script src="https://unpkg.com/core-js@2.4.0/client/shim.min.js" integrity="sha384-lrm+zT8wVo5kINnsGarc1MEJuo0C4mVOYjAc2r+KIyeOVU6OvEByuFd4L///FXVR" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/zone.js@0.6.12/dist/zone.min.js" integrity="sha384-MDLUOVFqLg5yC3K8k4IskyiFxAlFYxd/zLKNDHiZqiakSU3kR3bm90NnKMwx8ilw" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/core-js@2.4.1/client/shim.min.js" integrity="sha384-H1U1vpHajQaCDagCwGrq5146Ma82N7yUYx0NGTwlETgVm50cReN0n5qifyBRoBoa" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/zone.js@0.6.23/dist/zone.min.js" integrity="sha384-+e3R0jY7xQFqiLsp2Gitgob+ViyASnC8HpRP361jeGskH6lRaCdvQl8MNfR1S+Bv" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/reflect-metadata@0.1.3/Reflect.js" integrity="sha384-FH+k0oZoE9Oi+oLkwlSYKw854fCXw4at5e/uPQX0rHP/6Dp8iVWBlScfDNlqegaA" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/rxjs@5.0.0-beta.9/bundles/Rx.umd.min.js" integrity="sha384-cka4lu3cmSx7bVS8DzUIE4vCbjbul0QKbHU4JN2jkSEo6PzSlc7nE364vFe8RvwE" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@angular/core@2.0.0-rc.3/bundles/core.umd.min.js" integrity="sha384-dj4kDysWr44fG/l+vo2gT0mq4Je9XdRY/tOgIEUX3a4LFtV1YHyOjYM1Ohz9wiNk" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@angular/common@2.0.0-rc.3/bundles/common.umd.min.js" integrity="sha384-cpEVRXNm2FouojCUFmvKP8oVV2hPH8gLMoiNJC2p3KZS5e7g301MnJRIOzU7pZsQ" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@angular/compiler@2.0.0-rc.3/bundles/compiler.umd.min.js" integrity="sha384-1fuaa3mQCCJdzRdHTtx34aw3ix7/+FefJJW3oDYYYfoJr2sb7tgNoklGC92VwWd3" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@angular/platform-browser@2.0.0-rc.3/bundles/platform-browser.umd.min.js" integrity="sha384-QOYfTbJ3/dzHsvivxIPImXr/ZM5Xy8dvAR4Nh1qFEMaAF7Ia2o5wGKoLZBE/XkZN" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@angular/platform-browser-dynamic@2.0.0-rc.3/bundles/platform-browser-dynamic.umd.min.js" integrity="sha384-FBQnmKHmWCweJ3Wcf4reQ4kCPT/gIELkag4Lu+/ZvEfwC5JbVMw9gu/A+YVt5Rod" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/rxjs@5.0.0-beta.12/bundles/Rx.min.js" integrity="sha384-Cig8UTtWnK06ZRcf9ScfhrdxKLuT8lX76waSzTzRePGyn1UfDPkO5pnBPDeyanAa" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@angular/core@2.0.0/bundles/core.umd.min.js" integrity="sha384-Ll7qWQKcjtxPifnn2QSy6Luxx5DovgfMql+LdnZ1ArZWGqgyesxOcivr3OfT/kJ4" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@angular/common@2.0.0/bundles/common.umd.min.js" integrity="sha384-rb5g8C5oQ9fnrASFijEwBMNIfNgKSyb5QAM2a7iaXIwft1aJf6uA9NuJAcTE/x8k" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@angular/compiler@2.0.0/bundles/compiler.umd.min.js" integrity="sha384-gDNhkVuhiCSpf6x93AqrGnNTZUEPi6aw7CK6jQ1wcsCHXT7jWqDh0pZKKrMw/Oxg" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@angular/forms@2.0.0/bundles/forms.umd.min.js" integrity="sha384-ptmYDFb0JhSGetH2KRObsvn+1gEJXtfpHzMYYKBYHMAN8c/r8LT5Pd8arcWs/oML" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@angular/platform-browser@2.0.0/bundles/platform-browser.umd.min.js" integrity="sha384-THVwcCqPixTbEAO0GfBHbgsTDT6F3RrWpINOBaOGHKLY5IKiHRCSK2iLRNRH03Q0" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@angular/platform-browser-dynamic@2.0.0/bundles/platform-browser-dynamic.umd.min.js" integrity="sha384-G+3SEY5td+VvE+J9z+yvYNfsNJT99H7FBQlIS7ADKq7iZfdhjQ0sDTV0NsyRwCER" crossorigin="anonymous"></script>
 `;
