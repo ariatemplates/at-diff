@@ -29,6 +29,9 @@ const checkWebpackErrors = function (done) {
                 outputErr = stats.errors;
             }
         }
+        if (Array.isArray(outputErr)) {
+            outputErr = outputErr.join("\n\n");
+        }
         done(outputErr);
     };
 };
