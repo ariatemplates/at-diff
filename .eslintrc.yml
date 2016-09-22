@@ -17,3 +17,5 @@ rules:
     - always
   no-console:
     - off
+  require-yield:
+    - off

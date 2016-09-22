@@ -11,7 +11,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "prepublish": "typings install && gulp clean && gulp build && npm run doc",
-    "lint": "eslint src test doc-templates *.js",
+    "lint": "eslint src tasks test doc-templates *.js",
     "mocha": "mocha test",
     "test": "npm run lint && npm run mocha",
     "typings": "typings",
