@@ -14,8 +14,8 @@
  */
 "use strict";
 
-const bootstrap = `<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme.min.css" rel="stylesheet" />`;
+const bootstrap = `<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet" />`;
 
 exports.development = `${bootstrap}
 <script src="https://unpkg.com/core-js@2.4.1/client/shim.js" integrity="sha384-uIQcZj6EIUwjiq+fSnpGQDEI3hg/cYFertKIL0Vhby6kZT9FJQzcpa6rYHFQLvb/" crossorigin="anonymous"></script>
