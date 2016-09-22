@@ -60,6 +60,16 @@ module.exports = function (grunt) {
                     jsonOutput: "out/version1to2.diff.json",
                     htmlOutput: "out/version1to2.diff.html"
                 }
+            },
+            filteredVersion1to2: {
+                options: {
+                    version1: "out/version1.parse.json",
+                    version2: "out/version2.parse.json",
+                    jsonOutput: "out/filteredVersion1to2.diff.json",
+                    htmlOutput: "out/filteredVersion1to2.diff.html",
+                    filterImpacts: (impact) => impact.getType() === "MemberRemoved",
+                    filterChanges: ["FileRemoved"]
+                },
             }
         },
         "at-diff-evalimpacts": {
@@ -69,6 +79,18 @@ module.exports = function (grunt) {
                     impactedFiles: "out/user.parse.json",
                     jsonOutput: "out/impactsOnUser.diff.json",
                     htmlOutput: "out/impactsOnUser.diff.html"
+                }
+            },
+            filteredImpactsOnUser: {
+                options: {
+                    versionsDiff: "out/version1to2.diff.json",
+                    impactedFiles: "out/user.parse.json",
+                    jsonOutput: "out/filteredImpactsOnUser.diff.json",
+                    htmlOutput: "out/filteredImpactsOnUser.diff.html",
+                    filterImpacts: [
+                        "RemovedBeanStillUsed",
+                        "RemovedMemberStillUsed"
+                    ]
                 }
             }
         }

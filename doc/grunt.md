@@ -75,6 +75,15 @@ grunt.initConfig({
                 version2: "at-diff-input/atdiff-data2.json",
                 jsonOutput: "at-diff-output/atdiff-comparison.json",
                 htmlOutput: "at-diff-output/atdiff-comparison.html"
+
+                // it is also possible to filter impacts or changes with the filterImpacts or filterChanges properties
+                // which can accept:
+                // - an array of impact/change types to keep in the output files
+                // - a comma-separated string of impact/change types to keep in the output files
+                // - a filter function called for each impact/change, receiving the impact/change object as
+                //     an argument and returning a boolean specifying whether to include that impact/change
+                //     or not in the output files
+
             }
         }
     }
@@ -100,6 +109,14 @@ grunt.initConfig({
                 impactedFiles: "at-diff-input/atdiff-data.json",
                 jsonOutput: "at-diff-output/atdiff-impacts.json",
                 htmlOutput: "at-diff-output/atdiff-impacts.html"
+
+                // it is also possible to filter impacts with the filterImpacts property
+                // which can accept:
+                // - an array of impact types to keep in the output files
+                // - a comma-separated string of impact types to keep in the output files
+                // - a filter function called for each impact, receiving the impact object as
+                //     an argument and returning a boolean specifying whether to include that impact
+                //     or not in the output files
             }
         }
     }

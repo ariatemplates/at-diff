@@ -1,0 +1,231 @@
+{
+ "changes": [
+ ],
+ "impacts": [
+  "y/CfgBeans.js|RemovedBeanStillUsed|ChildOfExtendingChangingType.specificToBeanA1",
+  "y/CfgBeans.js|RemovedBeanStillUsed|OverridesParent.myProperty1ToBeRemoved",
+  "y/CfgBeans.js|RemovedBeanStillUsed|RemovedBean.removedBeanProperty1",
+  "y/CfgBeans.js|RemovedBeanStillUsed|UsesRemovedBean",
+  "y/UsesMacroLibWithMemberRemoved2.tpl|RemovedMemberStillUsed|this.macro_main"
+ ],
+ "objects": {
+  "x/CfgBeans.js|BeanChange|ChangingType": {
+   "config": {
+    "bean1": {
+     "attributes": {
+      "$type": "BeanA"
+     },
+     "hash": "c130857f3cb122c530da3d92126c018267d7991fe2f002ae70c23357d65f4c6d"
+    },
+    "bean2": {
+     "attributes": {
+      "$type": "BeanB"
+     },
+     "hash": "31860940688ee2eaafe9ac0c772fc0ced71f09a0b2037ed5011dc27162f35aac"
+    },
+    "beanName": "ChangingType",
+    "modifiedFile": "x/CfgBeans.js"
+   },
+   "type": "BeanChange"
+  },
+  "x/CfgBeans.js|BeanChange|ParentBean.myProperty1ToBeRemoved": {
+   "config": {
+    "bean1": {
+     "attributes": {
+      "$type": "aria/core/JsonTypes.js:String"
+     },
+     "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+    },
+    "bean2": null,
+    "beanName": "ParentBean.myProperty1ToBeRemoved",
+    "modifiedFile": "x/CfgBeans.js"
+   },
+   "type": "BeanChange"
+  },
+  "x/CfgBeans.js|BeanChange|RemovedBean": {
+   "config": {
+    "bean1": {
+     "$properties": [
+      "removedBeanProperty1"
+     ],
+     "attributes": {
+      "$type": "aria/core/JsonTypes.js:Object"
+     },
+     "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+    },
+    "bean2": null,
+    "beanName": "RemovedBean",
+    "modifiedFile": "x/CfgBeans.js"
+   },
+   "type": "BeanChange"
+  },
+  "x/CfgBeans.js|BeanRemoved|ChangingType.specificToBeanA1": {
+   "causes": [
+    "x/CfgBeans.js|BeanChange|ChangingType"
+   ],
+   "config": {
+    "bean1": {
+     "bean": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "beanName": "BeanA.specificToBeanA1",
+     "filePath": "x/CfgBeans.js"
+    },
+    "bean2": null,
+    "beanName": "ChangingType.specificToBeanA1",
+    "impactedFile": "x/CfgBeans.js"
+   },
+   "type": "BeanRemoved"
+  },
+  "x/CfgBeans.js|BeanRemoved|ParentBean.myProperty1ToBeRemoved": {
+   "causes": [
+    "x/CfgBeans.js|BeanChange|ParentBean.myProperty1ToBeRemoved"
+   ],
+   "config": {
+    "bean1": {
+     "bean": {
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:String"
+      },
+      "hash": "497898f5756b112d70b44c5e7918d1728b6e001ccf1d5b977ed724158e8cd756"
+     },
+     "beanName": "ParentBean.myProperty1ToBeRemoved",
+     "filePath": "x/CfgBeans.js"
+    },
+    "beanName": "ParentBean.myProperty1ToBeRemoved",
+    "impactedFile": "x/CfgBeans.js"
+   },
+   "type": "BeanRemoved"
+  },
+  "x/CfgBeans.js|BeanRemoved|RemovedBean": {
+   "causes": [
+    "x/CfgBeans.js|BeanChange|RemovedBean"
+   ],
+   "config": {
+    "bean1": {
+     "bean": {
+      "$properties": [
+       "removedBeanProperty1"
+      ],
+      "attributes": {
+       "$type": "aria/core/JsonTypes.js:Object"
+      },
+      "hash": "50e304ef79575b8944c02f0f8433d1241b8b7c52ed687cea1cf22ace55e8d6e4"
+     },
+     "beanName": "RemovedBean",
+     "filePath": "x/CfgBeans.js"
+    },
+    "beanName": "RemovedBean",
+    "impactedFile": "x/CfgBeans.js"
+   },
+   "type": "BeanRemoved"
+  },
+  "x/MacroLibWithMemberRemoved.tml|MemberChange|this.macro_myMacro2": {
+   "config": {
+    "member1": {
+     "args": [
+     ],
+     "hash": "7f7a04338f76df8db5cb3076d2a9aa442256d4d968c61df0cee7adc2a2a294e8",
+     "type": "macro"
+    },
+    "member2": null,
+    "memberName": "this.macro_myMacro2",
+    "modifiedFile": "x/MacroLibWithMemberRemoved.tml"
+   },
+   "type": "MemberChange"
+  },
+  "x/MacroLibWithMemberRemoved.tml|MemberRemoved|this.macro_myMacro2": {
+   "causes": [
+    "x/MacroLibWithMemberRemoved.tml|MemberChange|this.macro_myMacro2"
+   ],
+   "config": {
+    "impactedFile": "x/MacroLibWithMemberRemoved.tml",
+    "member1": {
+     "filePath": "x/MacroLibWithMemberRemoved.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "7f7a04338f76df8db5cb3076d2a9aa442256d4d968c61df0cee7adc2a2a294e8",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.macro_myMacro2"
+   },
+   "type": "MemberRemoved"
+  },
+  "y/CfgBeans.js|RemovedBeanStillUsed|ChildOfExtendingChangingType.specificToBeanA1": {
+   "causes": [
+    "x/CfgBeans.js|BeanRemoved|ChangingType.specificToBeanA1"
+   ],
+   "config": {
+    "beanName": "ChildOfExtendingChangingType.specificToBeanA1",
+    "impactedFile": "y/CfgBeans.js"
+   },
+   "type": "RemovedBeanStillUsed"
+  },
+  "y/CfgBeans.js|RemovedBeanStillUsed|OverridesParent.myProperty1ToBeRemoved": {
+   "causes": [
+    "x/CfgBeans.js|BeanRemoved|ParentBean.myProperty1ToBeRemoved"
+   ],
+   "config": {
+    "beanName": "OverridesParent.myProperty1ToBeRemoved",
+    "impactedFile": "y/CfgBeans.js"
+   },
+   "type": "RemovedBeanStillUsed"
+  },
+  "y/CfgBeans.js|RemovedBeanStillUsed|RemovedBean.removedBeanProperty1": {
+   "causes": [
+    "x/CfgBeans.js|BeanRemoved|RemovedBean"
+   ],
+   "config": {
+    "beanName": "RemovedBean.removedBeanProperty1",
+    "impactedFile": "y/CfgBeans.js"
+   },
+   "type": "RemovedBeanStillUsed"
+  },
+  "y/CfgBeans.js|RemovedBeanStillUsed|UsesRemovedBean": {
+   "causes": [
+    "x/CfgBeans.js|BeanRemoved|RemovedBean"
+   ],
+   "config": {
+    "beanName": "UsesRemovedBean",
+    "impactedFile": "y/CfgBeans.js"
+   },
+   "type": "RemovedBeanStillUsed"
+  },
+  "y/UsesMacroLibWithMemberRemoved2.tpl|MemberRemoved|this.myMacroLib.macro_myMacro2": {
+   "causes": [
+    "x/MacroLibWithMemberRemoved.tml|MemberRemoved|this.macro_myMacro2"
+   ],
+   "config": {
+    "impactedFile": "y/UsesMacroLibWithMemberRemoved2.tpl",
+    "member1": {
+     "filePath": "x/MacroLibWithMemberRemoved.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "7f7a04338f76df8db5cb3076d2a9aa442256d4d968c61df0cee7adc2a2a294e8",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.myMacroLib.macro_myMacro2"
+   },
+   "type": "MemberRemoved"
+  },
+  "y/UsesMacroLibWithMemberRemoved2.tpl|RemovedMemberStillUsed|this.macro_main": {
+   "causes": [
+    "y/UsesMacroLibWithMemberRemoved2.tpl|MemberRemoved|this.myMacroLib.macro_myMacro2"
+   ],
+   "config": {
+    "impactedFile": "y/UsesMacroLibWithMemberRemoved2.tpl",
+    "memberName": "this.macro_main"
+   },
+   "type": "RemovedMemberStillUsed"
+  }
+ },
+ "type": "at-diff:diff-data",
+ "version": "0.1"
+}

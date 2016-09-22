@@ -27,6 +27,7 @@ const fileFormat = require("../fileFormat");
 const deserializeDiffData = require("./deserializeDiffData");
 const Serializer = require("./serializer");
 const reverseMap = require("../utils/reverseMap");
+const createFilter = require("./createFilter");
 
 function computeReverseDependencies(map) {
     return reverseMap(map, object => Object.keys(object.dependencies));
@@ -39,6 +40,7 @@ class Comparator {
         this.comparisonConstructors = config.comparisonConstructors || defaultComparisonConstructors;
         this.changeConstructors = config.changeConstructors || defaultChangeConstructors;
         this.deterministicOutput = !!config.deterministicOutput;
+        this.filter = createFilter(config);
     }
 
     createFileComparison(filePath, version1, version2, getFileComparison) {
@@ -84,11 +86,16 @@ class Comparator {
         });
         const changes = result.changes = [];
         const impacts = result.impacts = [];
+        const filter = this.filter;
         const addChange = (change) => {
-            changes.push(serializer.store(change));
+            if (filter.isChangeIncluded(change)) {
+                changes.push(serializer.store(change));
+            }
         };
         const addImpact = (impact) => {
-            impacts.push(serializer.store(impact));
+            if (filter.isImpactIncluded(impact)) {
+                impacts.push(serializer.store(impact));
+            }
         };
         Object.keys(fileComparisonsMap).forEach(filePath => {
             const curFile = fileComparisonsMap[filePath];

@@ -17,6 +17,7 @@
 const fileFormat = require("../fileFormat");
 const deserializeDiffData = require("./deserializeDiffData");
 const Serializer = require("./serializer");
+const createFilter = require("./createFilter");
 
 module.exports = function (config, diffInfo) {
     if (!diffInfo) {
@@ -27,10 +28,20 @@ module.exports = function (config, diffInfo) {
     const serializer = new Serializer({
         deterministicOutput: !!config.deterministicOutput
     });
-    const storeObject = object => serializer.store(object);
+    const filter = createFilter(config);
     const result = fileFormat.createDiffData();
-    result.changes = diffData.changes.map(storeObject);
-    result.impacts = diffData.impacts.map(storeObject);
+    const changes = result.changes = [];
+    const impacts = result.impacts = [];
+    diffData.changes.forEach(change => {
+        if (filter.isChangeIncluded(change)) {
+            changes.push(serializer.store(change));
+        }
+    });
+    diffData.impacts.forEach(impact => {
+        if (filter.isImpactIncluded(impact)) {
+            impacts.push(serializer.store(impact));
+        }
+    });
     if (config.deterministicOutput) {
         result.changes.sort();
         result.impacts.sort();

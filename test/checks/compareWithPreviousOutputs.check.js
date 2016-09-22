@@ -30,7 +30,9 @@ module.exports = function (results) {
         "user.parse",
         "at.parse",
         "version1to2.diff",
-        "impactsOnUser.diff"
+        "filteredVersion1to2.diff",
+        "impactsOnUser.diff",
+        "filteredImpactsOnUser.diff"
     ];
 
     filesToCompare.forEach((fileName) => {

@@ -1,0 +1,321 @@
+{
+ "changes": [
+  "x/ClassToBeRemoved.js|FileRemoved"
+ ],
+ "impacts": [
+  "x/FourMemberImpacts.tml|MemberRemoved|this.macro_myMacroToBeRemoved",
+  "x/MacroLibWithMemberRemoved.tml|MemberRemoved|this.macro_myMacro2",
+  "x/changingMacroLib/ExtendsMacroLibxUser.tml|MemberRemoved|this.$MacroLib1User",
+  "x/changingMacroLib/ExtendsMacroLibxUser.tml|MemberRemoved|this.myMacroLib.$MacroLib1",
+  "x/changingMacroLib/MacroLibUser.tml|MemberRemoved|this.myMacroLib.$MacroLib1",
+  "x/changingMacroLib/UsesMacroLibxUser.tpl|MemberRemoved|this.mLib.$MacroLib1User",
+  "x/changingMacroLib/UsesMacroLibxUser.tpl|MemberRemoved|this.mLib.myMacroLib.$MacroLib1"
+ ],
+ "objects": {
+  "x/ClassToBeRemoved.js|FileRemoved": {
+   "config": {
+    "modifiedFile": "x/ClassToBeRemoved.js"
+   },
+   "type": "FileRemoved"
+  },
+  "x/FourMemberImpacts.tml|MemberChange|this.macro_myMacroToBeRemoved": {
+   "config": {
+    "member1": {
+     "args": [
+     ],
+     "hash": "10c6bfee9a2d7d180bedd545d704c97925cbfda9b1ef880d1017006c501c21a0",
+     "type": "macro"
+    },
+    "member2": null,
+    "memberName": "this.macro_myMacroToBeRemoved",
+    "modifiedFile": "x/FourMemberImpacts.tml"
+   },
+   "type": "MemberChange"
+  },
+  "x/FourMemberImpacts.tml|MemberRemoved|this.macro_myMacroToBeRemoved": {
+   "causes": [
+    "x/FourMemberImpacts.tml|MemberChange|this.macro_myMacroToBeRemoved"
+   ],
+   "config": {
+    "impactedFile": "x/FourMemberImpacts.tml",
+    "member1": {
+     "filePath": "x/FourMemberImpacts.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "10c6bfee9a2d7d180bedd545d704c97925cbfda9b1ef880d1017006c501c21a0",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.macro_myMacroToBeRemoved"
+   },
+   "type": "MemberRemoved"
+  },
+  "x/MacroLibWithMemberRemoved.tml|MemberChange|this.macro_myMacro2": {
+   "config": {
+    "member1": {
+     "args": [
+     ],
+     "hash": "7f7a04338f76df8db5cb3076d2a9aa442256d4d968c61df0cee7adc2a2a294e8",
+     "type": "macro"
+    },
+    "member2": null,
+    "memberName": "this.macro_myMacro2",
+    "modifiedFile": "x/MacroLibWithMemberRemoved.tml"
+   },
+   "type": "MemberChange"
+  },
+  "x/MacroLibWithMemberRemoved.tml|MemberRemoved|this.macro_myMacro2": {
+   "causes": [
+    "x/MacroLibWithMemberRemoved.tml|MemberChange|this.macro_myMacro2"
+   ],
+   "config": {
+    "impactedFile": "x/MacroLibWithMemberRemoved.tml",
+    "member1": {
+     "filePath": "x/MacroLibWithMemberRemoved.tml",
+     "member": {
+      "args": [
+      ],
+      "hash": "7f7a04338f76df8db5cb3076d2a9aa442256d4d968c61df0cee7adc2a2a294e8",
+      "type": "macro"
+     }
+    },
+    "memberName": "this.macro_myMacro2"
+   },
+   "type": "MemberRemoved"
+  },
+  "x/changingMacroLib/ExtendsMacroLibxUser.tml|MemberImplementationChanged|this.myMacroLib": {
+   "causes": [
+    "x/changingMacroLib/ExtendsMacroLibxUser.tml|ParentChange"
+   ],
+   "config": {
+    "impactedFile": "x/changingMacroLib/ExtendsMacroLibxUser.tml",
+    "member1": {
+     "filePath": "x/changingMacroLib/MacroLib1User.tml",
+     "member": {
+      "hash": "daad1cf95ec88613b029421d07b345b2be0c3af3d833799d29f64536b7691b7e",
+      "path": "x/changingMacroLib/MacroLib1.tml",
+      "type": "lib"
+     }
+    },
+    "member2": {
+     "filePath": "x/changingMacroLib/MacroLib2User.tml",
+     "member": {
+      "hash": "a85d00e45788a9d4bdb7b9784127d1da02997780c3681fd3d1b9e98f1cae74b8",
+      "path": "x/changingMacroLib/MacroLib2.tml",
+      "type": "lib"
+     }
+    },
+    "memberName": "this.myMacroLib"
+   },
+   "type": "MemberImplementationChanged"
+  },
+  "x/changingMacroLib/ExtendsMacroLibxUser.tml|MemberRemoved|this.$MacroLib1User": {
+   "causes": [
+    "x/changingMacroLib/ExtendsMacroLibxUser.tml|ParentChange"
+   ],
+   "config": {
+    "impactedFile": "x/changingMacroLib/ExtendsMacroLibxUser.tml",
+    "member1": {
+     "filePath": "x/changingMacroLib/MacroLib1User.tml",
+     "member": {
+      "type": "class"
+     }
+    },
+    "member2": null,
+    "memberName": "this.$MacroLib1User"
+   },
+   "type": "MemberRemoved"
+  },
+  "x/changingMacroLib/ExtendsMacroLibxUser.tml|MemberRemoved|this.myMacroLib.$MacroLib1": {
+   "causes": [
+    "x/changingMacroLib/ExtendsMacroLibxUser.tml|MemberImplementationChanged|this.myMacroLib"
+   ],
+   "config": {
+    "impactedFile": "x/changingMacroLib/ExtendsMacroLibxUser.tml",
+    "member1": {
+     "filePath": "x/changingMacroLib/MacroLib1.tml",
+     "member": {
+      "type": "class"
+     }
+    },
+    "member2": null,
+    "memberName": "this.myMacroLib.$MacroLib1"
+   },
+   "type": "MemberRemoved"
+  },
+  "x/changingMacroLib/ExtendsMacroLibxUser.tml|ParentChange": {
+   "config": {
+    "modifiedFile": "x/changingMacroLib/ExtendsMacroLibxUser.tml",
+    "parent1": "x/changingMacroLib/MacroLib1User.tml",
+    "parent2": "x/changingMacroLib/MacroLib2User.tml"
+   },
+   "type": "ParentChange"
+  },
+  "x/changingMacroLib/MacroLibUser.tml|MemberChange|this.myMacroLib": {
+   "config": {
+    "member1": {
+     "hash": "daad1cf95ec88613b029421d07b345b2be0c3af3d833799d29f64536b7691b7e",
+     "path": "x/changingMacroLib/MacroLib1.tml",
+     "type": "lib"
+    },
+    "member2": {
+     "hash": "a85d00e45788a9d4bdb7b9784127d1da02997780c3681fd3d1b9e98f1cae74b8",
+     "path": "x/changingMacroLib/MacroLib2.tml",
+     "type": "lib"
+    },
+    "memberName": "this.myMacroLib",
+    "modifiedFile": "x/changingMacroLib/MacroLibUser.tml"
+   },
+   "type": "MemberChange"
+  },
+  "x/changingMacroLib/MacroLibUser.tml|MemberImplementationChanged|this.myMacroLib": {
+   "causes": [
+    "x/changingMacroLib/MacroLibUser.tml|MemberChange|this.myMacroLib"
+   ],
+   "config": {
+    "impactedFile": "x/changingMacroLib/MacroLibUser.tml",
+    "member1": {
+     "filePath": "x/changingMacroLib/MacroLibUser.tml",
+     "member": {
+      "hash": "daad1cf95ec88613b029421d07b345b2be0c3af3d833799d29f64536b7691b7e",
+      "path": "x/changingMacroLib/MacroLib1.tml",
+      "type": "lib"
+     }
+    },
+    "member2": {
+     "filePath": "x/changingMacroLib/MacroLibUser.tml",
+     "member": {
+      "hash": "a85d00e45788a9d4bdb7b9784127d1da02997780c3681fd3d1b9e98f1cae74b8",
+      "path": "x/changingMacroLib/MacroLib2.tml",
+      "type": "lib"
+     }
+    },
+    "memberName": "this.myMacroLib"
+   },
+   "type": "MemberImplementationChanged"
+  },
+  "x/changingMacroLib/MacroLibUser.tml|MemberRemoved|this.myMacroLib.$MacroLib1": {
+   "causes": [
+    "x/changingMacroLib/MacroLibUser.tml|MemberImplementationChanged|this.myMacroLib"
+   ],
+   "config": {
+    "impactedFile": "x/changingMacroLib/MacroLibUser.tml",
+    "member1": {
+     "filePath": "x/changingMacroLib/MacroLib1.tml",
+     "member": {
+      "type": "class"
+     }
+    },
+    "member2": null,
+    "memberName": "this.myMacroLib.$MacroLib1"
+   },
+   "type": "MemberRemoved"
+  },
+  "x/changingMacroLib/UsesMacroLibxUser.tpl|MemberChange|this.mLib": {
+   "config": {
+    "member1": {
+     "hash": "8c7cd1b4df5c4172a15f9b6ea97457e1a98444cea3716fa7d6c4eb2f5b8caf48",
+     "path": "x/changingMacroLib/MacroLib1User.tml",
+     "type": "lib"
+    },
+    "member2": {
+     "hash": "45af2aa41b9864077160bb74abe7dd6a08f9a58402deb8b24992b4273eb38b0f",
+     "path": "x/changingMacroLib/MacroLib2User.tml",
+     "type": "lib"
+    },
+    "memberName": "this.mLib",
+    "modifiedFile": "x/changingMacroLib/UsesMacroLibxUser.tpl"
+   },
+   "type": "MemberChange"
+  },
+  "x/changingMacroLib/UsesMacroLibxUser.tpl|MemberImplementationChanged|this.mLib": {
+   "causes": [
+    "x/changingMacroLib/UsesMacroLibxUser.tpl|MemberChange|this.mLib"
+   ],
+   "config": {
+    "impactedFile": "x/changingMacroLib/UsesMacroLibxUser.tpl",
+    "member1": {
+     "filePath": "x/changingMacroLib/UsesMacroLibxUser.tpl",
+     "member": {
+      "hash": "8c7cd1b4df5c4172a15f9b6ea97457e1a98444cea3716fa7d6c4eb2f5b8caf48",
+      "path": "x/changingMacroLib/MacroLib1User.tml",
+      "type": "lib"
+     }
+    },
+    "member2": {
+     "filePath": "x/changingMacroLib/UsesMacroLibxUser.tpl",
+     "member": {
+      "hash": "45af2aa41b9864077160bb74abe7dd6a08f9a58402deb8b24992b4273eb38b0f",
+      "path": "x/changingMacroLib/MacroLib2User.tml",
+      "type": "lib"
+     }
+    },
+    "memberName": "this.mLib"
+   },
+   "type": "MemberImplementationChanged"
+  },
+  "x/changingMacroLib/UsesMacroLibxUser.tpl|MemberImplementationChanged|this.mLib.myMacroLib": {
+   "causes": [
+    "x/changingMacroLib/UsesMacroLibxUser.tpl|MemberImplementationChanged|this.mLib"
+   ],
+   "config": {
+    "impactedFile": "x/changingMacroLib/UsesMacroLibxUser.tpl",
+    "member1": {
+     "filePath": "x/changingMacroLib/MacroLib1User.tml",
+     "member": {
+      "hash": "daad1cf95ec88613b029421d07b345b2be0c3af3d833799d29f64536b7691b7e",
+      "path": "x/changingMacroLib/MacroLib1.tml",
+      "type": "lib"
+     }
+    },
+    "member2": {
+     "filePath": "x/changingMacroLib/MacroLib2User.tml",
+     "member": {
+      "hash": "a85d00e45788a9d4bdb7b9784127d1da02997780c3681fd3d1b9e98f1cae74b8",
+      "path": "x/changingMacroLib/MacroLib2.tml",
+      "type": "lib"
+     }
+    },
+    "memberName": "this.mLib.myMacroLib"
+   },
+   "type": "MemberImplementationChanged"
+  },
+  "x/changingMacroLib/UsesMacroLibxUser.tpl|MemberRemoved|this.mLib.$MacroLib1User": {
+   "causes": [
+    "x/changingMacroLib/UsesMacroLibxUser.tpl|MemberImplementationChanged|this.mLib"
+   ],
+   "config": {
+    "impactedFile": "x/changingMacroLib/UsesMacroLibxUser.tpl",
+    "member1": {
+     "filePath": "x/changingMacroLib/MacroLib1User.tml",
+     "member": {
+      "type": "class"
+     }
+    },
+    "member2": null,
+    "memberName": "this.mLib.$MacroLib1User"
+   },
+   "type": "MemberRemoved"
+  },
+  "x/changingMacroLib/UsesMacroLibxUser.tpl|MemberRemoved|this.mLib.myMacroLib.$MacroLib1": {
+   "causes": [
+    "x/changingMacroLib/UsesMacroLibxUser.tpl|MemberImplementationChanged|this.mLib.myMacroLib"
+   ],
+   "config": {
+    "impactedFile": "x/changingMacroLib/UsesMacroLibxUser.tpl",
+    "member1": {
+     "filePath": "x/changingMacroLib/MacroLib1.tml",
+     "member": {
+      "type": "class"
+     }
+    },
+    "member2": null,
+    "memberName": "this.mLib.myMacroLib.$MacroLib1"
+   },
+   "type": "MemberRemoved"
+  }
+ },
+ "type": "at-diff:diff-data",
+ "version": "0.1"
+}

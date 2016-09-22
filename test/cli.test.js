@@ -45,7 +45,13 @@ describe("command line tool test", function () {
         yield exec(atDiffExecutable, ["compare", "version1.parse.json", "version2.parse.json", "--json-output", "version1to2.diff.json", "--html-output", "version1to2.diff.html"], {
             cwd: outDir
         });
+        yield exec(atDiffExecutable, ["compare", "version1.parse.json", "version2.parse.json", "--filter-changes", "FileRemoved", "--filter-impacts", "MemberRemoved", "--json-output", "filteredVersion1to2.diff.json", "--html-output", "filteredVersion1to2.diff.html"], {
+            cwd: outDir
+        });
         yield exec(atDiffExecutable, ["evalimpacts", "version1to2.diff.json", "user.parse.json", "--json-output", "impactsOnUser.diff.json", "--html-output", "impactsOnUser.diff.html"], {
+            cwd: outDir
+        });
+        yield exec(atDiffExecutable, ["evalimpacts", "version1to2.diff.json", "user.parse.json", "--filter-impacts", "RemovedBeanStillUsed,RemovedMemberStillUsed", "--json-output", "filteredImpactsOnUser.diff.json", "--html-output", "filteredImpactsOnUser.diff.html"], {
             cwd: outDir
         });
     }));

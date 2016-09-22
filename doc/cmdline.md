@@ -51,6 +51,8 @@ You can also use the following options:
 * `--json-beautify` This option can be used to beautify the output.
 * `--console-output` This option can be used to display the resulting json file on the console.
 * `--deterministic-output` This option can be used to produce a file that is easier to compare with other files of the same kind (with classic diff tools): the resulting json file contains meaningful ids instead of sequential ones and json keys are sorted so that the order in which files are compared does not impact the output. When this option is present, the output file is significantly larger and maybe a bit slower to generate.
+* `--filter-changes` This option can be used to specify a list of comma-separated change types that should be included in the output file. Detected changes which have another type than the listed ones will not be included in the output file.
+* `--filter-impacts` This option can be used to specify a list of comma-separated impact types that should be included in the output file. Information about other impacts types than the listed ones can still appear in the output file as a direct or indirect cause of a filtered impact.
 
 It is also possible to parse and immediately compare in one command:
 
