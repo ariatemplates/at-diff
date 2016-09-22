@@ -10,10 +10,8 @@
     "experimentalDecorators": true,
     "outDir": "build/ts"
   },
-  "exclude": [
-    "build",
-    "node_modules",
-    "typings/main",
-    "typings/main.d.ts"
+  "files": [
+    "typings/index.d.ts",
+    "src/ui/app.module.ts"
   ]
 }

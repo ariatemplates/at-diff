@@ -53,7 +53,7 @@ gulp.task("build", function(done) {
         },
         module: {
             loaders: [{
-                loader: "ts-loader"
+                loader: "awesome-typescript-loader"
             }]
         },
         externals: {
