@@ -40,7 +40,7 @@ export class Dropdown {
 
     public open;
 
-    toggleDropdown(event) {
+    toggleDropdown() {
         this.open = !this.open;
     }
 }
