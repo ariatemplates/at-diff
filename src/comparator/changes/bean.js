@@ -76,7 +76,7 @@ class BeanAdded extends BeanImpact {}
 constructors.BeanAdded = BeanAdded;
 
 /**
- * A `BeanAdded` impact is generated when a bean has been removed.
+ * A `BeanRemoved` impact is generated when a bean has been removed.
  * @atdiff-impact
  */
 class BeanRemoved extends BeanImpact {}
