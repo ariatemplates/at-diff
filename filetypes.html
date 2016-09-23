@@ -74,18 +74,18 @@
 <p>In the same way, support for <code>Aria.interfaceDefinition</code> and <code>Aria.resourcesDefinition</code> is also currently very limited. The content of the <code>$interface</code> or <code>$resources</code> fields is not interpreted. Only dependencies are recognized, either in the CommonJS style or in the classpath style.</p>
 <p>Note that the parameter passed to the Aria definition function must be an object literal. For example, the following declaration cannot be recognized successfully:</p>
 <div class='snippet'><pre><code class="lang-js"><span class="keyword">var</span> myClass = {
-    $classpath: <span class="string">"x.y.MyClass"</span>,
-    $prototype: {
-        myMethod: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{}
+    <span class="attr">$classpath</span>: <span class="string">"x.y.MyClass"</span>,
+    <span class="attr">$prototype</span>: {
+        <span class="attr">myMethod</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{}
     }
 };
 Aria.classDefinition(myClass);
 </code></pre></div>
 <p>To be accepted, the previous definition should be written in the following way:</p>
 <div class='snippet'><pre><code class="lang-js">Aria.classDefinition({
-    $classpath: <span class="string">"x.y.MyClass"</span>,
-    $prototype: {
-        myMethod: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{}
+    <span class="attr">$classpath</span>: <span class="string">"x.y.MyClass"</span>,
+    <span class="attr">$prototype</span>: {
+        <span class="attr">myMethod</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{}
     }
 });
 </code></pre></div>
@@ -94,17 +94,17 @@ Aria.classDefinition(myClass);
 For example, this should be avoided:</p>
 <div class='snippet'><pre><code class="lang-js"><span class="keyword">var</span> myMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{};
 Aria.classDefinition({
-    $classpath: <span class="string">"x.y.MyClass"</span>,
-    $prototype: {
-        myMethod: myMethod
+    <span class="attr">$classpath</span>: <span class="string">"x.y.MyClass"</span>,
+    <span class="attr">$prototype</span>: {
+        <span class="attr">myMethod</span>: myMethod
     }
 });
 </code></pre></div>
 <p>This is better interpreted:</p>
 <div class='snippet'><pre><code class="lang-js">Aria.classDefinition({
-    $classpath: <span class="string">"x.y.MyClass"</span>,
-    $prototype: {
-        myMethod: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{}
+    <span class="attr">$classpath</span>: <span class="string">"x.y.MyClass"</span>,
+    <span class="attr">$prototype</span>: {
+        <span class="attr">myMethod</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{}
     }
 });
 </code></pre></div>

@@ -72,8 +72,8 @@
         <span class="comment">// at-diff-parse is a multi-task, so it can have multiple executions configured with different</span>
         <span class="comment">// names (such as 'parse' here):</span>
         parse: {
-            options: {
-                jsonOutput: <span class="string">"at-diff-output/atdiff-data.json"</span>,
+            <span class="attr">options</span>: {
+                <span class="attr">jsonOutput</span>: <span class="string">"at-diff-output/atdiff-data.json"</span>,
 
                 <span class="comment">// The loadParserCache option specifies a set of previous outputs of the *parse* operation</span>
                 <span class="comment">// to be initially loaded in the cache to speed up the *parse* operation in case files</span>
@@ -92,9 +92,9 @@
                 <span class="comment">// to "default" by default.</span>
                 cache: <span class="string">"default"</span>
             },
-            filter: <span class="string">"isFile"</span>,
-            cwd: <span class="string">"src"</span>,
-            src: [<span class="string">"**"</span>]
+            <span class="attr">filter</span>: <span class="string">"isFile"</span>,
+            <span class="attr">cwd</span>: <span class="string">"src"</span>,
+            <span class="attr">src</span>: [<span class="string">"**"</span>]
         }
     }
 
@@ -113,11 +113,20 @@ If the patterns set in the <code>src</code> field also match directories, it is 
         <span class="comment">// at-diff-compare is a multi-task, so it can have multiple executions configured with different</span>
         <span class="comment">// names (such as 'compare' here):</span>
         compare: {
-            options: {
-                version1: <span class="string">"at-diff-input/atdiff-data1.json"</span>,
-                version2: <span class="string">"at-diff-input/atdiff-data2.json"</span>,
-                jsonOutput: <span class="string">"at-diff-output/atdiff-comparison.json"</span>,
-                htmlOutput: <span class="string">"at-diff-output/atdiff-comparison.html"</span>
+            <span class="attr">options</span>: {
+                <span class="attr">version1</span>: <span class="string">"at-diff-input/atdiff-data1.json"</span>,
+                <span class="attr">version2</span>: <span class="string">"at-diff-input/atdiff-data2.json"</span>,
+                <span class="attr">jsonOutput</span>: <span class="string">"at-diff-output/atdiff-comparison.json"</span>,
+                <span class="attr">htmlOutput</span>: <span class="string">"at-diff-output/atdiff-comparison.html"</span>
+
+                <span class="comment">// it is also possible to filter impacts or changes with the filterImpacts or filterChanges properties</span>
+                <span class="comment">// which can accept:</span>
+                <span class="comment">// - an array of impact/change types to keep in the output files</span>
+                <span class="comment">// - a comma-separated string of impact/change types to keep in the output files</span>
+                <span class="comment">// - a filter function called for each impact/change, receiving the impact/change object as</span>
+                <span class="comment">//     an argument and returning a boolean specifying whether to include that impact/change</span>
+                <span class="comment">//     or not in the output files</span>
+
             }
         }
     }
@@ -135,11 +144,19 @@ If the patterns set in the <code>src</code> field also match directories, it is 
         <span class="comment">// at-diff-compare is a multi-task, so it can have multiple executions configured with different</span>
         <span class="comment">// names (such as 'evalimpacts' here):</span>
         evalimpacts: {
-            options: {
-                versionsDiff: <span class="string">"at-diff-input/atdiff-comparison.json"</span>,
-                impactedFiles: <span class="string">"at-diff-input/atdiff-data.json"</span>,
-                jsonOutput: <span class="string">"at-diff-output/atdiff-impacts.json"</span>,
-                htmlOutput: <span class="string">"at-diff-output/atdiff-impacts.html"</span>
+            <span class="attr">options</span>: {
+                <span class="attr">versionsDiff</span>: <span class="string">"at-diff-input/atdiff-comparison.json"</span>,
+                <span class="attr">impactedFiles</span>: <span class="string">"at-diff-input/atdiff-data.json"</span>,
+                <span class="attr">jsonOutput</span>: <span class="string">"at-diff-output/atdiff-impacts.json"</span>,
+                <span class="attr">htmlOutput</span>: <span class="string">"at-diff-output/atdiff-impacts.html"</span>
+
+                <span class="comment">// it is also possible to filter impacts with the filterImpacts property</span>
+                <span class="comment">// which can accept:</span>
+                <span class="comment">// - an array of impact types to keep in the output files</span>
+                <span class="comment">// - a comma-separated string of impact types to keep in the output files</span>
+                <span class="comment">// - a filter function called for each impact, receiving the impact object as</span>
+                <span class="comment">//     an argument and returning a boolean specifying whether to include that impact</span>
+                <span class="comment">//     or not in the output files</span>
             }
         }
     }
