@@ -3,7 +3,9 @@
     {var counter = 0/}
 
     {macro myRepeaterItem(itemInfo)}
-        ${itemInfo.value}
+        {@aria:Div  undefined  }
+            ${itemInfo.value}
+        {/@aria:Div}
     {/macro}
 
     {macro main()}

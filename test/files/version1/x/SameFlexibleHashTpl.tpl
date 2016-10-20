@@ -23,7 +23,9 @@
     {/macro}
 
     {macro myRepeaterItem(itemInfo)}
-        ${itemInfo.value}
+        {@aria:Div}
+            ${itemInfo.value}
+        {/@aria:Div}
     {/macro}
 
     {macro myMacro(param)}

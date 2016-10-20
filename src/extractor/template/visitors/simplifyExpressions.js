@@ -18,6 +18,12 @@ const uglifyParse = require("../../../utils/uglify/parse");
 const parseExpression = require("../../../utils/uglify/parseExpression");
 const astToString = require("../../../utils/uglify/astToString");
 
+function checkUndefinedParamBlock(statement) {
+    if (!statement.paramBlock) {
+        statement.paramBlock = "undefined";
+    }
+}
+
 function parseJS(js, statement) {
     try {
         return uglifyParse(js);
@@ -152,11 +158,13 @@ class SimplifyExpressions {
 
     "on-@"(statement) {
         // simple widget
+        checkUndefinedParamBlock(statement);
         simplifyParamBlock(statement);
     }
 
     "begin-@"(statement) {
         // container widget
+        checkUndefinedParamBlock(statement);
         simplifyParamBlock(statement);
     }
 
