@@ -27,7 +27,7 @@ class BaseComparison {
         this.comparisonDone = false;
         this.changes = []; // description of what changed in this file, this is not influenced by the content of other files
         this.impacts = []; // impacts on this file (caused by changes done on this file or on other files)
-        this.warnedMissingDependencies = Object.create(null);
+        this.warnedDependenciesIssues = Object.create(null);
         this.delayedProcessings = [];
     }
 
@@ -36,12 +36,24 @@ class BaseComparison {
         return this.__getFileComparison(filePath);
     }
 
-    getDependencyOrWarn(dependency) {
+    getDependencyOrWarn(dependency, expectedType) {
         if (dependency) {
-            const dependencyComparison = this.getDependency(dependency);
-            if (!dependencyComparison && !this.warnedMissingDependencies[dependency]) {
-                winston.warn(`Cannot access ${dependency} which is needed for a correct comparison of ${this.filePath}.`);
-                this.warnedMissingDependencies[dependency] = true;
+            let dependencyComparison = this.getDependency(dependency);
+            if (!dependencyComparison) {
+                if (!this.warnedDependenciesIssues[dependency]) {
+                    winston.warn(`Cannot access ${dependency} which is needed for a correct comparison of ${this.filePath}.`);
+                    this.warnedDependenciesIssues[dependency] = true;
+                }
+            } else if (expectedType && !(dependencyComparison instanceof expectedType)) {
+                let warnedDependencyIssues = this.warnedDependenciesIssues[dependency];
+                if (!warnedDependencyIssues) {
+                    warnedDependencyIssues = this.warnedDependenciesIssues[dependency] = new Set();
+                }
+                if (!warnedDependencyIssues.has(expectedType)) {
+                    warnedDependencyIssues.add(expectedType);
+                    winston.error(`${this.filePath} has a dependency on ${dependency}, which has an unexpected comparison type (${dependencyComparison.constructor.name} instead of ${expectedType.name}). Please check that the dependency was successfully parsed and is used correctly.`);
+                }
+                dependencyComparison = null;
             }
             return dependencyComparison;
         }

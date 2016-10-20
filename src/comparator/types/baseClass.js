@@ -53,7 +53,7 @@ class BaseClassComparison extends BaseComparison {
     }
 
     getParentAllMembers(versionIndex) {
-        const parentComparison = this.getDependencyOrWarn(this.getParent(versionIndex));
+        const parentComparison = this.getDependencyOrWarn(this.getParent(versionIndex), BaseClassComparison);
         if (parentComparison) {
             return parentComparison.getAllMembers(versionIndex);
         }
@@ -71,7 +71,7 @@ class BaseClassComparison extends BaseComparison {
     }
 
     getParentMember(versionIndex, memberName) {
-        const parentComparison = this.getDependencyOrWarn(this.getParent(versionIndex));
+        const parentComparison = this.getDependencyOrWarn(this.getParent(versionIndex), BaseClassComparison);
         if (parentComparison) {
             return parentComparison.getMember(versionIndex, memberName);
         }

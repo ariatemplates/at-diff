@@ -29,7 +29,8 @@
   "x/SameFlexibleHashTpl.tpl|SameFlexibleHashChange",
   "x/changingMacroLib/ExtendsMacroLibxUser.tml|ParentChange",
   "x/changingMacroLib/MacroLibUser.tml|MemberChange|this.myMacroLib",
-  "x/changingMacroLib/UsesMacroLibxUser.tpl|MemberChange|this.mLib"
+  "x/changingMacroLib/UsesMacroLibxUser.tpl|MemberChange|this.mLib",
+  "x/incorrectUsage/MyTemplate.tpl|ScriptChange"
  ],
  "impacts": [
   "x/CfgBeans.js|BeanAdded|AddedBean",
@@ -2561,6 +2562,13 @@
     "memberName": "this.mLib.myMacroLib.$MacroLib1"
    },
    "type": "MemberRemoved"
+  },
+  "x/incorrectUsage/MyTemplate.tpl|ScriptChange": {
+   "config": {
+    "modifiedFile": "x/incorrectUsage/MyTemplate.tpl",
+    "script1": "x/incorrectUsage/MyTemplateScript.js"
+   },
+   "type": "ScriptChange"
   }
  },
  "type": "at-diff:diff-data",

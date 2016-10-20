@@ -16,7 +16,7 @@
 
 const BaseClassComparison = require("./baseClass");
 
-class ClassDefinitionComparison extends BaseClassComparison {
+class TplScriptDefinitionComparison extends BaseClassComparison {
 
     addMemberChange(memberName, member1, member2) {
         const res = super.addMemberChange(memberName, member1, member2);
@@ -28,4 +28,4 @@ class ClassDefinitionComparison extends BaseClassComparison {
     }
 }
 
-module.exports = ClassDefinitionComparison;
+module.exports = TplScriptDefinitionComparison;

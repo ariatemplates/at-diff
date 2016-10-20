@@ -74,7 +74,7 @@ class BeansComparison extends BaseComparison {
         if (filePath === this.filePath) {
             return this.getOwnBean(versionIndex, beanName);
         } else {
-            const dependency = this.getDependencyOrWarn(filePath);
+            const dependency = this.getDependencyOrWarn(filePath, BeansComparison);
             return dependency ? dependency.getOwnBean(versionIndex, beanName) : null;
         }
     }
@@ -143,7 +143,7 @@ class BeansComparison extends BaseComparison {
         if (bean.filePath === this.filePath) {
             return this.getOwnBeanMember(versionIndex, bean, lastPart);
         } else {
-            const dependency = this.getDependencyOrWarn(bean.filePath);
+            const dependency = this.getDependencyOrWarn(bean.filePath, BeansComparison);
             return dependency ? dependency.getOwnBeanMember(versionIndex, bean, lastPart) : null;
         }
     }

@@ -15,6 +15,7 @@
 "use strict";
 
 const BaseClassComparison = require("./baseClass");
+const TplScriptDefinitionComparison = require("./tplScriptDefinition");
 const baseClassChanges = require("../changes/baseClass");
 const templateChanges = require("../changes/template");
 const compareMaps = require("../../utils/compareMaps");
@@ -31,8 +32,8 @@ class TemplateComparison extends BaseClassComparison {
             if (!changeLibMemberImpact || changeLibMemberImpact.getMember1() !== member1 || changeLibMemberImpact.getMember2() !== member2) {
                 return;
             }
-            const lib1 = this.getDependencyOrWarn(member1.member.path);
-            const lib2 = this.getDependencyOrWarn(member2.member.path);
+            const lib1 = this.getDependencyOrWarn(member1.member.path, TemplateComparison);
+            const lib2 = this.getDependencyOrWarn(member2.member.path, TemplateComparison);
             if (lib1 && lib2) {
                 compareMaps(lib1.getAllMembers(1), lib2.getAllMembers(2), (memberName, member1, member2) => {
                     if (!this.isSameMember(memberName, member1, member2)) {
@@ -65,7 +66,7 @@ class TemplateComparison extends BaseClassComparison {
         let res = this[`templateMembers${versionIndex}`];
         if (!res) {
             res = super.getOwnMembers(versionIndex);
-            const script = this.getDependencyOrWarn(this.getScript(versionIndex));
+            const script = this.getDependencyOrWarn(this.getScript(versionIndex), TplScriptDefinitionComparison);
             if (script) {
                 const scriptMembers = script.getOwnMembers(versionIndex);
                 Object.assign(res, scriptMembers);
@@ -82,11 +83,13 @@ class TemplateComparison extends BaseClassComparison {
         const member2InScript = script2 && member2 && member2.filePath === script2;
         if (member1InScript || member2InScript) {
             if (script1 && script2) {
-                const script = this.getDependencyOrWarn(script1 || script2);
-                // make sure the 2 versions of the script were compared:
-                script.compare();
-                // look in the script changes to find the correct one
-                return script.scriptMemberChange[memberName];
+                const script = this.getDependencyOrWarn(script1, TplScriptDefinitionComparison);
+                if (script) {
+                    // make sure the 2 versions of the script were compared:
+                    script.compare();
+                    // look in the script changes to find the correct one
+                    return script.scriptMemberChange[memberName];
+                }
             } else {
                 return this.scriptChange;
             }

@@ -844,6 +844,43 @@
    "flexibleHash": "07d2bea0f038caf23ca5b3fedb8951c348c6885be9872ff1276ba1f87ea9fcb2",
    "strictHash": "8c6c1d94dffe9ee2f5bbdf2ef090cd18942d787e0d00b3eebf7deaaef9d806d0",
    "type": "template"
+  },
+  "x/incorrectUsage/MyTemplate.tpl": {
+   "content": {
+    "classpath": "x.incorrectUsage.MyTemplate",
+    "members": {
+     "this.$MyTemplate": {
+      "type": "class"
+     }
+    },
+    "membersUsages": {
+    }
+   },
+   "dependencies": {
+    "aria/widgets/AriaLib.js": [
+    ]
+   },
+   "flexibleHash": "5acee609694db45646faf9328054621016dc256acb2ed11ddd6478fbdc14c327",
+   "strictHash": "c383801d4220d2695a13898b02d1b10008824f83460785b30e0818af1c13a1be",
+   "type": "template"
+  },
+  "x/incorrectUsage/MyTemplateScript.js": {
+   "content": {
+    "beans": {
+    },
+    "beansUsages": {
+    },
+    "classpath": "x.incorrectUsage.MyTemplateScript",
+    "namespacesUsages": {
+    }
+   },
+   "dependencies": {
+    "ariatemplates/Aria.js": [
+    ]
+   },
+   "flexibleHash": "d33cdf94aba6ba8189d9180b1cfc28981089cdc4875510e59ad432e2ba654aad",
+   "strictHash": "59bb9229eed71df98e2d1f891787acd732a22fee941b37bdea3ce36b824927ef",
+   "type": "beanDefinitions"
   }
  },
  "type": "at-diff:extracted-data",
